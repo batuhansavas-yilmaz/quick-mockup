@@ -1241,7 +1241,7 @@
         var swap = rot === 90 || rot === 270;
         var natW = swap ? img.naturalHeight : img.naturalWidth;
         var natH = swap ? img.naturalWidth : img.naturalHeight;
-        var baseSc = Math.max(iw / natW, ih / natH);
+        var baseSc = Math.min(iw / natW, ih / natH);
         var dispW = img.naturalWidth * baseSc * fitView.zoom;
         var dispH = img.naturalHeight * baseSc * fitView.zoom;
         var cssToExport = iw / (screen.clientWidth || iw);
@@ -2029,7 +2029,7 @@
       var swap = rot === 90 || rot === 270;
       var natW = swap ? img.naturalHeight : img.naturalWidth;
       var natH = swap ? img.naturalWidth : img.naturalHeight;
-      var base = Math.max(sw / natW, sh / natH);
+      var base = Math.min(sw / natW, sh / natH);
       var dispW = img.naturalWidth * base * fit.zoom;
       var dispH = img.naturalHeight * base * fit.zoom;
       var visW = swap ? dispH : dispW;
