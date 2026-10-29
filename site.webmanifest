@@ -1,0 +1,14 @@
+{
+  "name": "Quick Mockup",
+  "short_name": "Quick Mockup",
+  "description": "Tarayicida calisan tek dosyalik mockup studyosu.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef2f9",
+  "theme_color": "#00bfa5",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

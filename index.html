@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00bfa5">
+<meta name="application-name" content="Quick Mockup">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Quick Mockup">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <title>Quick Mockup</title>
 <style>
   @font-face {
@@ -549,11 +558,13 @@
   }
   .stage-wrap.bg-editable .bg-tools { display: flex; }
   .controls {
-    width: 1600px;
-    margin: 22px 0 0;
-    padding-left: 96px;
+    width: auto;
+    max-width: 1600px;
+    margin: 22px auto 0;
+    padding: 0 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
   }
@@ -581,11 +592,33 @@
   }
   @media (max-width: 1200px) {
     .view { margin-right: 0; }
-    .grid { grid-template-columns: 1fr; }
-    .bg-panel { top: auto; left: 12px; right: 12px; bottom: 12px; width: auto; max-height: 46vh; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bg-panel {
+      position: static;
+      width: auto;
+      max-width: 100%;
+      max-height: none;
+      margin: 28px 0 0;
+    }
   }
   @media (max-width: 720px) {
-    body { padding: 24px 20px 48px; }
+    body { padding: 20px 16px 40px; }
+    .grid { grid-template-columns: 1fr; }
+    .topbar { margin-bottom: 24px; }
+    .top-actions { width: 100%; }
+    .tabs { width: 100%; }
+    .tab-btn { flex: 1; text-align: center; }
+    .view-head { margin-bottom: 28px; align-items: flex-start; }
+    .style-row { flex-wrap: wrap; }
+    .mini-btn { padding: 12px 14px; font-size: 12px; }
+    .tool-btn { width: 30px; height: 30px; }
+    .tool-btn svg { width: 16px; height: 16px; }
+    .select-input, .num-input, .hex-input { height: 38px; }
+    .color-row input[type="color"] { width: 46px; height: 38px; }
+    .bg-panel { margin-top: 20px; }
+  }
+  @media (hover: none) {
+    .screen.has-image .fit-tools { display: flex; }
   }
 </style>
 </head>
@@ -600,115 +633,7 @@
         <button class="tab-btn active" data-view="gallery">Mockup Galerisi</button>
         <button class="tab-btn" data-view="hero">Hero Şablonu</button>
       </div>
-      <div class="bg-panel" id="bgPanel">
-        <div class="bg-section">
-          <div class="bg-label">Gradyanlar</div>
-          <div class="bg-row" id="gradientRow"></div>
-          <div class="grad-builder">
-            <div class="grad-stops" id="gradStops"></div>
-            <div class="bg-row grad-controls">
-              <button class="mini-btn" id="gradAdd" type="button">+ Renk</button>
-              <label class="angle-field">Aci <input type="number" id="gradAngle" min="0" max="360" value="160"></label>
-              <button class="mini-btn primary" id="gradApply" type="button">Gradyan Uygula</button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-section">
-          <div class="bg-label">Düz renkler</div>
-          <div class="bg-row" id="solidRow"></div>
-          <div class="bg-row" style="margin-top: 8px;">
-            <input type="color" id="bgColorPick" value="#5b5bd6">
-            <input type="text" class="hex-input" id="hexBg" maxlength="7" placeholder="#5b5bd6">
-          </div>
-        </div>
-        <div class="bg-section">
-          <div class="bg-label">Kendi resmin</div>
-          <div class="bg-row">
-            <button class="swatch" id="bgCustomSwatch" type="button" hidden title="Arka plan resmi"></button>
-            <button class="mini-btn" id="bgImageBtn" type="button">Resim Yükle</button>
-            <span class="bg-hint" id="bgImageName">Resim seçilmedi</span>
-          </div>
-          <input type="file" id="bgImageInput" accept="image/*" hidden>
-        </div>
-        <div class="bg-section hero-only">
-          <div class="bg-label">Yazi renkleri</div>
-          <div class="color-row">
-            <span>İçerik</span>
-            <input type="color" id="colorHeadline" value="#12203c">
-            <input type="text" class="hex-input" id="hexHeadline" maxlength="7" placeholder="#12203c">
-            <button class="reset-btn" type="button" data-reset="headline">Oto</button>
-          </div>
-          <div class="color-row">
-            <span>Başlık</span>
-            <input type="color" id="colorKicker" value="#6b7fa3">
-            <input type="text" class="hex-input" id="hexKicker" maxlength="7" placeholder="#6b7fa3">
-            <button class="reset-btn" type="button" data-reset="kicker">Oto</button>
-          </div>
-
-        </div>
-        <div class="bg-section hero-only">
-          <div class="bg-label">Yazi stili</div>
-          <div class="style-row">
-            <span>İçerik</span>
-            <select class="select-input" id="headlineFont">
-              <option value="segoe">Modern</option>
-              <option value="serif">Serif</option>
-              <option value="mono">Mono</option>
-              <option value="impact">Impact</option>
-              <option value="trebuchet">Trebuchet</option>
-              <option value="comic">Comic</option>
-              <option value="pixel">8-bit</option>
-            </select>
-            <select class="select-input" id="headlineEffect">
-              <option value="none">Efekt yok</option>
-              <option value="shadow">Golge</option>
-              <option value="hard">Sert golge</option>
-              <option value="3d">3D</option>
-              <option value="neon">Neon</option>
-              <option value="outline">Kontur</option>
-            </select>
-            <label class="size-field">Boyut
-              <input type="number" class="num-input" id="headlineSize" min="24" max="220" step="2" value="116">
-            </label>
-          </div>
-          <div class="style-row">
-            <span>Başlık</span>
-            <select class="select-input" id="kickerFont">
-              <option value="segoe">Modern</option>
-              <option value="serif">Serif</option>
-              <option value="mono">Mono</option>
-              <option value="impact">Impact</option>
-              <option value="trebuchet">Trebuchet</option>
-              <option value="comic">Comic</option>
-              <option value="pixel">8-bit</option>
-            </select>
-            <select class="select-input" id="kickerEffect">
-              <option value="none">Efekt yok</option>
-              <option value="shadow">Golge</option>
-              <option value="hard">Sert golge</option>
-              <option value="3d">3D</option>
-              <option value="neon">Neon</option>
-              <option value="outline">Kontur</option>
-            </select>
-            <label class="size-field">Boyut
-              <input type="number" class="num-input" id="kickerSize" min="10" max="80" step="1" value="26">
-            </label>
-          </div>
-        </div>
-        <div class="bg-section" hidden>
-          <div class="bg-label">Efektler</div>
-          <label class="check-lbl"><input type="checkbox" id="mirrorToggle"> Ayna efekti (telefon alti)</label>
-        </div>
-        <div class="bg-section">
-          <div class="bg-label">Telefon cercevesi</div>
-          <div class="bg-row" id="frameRow"></div>
-          <div class="bg-row" style="margin-top: 8px;">
-            <input type="color" id="frameColor" value="#0e1014">
-            <input type="text" class="hex-input" id="hexFrame" maxlength="7" placeholder="#0e1014">
-            <button class="reset-btn" type="button" id="frameReset">Varsayilan siyah</button>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </header>
 
@@ -845,16 +770,126 @@
       </div>
 
       <div class="bg-tools" id="bgTools"></div>
+    </div>
 
-      <div class="controls">
-        <span class="device-tag" id="deviceTag">1</span>
-        <input type="file" id="heroPicker" accept="image/*" hidden>
-        <button class="mini-btn" id="btnUpload">Resim Yükle</button>
-        <button class="mini-btn" id="btnPhone">Telefon Değiştir</button>
-        <button class="mini-btn primary" id="btnSave">PNG İndir</button>
-      </div>
+    <div class="controls">
+      <span class="device-tag" id="deviceTag">1</span>
+      <input type="file" id="heroPicker" accept="image/*" hidden>
+      <button class="mini-btn" id="btnUpload">Resim Yükle</button>
+      <button class="mini-btn" id="btnPhone">Telefon Değiştir</button>
+      <button class="mini-btn primary" id="btnSave">PNG İndir</button>
     </div>
   </section>
+
+<div class="bg-panel" id="bgPanel">
+        <div class="bg-section">
+          <div class="bg-label">Gradyanlar</div>
+          <div class="bg-row" id="gradientRow"></div>
+          <div class="grad-builder">
+            <div class="grad-stops" id="gradStops"></div>
+            <div class="bg-row grad-controls">
+              <button class="mini-btn" id="gradAdd" type="button">+ Renk</button>
+              <label class="angle-field">Aci <input type="number" id="gradAngle" min="0" max="360" value="160"></label>
+              <button class="mini-btn primary" id="gradApply" type="button">Gradyan Uygula</button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Düz renkler</div>
+          <div class="bg-row" id="solidRow"></div>
+          <div class="bg-row" style="margin-top: 8px;">
+            <input type="color" id="bgColorPick" value="#5b5bd6">
+            <input type="text" class="hex-input" id="hexBg" maxlength="7" placeholder="#5b5bd6">
+          </div>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Kendi resmin</div>
+          <div class="bg-row">
+            <button class="swatch" id="bgCustomSwatch" type="button" hidden title="Arka plan resmi"></button>
+            <button class="mini-btn" id="bgImageBtn" type="button">Resim Yükle</button>
+            <span class="bg-hint" id="bgImageName">Resim seçilmedi</span>
+          </div>
+          <input type="file" id="bgImageInput" accept="image/*" hidden>
+        </div>
+        <div class="bg-section hero-only">
+          <div class="bg-label">Yazi renkleri</div>
+          <div class="color-row">
+            <span>İçerik</span>
+            <input type="color" id="colorHeadline" value="#12203c">
+            <input type="text" class="hex-input" id="hexHeadline" maxlength="7" placeholder="#12203c">
+            <button class="reset-btn" type="button" data-reset="headline">Oto</button>
+          </div>
+          <div class="color-row">
+            <span>Başlık</span>
+            <input type="color" id="colorKicker" value="#6b7fa3">
+            <input type="text" class="hex-input" id="hexKicker" maxlength="7" placeholder="#6b7fa3">
+            <button class="reset-btn" type="button" data-reset="kicker">Oto</button>
+          </div>
+
+        </div>
+        <div class="bg-section hero-only">
+          <div class="bg-label">Yazi stili</div>
+          <div class="style-row">
+            <span>İçerik</span>
+            <select class="select-input" id="headlineFont">
+              <option value="segoe">Modern</option>
+              <option value="serif">Serif</option>
+              <option value="mono">Mono</option>
+              <option value="impact">Impact</option>
+              <option value="trebuchet">Trebuchet</option>
+              <option value="comic">Comic</option>
+              <option value="pixel">8-bit</option>
+            </select>
+            <select class="select-input" id="headlineEffect">
+              <option value="none">Efekt yok</option>
+              <option value="shadow">Golge</option>
+              <option value="hard">Sert golge</option>
+              <option value="3d">3D</option>
+              <option value="neon">Neon</option>
+              <option value="outline">Kontur</option>
+            </select>
+            <label class="size-field">Boyut
+              <input type="number" class="num-input" id="headlineSize" min="24" max="220" step="2" value="116">
+            </label>
+          </div>
+          <div class="style-row">
+            <span>Başlık</span>
+            <select class="select-input" id="kickerFont">
+              <option value="segoe">Modern</option>
+              <option value="serif">Serif</option>
+              <option value="mono">Mono</option>
+              <option value="impact">Impact</option>
+              <option value="trebuchet">Trebuchet</option>
+              <option value="comic">Comic</option>
+              <option value="pixel">8-bit</option>
+            </select>
+            <select class="select-input" id="kickerEffect">
+              <option value="none">Efekt yok</option>
+              <option value="shadow">Golge</option>
+              <option value="hard">Sert golge</option>
+              <option value="3d">3D</option>
+              <option value="neon">Neon</option>
+              <option value="outline">Kontur</option>
+            </select>
+            <label class="size-field">Boyut
+              <input type="number" class="num-input" id="kickerSize" min="10" max="80" step="1" value="26">
+            </label>
+          </div>
+        </div>
+        <div class="bg-section" hidden>
+          <div class="bg-label">Efektler</div>
+          <label class="check-lbl"><input type="checkbox" id="mirrorToggle"> Ayna efekti (telefon alti)</label>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Telefon cercevesi</div>
+          <div class="bg-row" id="frameRow"></div>
+          <div class="bg-row" style="margin-top: 8px;">
+            <input type="color" id="frameColor" value="#0e1014">
+            <input type="text" class="hex-input" id="hexFrame" maxlength="7" placeholder="#0e1014">
+            <button class="reset-btn" type="button" id="frameReset">Varsayilan siyah</button>
+          </div>
+        </div>
+      </div>
 
   <script>
     function readAsDataURL(file) {
@@ -1669,7 +1704,8 @@
 
     function fitStage() {
       var side = window.innerWidth > 1200 ? 440 : 0;
-      var scale = Math.min(1, (window.innerWidth - 96 - side) / 1600, (window.innerHeight - 340) / 1080);
+      var pad = window.innerWidth <= 720 ? 32 : 96;
+      var scale = Math.min(1, (window.innerWidth - pad - side) / 1600, (window.innerHeight - 340) / 1080);
       document.getElementById("stageWrap").style.zoom = scale;
     }
 
@@ -1803,6 +1839,34 @@
         }
       });
 
+      var touch = null;
+      screen.addEventListener("touchstart", function (e) {
+        if (screen.dataset.placeholder === "1" || e.touches.length !== 1) return;
+        var t = e.touches[0];
+        touch = { x: t.clientX, y: t.clientY, tx: screen._fit.tx, ty: screen._fit.ty, moved: false };
+      }, { passive: true });
+      screen.addEventListener("touchmove", function (e) {
+        if (!touch || e.touches.length !== 1) return;
+        var t = e.touches[0];
+        var dx = t.clientX - touch.x;
+        var dy = t.clientY - touch.y;
+        if (!touch.moved && Math.abs(dx) + Math.abs(dy) > 6) touch.moved = true;
+        if (!touch.moved) return;
+        e.preventDefault();
+        var rect = screen.getBoundingClientRect();
+        var visual = rect.width / (screen.offsetWidth || rect.width);
+        screen._fit.tx = touch.tx + dx / visual;
+        screen._fit.ty = touch.ty + dy / visual;
+        layoutScreenImage(screen);
+      }, { passive: false });
+      screen.addEventListener("touchend", function () {
+        if (touch && touch.moved) {
+          screen._suppress = true;
+          setTimeout(function () { screen._suppress = false; }, 600);
+        }
+        touch = null;
+      });
+
       screen.addEventListener("click", function (e) {
         if (screen._suppress) {
           e.stopPropagation();
@@ -1885,6 +1949,29 @@
       });
 
       window.addEventListener("mouseup", function () { drag = null; });
+
+      var bgTouch = null;
+      stage.addEventListener("touchstart", function (e) {
+        if (currentBg.kind !== "image" || e.touches.length !== 1) return;
+        if (e.target.closest(".phone") || e.target.closest(".hero-copy") || e.target.closest(".bg-tools")) return;
+        var t = e.touches[0];
+        bgTouch = { x: t.clientX, y: t.clientY, tx: bgFit.tx, ty: bgFit.ty, moved: false };
+      }, { passive: true });
+      stage.addEventListener("touchmove", function (e) {
+        if (!bgTouch || e.touches.length !== 1) return;
+        var t = e.touches[0];
+        var dx = t.clientX - bgTouch.x;
+        var dy = t.clientY - bgTouch.y;
+        if (!bgTouch.moved && Math.abs(dx) + Math.abs(dy) > 6) bgTouch.moved = true;
+        if (!bgTouch.moved) return;
+        e.preventDefault();
+        var wrap = document.getElementById("stageWrap");
+        var scale = wrap.getBoundingClientRect().width / 1600 || 1;
+        bgFit.tx = bgTouch.tx + dx / scale;
+        bgFit.ty = bgTouch.ty + dy / scale;
+        layoutStageBg();
+      }, { passive: false });
+      stage.addEventListener("touchend", function () { bgTouch = null; });
 
       stage.addEventListener("wheel", function (e) {
         if (currentBg.kind !== "image") return;

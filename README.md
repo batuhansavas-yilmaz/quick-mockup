@@ -15,6 +15,7 @@ Tarayıcıda çalışan, kurulum gerektirmeyen mockup stüdyosu. Ekran görünt�
 - Yazı: 7 font (8-bit dahil), 6 efekt (gölge, sert gölge, 3D, neon, kontur), boyut ve renk ayarı; metinler tıkla-düzenle
 - Telefon çerçevesi rengi (hazır renkler + hex); iç çerçeve otomatik uyum sağlar
 - PNG indirme: galeri 1080×1920, hero 1600×1000
+- Mobil uyumlu: tek sütun düzen, panel içerik altında, dokunmatik taşıma ve büyük butonlar
 
 ## Font lisansı
 
