@@ -281,12 +281,8 @@
     box-shadow: inset 0 0 0 1px rgba(20, 30, 60, 0.05);
     overflow: hidden;
   }
-  .preview .phone { transform: scale(0.85); }
-  .preview .phone:hover { transform: scale(0.85) translateY(-4px); }
-  .preview.style-tilt .phone,
-  .preview.style-tilt .phone:hover { transform: scale(0.85) rotate(-5deg) skewX(-3deg) scale(0.94); }
-  .preview.style-studio .phone,
-  .preview.style-studio .phone:hover { transform: scale(0.85) rotate(-5deg) skewX(-3deg) scale(0.94); }
+  .preview .phone { transform: scale(calc(0.85 * var(--phone-scale, 1))); }
+  .preview .phone:hover { transform: scale(calc(0.85 * var(--phone-scale, 1))) translateY(-4px); }
   .gallery-reflection {
     position: absolute;
     left: 0;
@@ -299,34 +295,25 @@
     display: none;
     opacity: 0.9;
   }
+  .hero-reflection { top: calc(100% + 12px); }
   .preview.style-neon .phone,
   .preview.style-neon .phone:hover {
-    filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 42px rgba(255, 0, 200, 0.30));
+    filter: drop-shadow(0 0 18px var(--neon-a, rgba(0, 240, 255, 0.35))) drop-shadow(0 0 42px var(--neon-b, rgba(255, 0, 200, 0.30)));
   }
   .preview.style-dergi .phone,
-  .preview.style-dergi .phone:hover { transform: scale(0.85) rotate(-3deg) scale(0.94); }
+  .preview.style-dergi .phone:hover { transform: scale(calc(0.85 * var(--phone-scale, 1))) rotate(-3deg) scale(0.94); }
+  .preview.style-dergi2 .phone,
+  .preview.style-dergi2 .phone:hover { transform: scale(calc(0.85 * var(--phone-scale, 1))) rotate(3deg) scale(0.94); }
   #heroStage.style-neon .hero-phone-col .phone.active {
-    filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 60px rgba(255, 0, 200, 0.30));
-  }
-  #heroStage.style-neon .hero-phone-col .phone.active,
-  #heroStage.style-neon .hero-phone-col .phone.active:hover {
-    -webkit-box-reflect: below 12px linear-gradient(transparent 80%, rgba(255, 255, 255, 0.30));
+    filter: drop-shadow(0 0 24px var(--neon-a, rgba(0, 240, 255, 0.35))) drop-shadow(0 0 60px var(--neon-b, rgba(255, 0, 200, 0.30)));
   }
   #heroStage.style-dergi .hero-phone-col .phone.active,
   #heroStage.style-dergi .hero-phone-col .phone.active:hover {
-    transform: scale(1.12) rotate(-3deg);
+    transform: scale(calc(1.12 * var(--phone-scale, 1))) rotate(-3deg);
   }
-  #heroStage.style-tilt .hero-phone-col .phone.active,
-  #heroStage.style-tilt .hero-phone-col .phone.active:hover,
-  #heroStage.style-studio .hero-phone-col .phone.active,
-  #heroStage.style-studio .hero-phone-col .phone.active:hover {
-    transform: scale(1.08) rotate(-4deg) skewX(-3deg);
-  }
-  #heroStage.style-reflect .hero-phone-col .phone.active,
-  #heroStage.style-reflect .hero-phone-col .phone.active:hover,
-  #heroStage.style-studio .hero-phone-col .phone.active,
-  #heroStage.style-studio .hero-phone-col .phone.active:hover {
-    -webkit-box-reflect: below 12px linear-gradient(transparent 55%, rgba(255, 255, 255, 0.38));
+  #heroStage.style-dergi2 .hero-phone-col .phone.active,
+  #heroStage.style-dergi2 .hero-phone-col .phone.active:hover {
+    transform: scale(calc(1.12 * var(--phone-scale, 1))) rotate(3deg);
   }
 
   .device figcaption { font-size: 13.5px; font-weight: 600; color: #3b4358; letter-spacing: 0.01em; }
@@ -361,8 +348,38 @@
   }
   .mini-btn.primary:hover { background: #4c4cc6; border-color: #4c4cc6; }
 
-  .phone { position: relative; cursor: pointer; transition: transform 0.25s ease; outline: none; }
+  .phone { position: relative; cursor: pointer; transition: transform 0.25s ease; outline: none; --phone-scale: 1; }
   .phone:hover { transform: translateY(-7px); }
+  .phone.resizing { transition: none; }
+  .phone-scale-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #c9d1e2;
+    box-shadow: 0 2px 8px rgba(20, 30, 60, 0.22);
+    color: #4c4cc6;
+    cursor: nwse-resize;
+    z-index: 30;
+    opacity: 0.85;
+    transform: translate(50%, -50%) scale(calc(1 / var(--phone-scale, 1)));
+    transform-origin: center;
+    touch-action: none;
+    user-select: none;
+    transition: opacity 0.15s ease, box-shadow 0.15s ease;
+  }
+  .phone:hover .phone-scale-handle,
+  .phone.resizing .phone-scale-handle {
+    opacity: 1;
+    box-shadow: 0 3px 12px rgba(20, 30, 60, 0.30);
+  }
+  .phone-scale-handle svg { width: 14px; height: 14px; display: block; pointer-events: none; }
   .screen {
     position: relative;
     overflow: hidden;
@@ -547,6 +564,7 @@
       radial-gradient(700px 520px at 6% 92%, rgba(0, 191, 165, 0.13), transparent 62%),
       linear-gradient(150deg, #f7fafc 0%, #eef2f8 55%, #e7ebf3 100%);
   }
+  .hero-stage.hero-wide { height: 781.25px; }
   .stage-bg-layer {
     position: absolute;
     left: 0;
@@ -567,10 +585,10 @@
   }
   .hero-phone-col .phone {
     display: none;
-    transform: scale(1.15);
+    transform: scale(calc(1.15 * var(--phone-scale, 1)));
     transform-origin: center center;
   }
-  .hero-phone-col .phone:hover { transform: scale(1.15); }
+  .hero-phone-col .phone:hover { transform: scale(calc(1.15 * var(--phone-scale, 1))); }
   .hero-phone-col .phone.active { display: block; }
   .mirror-layer {
     position: absolute;
@@ -736,11 +754,10 @@
             <option value="2160">2160 × 3840</option>
           </select>
           <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
-            <option value="studio">Stüdyo 3D</option>
-            <option value="tilt">Eğim</option>
             <option value="reflect">Yansıma</option>
             <option value="neon">Neon</option>
-            <option value="dergi">Dergi</option></select>
+            <option value="dergi">Dergi</option>
+            <option value="dergi2">Dergi 2</option></select>
         </div>
       </figure>
 
@@ -766,11 +783,10 @@
             <option value="2160">2160 × 3840</option>
           </select>
           <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
-            <option value="studio">Stüdyo 3D</option>
-            <option value="tilt">Eğim</option>
             <option value="reflect">Yansıma</option>
             <option value="neon">Neon</option>
-            <option value="dergi">Dergi</option></select>
+            <option value="dergi">Dergi</option>
+            <option value="dergi2">Dergi 2</option></select>
         </div>
       </figure>
 
@@ -796,11 +812,10 @@
             <option value="2160">2160 × 3840</option>
           </select>
           <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
-            <option value="studio">Stüdyo 3D</option>
-            <option value="tilt">Eğim</option>
             <option value="reflect">Yansıma</option>
             <option value="neon">Neon</option>
-            <option value="dergi">Dergi</option></select>
+            <option value="dergi">Dergi</option>
+            <option value="dergi2">Dergi 2</option></select>
         </div>
       </figure>
 
@@ -826,11 +841,10 @@
             <option value="2160">2160 × 3840</option>
           </select>
           <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
-            <option value="studio">Stüdyo 3D</option>
-            <option value="tilt">Eğim</option>
             <option value="reflect">Yansıma</option>
             <option value="neon">Neon</option>
-            <option value="dergi">Dergi</option></select>
+            <option value="dergi">Dergi</option>
+            <option value="dergi2">Dergi 2</option></select>
         </div>
       </figure>
     </main>
@@ -895,15 +909,15 @@
       <select class="mini-select size-select hero-size" title="İndirme boyutu">
         <option value="1280">1280 × 800</option>
         <option value="1600" selected>1600 × 1000</option>
+        <option value="1024" data-h="500">1024 × 500</option>
         <option value="2560">2560 × 1600</option>
         <option value="3840">3840 × 2400</option>
       </select>
       <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
-            <option value="studio">Stüdyo 3D</option>
-            <option value="tilt">Eğim</option>
             <option value="reflect">Yansıma</option>
             <option value="neon">Neon</option>
-            <option value="dergi">Dergi</option></select>
+            <option value="dergi">Dergi</option>
+            <option value="dergi2">Dergi 2</option></select>
     </div>
   </section>
 
@@ -1177,12 +1191,13 @@
     }
 
     function drawPhone(ctx, phone, offX, offY, destW, noShadow) {
-      var pRect = phone.getBoundingClientRect();
-      var scale = destW / pRect.width;
-      var F = destW / phone.offsetWidth;
+      var layoutW = phone.offsetWidth;
+      var layoutH = phone.offsetHeight;
+      var scale = destW / layoutW;
+      var F = scale;
       var cs = getComputedStyle(phone);
-      var bodyW = pRect.width * scale;
-      var bodyH = pRect.height * scale;
+      var bodyW = destW;
+      var bodyH = layoutH * scale;
       var radius = px(cs.borderTopLeftRadius) * F;
       var shadow = parseShadow(cs.boxShadow, F);
 
@@ -1207,12 +1222,11 @@
       ctx.restore();
 
       var screen = phone.querySelector(".screen");
-      var sRect = screen.getBoundingClientRect();
       var scs = getComputedStyle(screen);
-      var sx = offX + (sRect.left - pRect.left) * scale;
-      var sy = offY + (sRect.top - pRect.top) * scale;
-      var sw = sRect.width * scale;
-      var sh = sRect.height * scale;
+      var sx = offX + screen.offsetLeft * scale;
+      var sy = offY + screen.offsetTop * scale;
+      var sw = screen.offsetWidth * scale;
+      var sh = screen.offsetHeight * scale;
       var sRadius = px(scs.borderTopLeftRadius) * F;
       var bw = px(scs.borderTopWidth) * F;
       var borderColor = scs.borderTopColor;
@@ -1263,11 +1277,10 @@
       ctx.restore();
 
       phone.querySelectorAll(".btn").forEach(function (btn) {
-        var r = btn.getBoundingClientRect();
-        var bx = offX + (r.left - pRect.left) * scale;
-        var by = offY + (r.top - pRect.top) * scale;
-        var bwi = r.width * scale;
-        var bhi = r.height * scale;
+        var bx = offX + btn.offsetLeft * scale;
+        var by = offY + btn.offsetTop * scale;
+        var bwi = btn.offsetWidth * scale;
+        var bhi = btn.offsetHeight * scale;
         var bRad = px(getComputedStyle(btn).borderTopLeftRadius) * F;
         roundRect(ctx, bx, by, bwi, bhi, bRad);
         var btnBg = parseGradient(ctx, getComputedStyle(btn).backgroundImage, bx, by, bwi, bhi);
@@ -1277,11 +1290,10 @@
 
       var cam = phone.querySelector(".hole") || phone.querySelector(".island");
       if (cam) {
-        var cr = cam.getBoundingClientRect();
-        var cx2 = offX + (cr.left - pRect.left) * scale;
-        var cy2 = offY + (cr.top - pRect.top) * scale;
-        var cw = cr.width * scale;
-        var ch2 = cr.height * scale;
+        var cx2 = offX + (cam.offsetLeft - cam.offsetWidth / 2) * scale;
+        var cy2 = offY + cam.offsetTop * scale;
+        var cw = cam.offsetWidth * scale;
+        var ch2 = cam.offsetHeight * scale;
         var cRad = px(getComputedStyle(cam).borderTopLeftRadius) * F;
         roundRect(ctx, cx2, cy2, cw, ch2, cRad || ch2 / 2);
         ctx.fillStyle = "#000000";
@@ -1313,6 +1325,7 @@
     var bgImageEl = null;
     var bgFit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
     var heroSize = 1600;
+    var heroHeight = 1000;
     var heroStyle = "flat";
 
     function bgCss(bg) {
@@ -1452,10 +1465,96 @@
       }
     }
 
-    var NEON_BG = "radial-gradient(420px 320px at 50% 18%, rgba(0,240,255,0.22), transparent 70%), radial-gradient(460px 340px at 72% 88%, rgba(255,0,200,0.18), transparent 70%), linear-gradient(160deg, #05070c 0%, #0a1418 55%, #080a10 100%)";
+    function normalizeHex(hex) {
+      var h = String(hex || "").replace("#", "");
+      if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+      return "#" + h.slice(0, 6);
+    }
+
+    function hexToHsl(hex) {
+      var h = normalizeHex(hex).slice(1);
+      var r = parseInt(h.slice(0, 2), 16) / 255;
+      var g = parseInt(h.slice(2, 4), 16) / 255;
+      var b = parseInt(h.slice(4, 6), 16) / 255;
+      var max = Math.max(r, g, b);
+      var min = Math.min(r, g, b);
+      var hh = 0;
+      var s = 0;
+      var l = (max + min) / 2;
+      if (max !== min) {
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if (max === r) hh = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+        else if (max === g) hh = ((b - r) / d + 2) / 6;
+        else hh = ((r - g) / d + 4) / 6;
+      }
+      return { h: hh * 360, s: s, l: l };
+    }
+
+    function hslToHex(h, s, l) {
+      h = (((h % 360) + 360) % 360) / 360;
+      function hue2rgb(p, q, t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1 / 6) return p + (q - p) * 6 * t;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        return p;
+      }
+      var r, g, b;
+      if (s === 0) {
+        r = g = b = l;
+      } else {
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
+      }
+      return "#" + [r, g, b].map(function (v) {
+        var n = Math.max(0, Math.min(255, Math.round(v * 255)));
+        return ("0" + n.toString(16)).slice(-2);
+      }).join("");
+    }
+
+    function neonTone(hex, fallback) {
+      var hsl = hexToHsl(hex);
+      if (hsl.s < 0.06) return fallback;
+      return hslToHex(hsl.h, Math.max(0.82, hsl.s), hsl.l > 0.82 || hsl.l < 0.42 ? 0.62 : Math.min(0.72, hsl.l + 0.10));
+    }
+
+    function rgbaColor(hex, alpha) {
+      var h = normalizeHex(hex).slice(1);
+      return "rgba(" + parseInt(h.slice(0, 2), 16) + "," + parseInt(h.slice(2, 4), 16) + "," + parseInt(h.slice(4, 6), 16) + "," + alpha + ")";
+    }
+
+    function neonPalette() {
+      var colors = [];
+      if (currentBg && currentBg.stops) {
+        currentBg.stops.forEach(function (s) {
+          if (s && s[0]) colors.push(s[0]);
+        });
+      }
+      if (colors.length === 1) colors.push(colors[0]);
+      if (!colors.length) colors = ["#00f0ff", "#ff00c8"];
+      var a = neonTone(colors[0], "#00f0ff");
+      var b = neonTone(colors[colors.length - 1], "#ff00c8");
+      var darkA = shade(a, -0.80);
+      var darkB = shade(b, -0.86);
+      return {
+        a: a,
+        b: b,
+        aGlow: rgbaColor(a, 0.35),
+        bGlow: rgbaColor(b, 0.30),
+        aExport: rgbaColor(a, 0.40),
+        bg: "radial-gradient(420px 320px at 50% 18%, " + rgbaColor(a, 0.22) + ", transparent 70%), " +
+            "radial-gradient(460px 340px at 72% 88%, " + rgbaColor(b, 0.18) + ", transparent 70%), " +
+            "linear-gradient(160deg, " + darkA + " 0%, " + darkB + " 55%, #080a10 100%)"
+      };
+    }
 
     function styleBgCss(style) {
-      if (style === "neon") return NEON_BG;
+      if (style === "neon") return neonPalette().bg;
       return bgCss(currentBg);
     }
 
@@ -1467,18 +1566,23 @@
       var preview = device.querySelector(".preview");
       if (!preview) return;
       var style = device.dataset.style || "flat";
-      ["style-flat", "style-studio", "style-tilt", "style-reflect", "style-neon", "style-dergi"].forEach(function (c) {
+      ["style-flat", "style-reflect", "style-neon", "style-dergi", "style-dergi2"].forEach(function (c) {
         preview.classList.remove(c);
       });
       preview.classList.add("style-" + style);
+      var palette = neonPalette();
+      preview.style.setProperty("--neon-a", palette.aGlow);
+      preview.style.setProperty("--neon-b", palette.bGlow);
       preview.style.background = styleBgCss(style);
-      updateGalleryReflection(device.querySelector(".phone"));
+      updatePhoneReflection(device.querySelector(".phone"));
     }
 
     function applyBackground() {
       document.querySelectorAll("#view-gallery .device").forEach(applyGalleryDeviceStyle);
-      var css = bgCss(currentBg);
       var stage = document.getElementById("heroStage");
+      var palette = neonPalette();
+      stage.style.setProperty("--neon-a", palette.aGlow);
+      stage.style.setProperty("--neon-b", palette.bGlow);
       if (currentBg.kind === "image" && !fixedBgStyle(heroStyle)) {
         stage.style.background = "#e9eef6";
       } else {
@@ -1491,11 +1595,12 @@
     }
 
     function applyHeroPreviewStyle() {
-      var list = ["style-flat", "style-studio", "style-tilt", "style-reflect", "style-neon", "style-dergi"];
+      var list = ["style-flat", "style-reflect", "style-neon", "style-dergi", "style-dergi2"];
       var stage = document.getElementById("heroStage");
       list.forEach(function (c) { stage.classList.remove(c); });
       stage.classList.add("style-" + heroStyle);
       applyBackground();
+      updatePhoneReflection(activePhone());
     }
 
     function layoutStageBg() {
@@ -1566,7 +1671,7 @@
       document.getElementById("frameColor").value = color || DEFAULT_FRAME;
       var hf = document.getElementById("hexFrame");
       if (document.activeElement !== hf) hf.value = color || DEFAULT_FRAME;
-      document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
+      document.querySelectorAll(".phone").forEach(updatePhoneReflection);
     }
 
     function renderFrameSwatches() {
@@ -1834,55 +1939,64 @@
       ctx.letterSpacing = "0px";
     }
 
-    function galleryReflectionURL(phone) {
+    function phoneReflectionURL(phone, localH, alpha) {
       var pRect = phone.getBoundingClientRect();
       if (!pRect.width || !pRect.height) return null;
-      var W = 420;
-      var H = Math.max(1, Math.round(W * pRect.height / pRect.width));
-      var pc = document.createElement("canvas");
-      pc.width = W;
-      pc.height = H;
-      drawPhone(pc.getContext("2d"), phone, 0, 0, W, true);
-      var rc = mirroredFadeCanvas(pc);
-      var out = document.createElement("canvas");
-      out.width = W;
-      out.height = 140;
-      var x = out.getContext("2d");
-      var srcH = Math.round(H * 0.42);
-      x.drawImage(rc, 0, 0, W, srcH, 0, 0, W, 140);
-      x.globalCompositeOperation = "destination-in";
-      var g = x.createLinearGradient(0, 0, 0, 140);
-      g.addColorStop(0, "rgba(0,0,0,0.55)");
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      x.fillStyle = g;
-      x.fillRect(0, 0, W, 140);
-      return out.toDataURL("image/png");
+      var localW = phone.offsetWidth || 1;
+      var outH = localH > 0 ? Math.max(1, Math.round(420 * localH / localW)) : 140;
+      return mirroredPhoneReflection(phone, 420, outH, alpha == null ? 0.40 : alpha).toDataURL("image/png");
     }
 
-    function updateGalleryReflection(phone) {
+    function ensureReflectionLayer(phone) {
+      if (!phone || phone._reflectionLayer) return;
+      var layer = document.createElement("div");
+      layer.className = "gallery-reflection" + (phone.closest("#heroStage") ? " hero-reflection" : "");
+      phone.appendChild(layer);
+      phone._reflectionLayer = layer;
+    }
+
+    function updatePhoneReflection(phone) {
       if (!phone || !phone._reflectionLayer) return;
+      var hero = !!phone.closest("#heroStage");
       var device = phone.closest(".device");
-      var style = device ? device.dataset.style : "flat";
-      if (style !== "reflect" && style !== "studio" && style !== "neon") {
+      var style = hero ? heroStyle : (device ? device.dataset.style : "flat");
+      if (style !== "reflect" && style !== "neon") {
         phone._reflectionLayer.style.display = "none";
         return;
       }
-      if (phone.getBoundingClientRect().width < 1) return;
-      var url = galleryReflectionURL(phone);
+      if (hero && !phone.classList.contains("active")) {
+        phone._reflectionLayer.style.display = "none";
+        return;
+      }
+      var container = hero ? document.getElementById("heroStage") : phone.closest(".preview");
+      if (!container) return;
+      var pRect = phone.getBoundingClientRect();
+      if (pRect.width < 1) return;
+      var cRect = container.getBoundingClientRect();
+      var scale = pRect.width / (phone.offsetWidth || 1);
+      var gap = hero ? 12 : 8;
+      var localH = Math.max(0, (cRect.bottom - pRect.bottom) / scale - gap);
+      if (localH < 2) {
+        phone._reflectionLayer.style.display = "none";
+        return;
+      }
+      var alpha = style === "neon" ? 0.30 : (hero ? 0.42 : 0.40);
+      var url = phoneReflectionURL(phone, localH, alpha);
       if (!url) return;
+      phone._reflectionLayer.style.height = localH + 'px';
+      phone._reflectionLayer.style.backgroundSize = '100% 100%';
       phone._reflectionLayer.style.backgroundImage = 'url("' + url + '")';
       phone._reflectionLayer.style.display = "block";
     }
 
-    function refreshGalleryReflection(phone) {
+    function refreshPhoneReflection(phone) {
       if (!phone) return;
       clearTimeout(phone._reflTimer);
-      phone._reflTimer = setTimeout(function () { updateGalleryReflection(phone); }, 120);
+      phone._reflTimer = setTimeout(function () { updatePhoneReflection(phone); }, 120);
     }
 
     function buildPhoneScene(phone, phoneW, withReflection) {
-      var pRect = phone.getBoundingClientRect();
-      var phoneH = phoneW * pRect.height / pRect.width;
+      var phoneH = phoneW * phone.offsetHeight / phone.offsetWidth;
       var pad = Math.max(2, Math.round(phoneW * 0.03));
       var pc = document.createElement("canvas");
       pc.width = Math.max(1, Math.round(phoneW)) + pad * 2;
@@ -1913,21 +2027,69 @@
       return scene;
     }
 
+    function mirroredPhoneReflection(phone, phoneW, outH, alpha) {
+      var srcW = Math.max(1, Math.round(phoneW));
+      var srcH = Math.max(1, Math.round(phoneW * phone.offsetHeight / phone.offsetWidth));
+      var src = document.createElement("canvas");
+      src.width = srcW;
+      src.height = srcH;
+      drawPhone(src.getContext("2d"), phone, 0, 0, phoneW, true);
+
+      var out = document.createElement("canvas");
+      out.width = srcW;
+      out.height = Math.max(1, Math.round(outH));
+      var x = out.getContext("2d");
+      x.translate(0, srcH);
+      x.scale(1, -1);
+      x.drawImage(src, 0, 0);
+      x.setTransform(1, 0, 0, 1, 0, 0);
+      x.globalCompositeOperation = "destination-in";
+      var a = Math.max(0, Math.min(1, alpha == null ? 0.42 : alpha));
+      var g = x.createLinearGradient(0, 0, 0, out.height);
+      g.addColorStop(0, "rgba(0,0,0," + a + ")");
+      g.addColorStop(0.55, "rgba(0,0,0," + (a * 0.45) + ")");
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      x.fillStyle = g;
+      x.fillRect(0, 0, out.width, out.height);
+      return out;
+    }
+
+    function drawPhoneWithReflection(ctx, phone, x, y, phoneW, opts) {
+      opts = opts || {};
+      var phoneH = phoneW * phone.offsetHeight / phone.offsetWidth;
+      drawPhone(ctx, phone, x, y, phoneW, !!opts.noShadow);
+      var gap = Math.round((opts.gap == null ? 12 : opts.gap) * phoneW / phone.offsetWidth);
+      var bottom = opts.bottom == null ? ctx.canvas.height : opts.bottom;
+      var avail = Math.floor(bottom - (y + phoneH + gap));
+      var maxH = Math.round(phoneH * (opts.maxRatio == null ? 1 : opts.maxRatio));
+      var refH = Math.min(avail, maxH);
+      if (refH < 2) return;
+      var refl = mirroredPhoneReflection(phone, phoneW, refH, opts.alpha);
+      ctx.save();
+      ctx.shadowColor = "rgba(0,0,0,0)";
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+      ctx.drawImage(refl, x, y + phoneH + gap);
+      ctx.restore();
+    }
+
     function drawNeonBackground(ctx, W, H) {
+      var palette = neonPalette();
       var g = gradientLine(ctx, 160, 0, 0, W, H);
-      g.addColorStop(0, "#05070c");
-      g.addColorStop(0.55, "#0a1418");
+      g.addColorStop(0, shade(palette.a, -0.80));
+      g.addColorStop(0.55, shade(palette.b, -0.86));
       g.addColorStop(1, "#080a10");
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, W, H);
       var c = ctx.createRadialGradient(W * 0.5, H * 0.18, 0, W * 0.5, H * 0.18, W * 0.55);
-      c.addColorStop(0, "rgba(0,240,255,0.22)");
-      c.addColorStop(1, "rgba(0,240,255,0)");
+      c.addColorStop(0, rgbaColor(palette.a, 0.22));
+      c.addColorStop(1, rgbaColor(palette.a, 0));
       ctx.fillStyle = c;
       ctx.fillRect(0, 0, W, H);
       var m = ctx.createRadialGradient(W * 0.72, H * 0.88, 0, W * 0.72, H * 0.88, W * 0.5);
-      m.addColorStop(0, "rgba(255,0,200,0.18)");
-      m.addColorStop(1, "rgba(255,0,200,0)");
+      m.addColorStop(0, rgbaColor(palette.b, 0.18));
+      m.addColorStop(1, rgbaColor(palette.b, 0));
       ctx.fillStyle = m;
       ctx.fillRect(0, 0, W, H);
     }
@@ -1950,43 +2112,72 @@
       if (style === "neon") drawNeonBackground(ctx, W, H);
       else drawBg(ctx, W, H, false);
 
-      var withReflection = style === "studio" || style === "reflect" || style === "neon";
-      var phoneW = 720 * S * (style === "studio" ? 0.95 : 1);
-      var scene = buildPhoneScene(phone, phoneW, withReflection);
-      var sceneScale = Math.min(1, (H * 0.92) / scene.height, (W * 0.92) / scene.width);
-
-      ctx.save();
-      if (style === "tilt" || style === "studio") {
-        ctx.translate(W / 2, H / 2);
-        ctx.rotate(-5 * Math.PI / 180);
-        ctx.transform(1, 0, -0.05, 1, 0, 0);
-        ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
-        ctx.shadowColor = style === "studio" ? "rgba(0,0,0,0.55)" : "rgba(22,32,64,0.33)";
-        ctx.shadowBlur = (style === "studio" ? 90 : 70) * S;
-        ctx.shadowOffsetY = (style === "studio" ? 40 : 30) * S;
-        ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
-      } else if (style === "dergi") {
-        ctx.translate(W / 2, H / 2);
-        ctx.rotate(-3 * Math.PI / 180);
-        ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
-        ctx.shadowColor = "rgba(60,40,20,0.32)";
-        ctx.shadowBlur = 70 * S;
-        ctx.shadowOffsetY = 28 * S;
-        ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
-      } else {
+      var phoneW = 720 * S * getPhoneScale(phone);
+      if (style === "reflect" || style === "neon") {
+        var pRect = phone.getBoundingClientRect();
+        var phoneH = phoneW * pRect.height / pRect.width;
+        var tax = (W - phoneW) / 2;
+        var tay = (H - phoneH) / 2;
         if (style === "neon") {
-          ctx.shadowColor = "rgba(0,240,255,0.40)";
-          ctx.shadowBlur = 90 * S;
+          var palette = neonPalette();
+          ctx.save();
+          ctx.shadowColor = rgbaColor(palette.b, 0.35);
+          ctx.shadowBlur = 130 * S;
+          drawPhoneWithReflection(ctx, phone, tax, tay, phoneW, {
+            noShadow: true,
+            gap: 8,
+            bottom: H,
+            maxRatio: 2,
+            alpha: 0
+          });
+          ctx.restore();
+          ctx.save();
+          ctx.shadowColor = palette.aExport;
+          ctx.shadowBlur = 80 * S;
+          drawPhoneWithReflection(ctx, phone, tax, tay, phoneW, {
+            noShadow: true,
+            gap: 8,
+            bottom: H,
+            maxRatio: 2,
+            alpha: 0.30
+          });
+          ctx.restore();
+        } else {
+          ctx.save();
+          ctx.shadowColor = "rgba(22,32,64,0.30)";
+          ctx.shadowBlur = 70 * S;
+          ctx.shadowOffsetY = 30 * S;
+          drawPhoneWithReflection(ctx, phone, tax, tay, phoneW, {
+            noShadow: true,
+            gap: 8,
+            bottom: H,
+            maxRatio: 2,
+            alpha: 0.40
+          });
+          ctx.restore();
+        }
+      } else {
+        var scene = buildPhoneScene(phone, phoneW, false);
+        var sceneScale = Math.min(1, (H * 0.92) / scene.height, (W * 0.92) / scene.width);
+        ctx.save();
+        if (style === "dergi" || style === "dergi2") {
+          ctx.translate(W / 2, H / 2);
+          ctx.rotate((style === "dergi2" ? 3 : -3) * Math.PI / 180);
+          ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
+          ctx.shadowColor = "rgba(60,40,20,0.32)";
+          ctx.shadowBlur = 70 * S;
+          ctx.shadowOffsetY = 28 * S;
+          ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
         } else {
           ctx.shadowColor = "rgba(22,32,64,0.30)";
           ctx.shadowBlur = 70 * S;
           ctx.shadowOffsetY = 30 * S;
+          var dw = scene.width * sceneScale;
+          var dh = scene.height * sceneScale;
+          ctx.drawImage(scene, (W - dw) / 2, (H - dh) / 2, dw, dh);
         }
-        var dw = scene.width * sceneScale;
-        var dh = scene.height * sceneScale;
-        ctx.drawImage(scene, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        ctx.restore();
       }
-      ctx.restore();
 
       downloadCanvas(canvas, phone.getAttribute("data-model") + ".png");
     }
@@ -2001,6 +2192,67 @@
 
     function activePhone() {
       return document.querySelector("#heroStage .phone.active");
+    }
+
+    var MIN_PHONE_SCALE = 0.5;
+    var MAX_PHONE_SCALE = 1.4;
+
+    function getPhoneScale(phone) {
+      var v = parseFloat((phone && phone.dataset.phoneScale) || "1");
+      if (!isFinite(v)) v = 1;
+      return Math.max(MIN_PHONE_SCALE, Math.min(MAX_PHONE_SCALE, v));
+    }
+
+    function setPhoneScale(phone, value) {
+      if (!phone) return;
+      var v = Math.max(MIN_PHONE_SCALE, Math.min(MAX_PHONE_SCALE, value));
+      phone.dataset.phoneScale = String(v);
+      phone.style.setProperty("--phone-scale", v);
+      if (phone._reflectionLayer) refreshPhoneReflection(phone);
+    }
+
+    function initPhoneResize(phone) {
+      if (!phone || phone.querySelector(".phone-scale-handle")) return;
+      var handle = document.createElement("span");
+      handle.className = "phone-scale-handle";
+      handle.title = "Boyutlandır";
+      handle.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M5.5 5H11v5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+      phone.appendChild(handle);
+
+      handle.addEventListener("pointerdown", function (e) {
+        if (e.button != null && e.button !== 0) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var rect = phone.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var startDist = Math.hypot(e.clientX - cx, e.clientY - cy) || 1;
+        var startScale = getPhoneScale(phone);
+        phone.classList.add("resizing");
+        try { handle.setPointerCapture(e.pointerId); } catch (err) {}
+
+        function move(ev) {
+          var dist = Math.hypot(ev.clientX - cx, ev.clientY - cy);
+          setPhoneScale(phone, startScale * dist / startDist);
+        }
+        function end() {
+          handle.removeEventListener("pointermove", move);
+          handle.removeEventListener("pointerup", end);
+          handle.removeEventListener("pointercancel", end);
+          phone.classList.remove("resizing");
+          try { handle.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+        handle.addEventListener("pointermove", move);
+        handle.addEventListener("pointerup", end);
+        handle.addEventListener("pointercancel", end);
+      });
+
+      handle.addEventListener("click", function (e) { e.stopPropagation(); });
+      handle.addEventListener("dblclick", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setPhoneScale(phone, 1);
+      });
     }
 
     function setActiveImage(src) {
@@ -2063,7 +2315,7 @@
 
       function bumpReflection() {
         var p = screen.closest(".phone");
-        if (p && p.closest("#view-gallery")) refreshGalleryReflection(p);
+        if (p) refreshPhoneReflection(p);
       }
 
       img.addEventListener("load", function () {
@@ -2398,9 +2650,11 @@
         try { await document.fonts.ready; } catch (e) {}
       }
 
+      var wide = heroHeight !== Math.round(heroSize * 1000 / 1600);
+      stage.classList.toggle("hero-wide", wide);
       var S = heroSize / 1600;
-      var W = Math.round(1600 * S);
-      var H = Math.round(1000 * S);
+      var W = Math.round(heroSize);
+      var H = Math.round(heroHeight);
       var canvas = document.createElement("canvas");
       canvas.width = W;
       canvas.height = H;
@@ -2413,59 +2667,63 @@
       var sRect = stage.getBoundingClientRect();
       var factor = W / sRect.width;
       var pRect = phone.getBoundingClientRect();
-      var px0 = (pRect.left - sRect.left) * factor;
-      var py0 = (pRect.top - sRect.top) * factor;
-      var phoneW = pRect.width * factor;
-      var phoneH = pRect.height * factor;
+      var centerX = (pRect.left + pRect.width / 2 - sRect.left) * factor;
+      var centerY = (pRect.top + pRect.height / 2 - sRect.top) * factor;
+      var base = (style === "dergi" || style === "dergi2") ? 1.12 : 1.15;
+      var exportScale = (W / stage.offsetWidth) * base * getPhoneScale(phone);
+      var phoneW = phone.offsetWidth * exportScale;
+      var phoneH = phone.offsetHeight * exportScale;
+      var px0 = centerX - phoneW / 2;
+      var py0 = centerY - phoneH / 2;
 
       if (style === "flat") {
         drawPhone(ctx, phone, px0, py0, phoneW);
+      } else if (style === "reflect") {
+        ctx.save();
+        drawPhoneWithReflection(ctx, phone, px0, py0, phoneW, {
+          noShadow: false,
+          gap: 12,
+          bottom: H,
+          maxRatio: 2,
+          alpha: 0.42
+        });
+        ctx.restore();
+      } else if (style === "neon") {
+        var palette = neonPalette();
+        ctx.save();
+        ctx.shadowColor = rgbaColor(palette.b, 0.35);
+        ctx.shadowBlur = 150 * S;
+        drawPhoneWithReflection(ctx, phone, px0, py0, phoneW, {
+          noShadow: true,
+          gap: 12,
+          bottom: H,
+          maxRatio: 2,
+          alpha: 0
+        });
+        ctx.restore();
+        ctx.save();
+        ctx.shadowColor = palette.aExport;
+        ctx.shadowBlur = 90 * S;
+        drawPhoneWithReflection(ctx, phone, px0, py0, phoneW, {
+          noShadow: true,
+          gap: 12,
+          bottom: H,
+          maxRatio: 2,
+          alpha: 0.30
+        });
+        ctx.restore();
       } else {
-        var withRef = style === "studio" || style === "reflect" || style === "neon";
-        var scaleP = (style === "tilt" || style === "studio") ? 0.84 : (style === "dergi" ? 0.9 : 0.8);
-        var scene = buildPhoneScene(phone, phoneW * scaleP, withRef);
+        var scene = buildPhoneScene(phone, phoneW * 0.9, false);
         var sceneScale = Math.min(1, (H * 0.9) / scene.height, (W * 0.9) / scene.width);
-        if (style === "tilt" || style === "studio") {
-          ctx.save();
-          ctx.translate(px0 + phoneW / 2, py0 + phoneH / 2);
-          ctx.rotate(-5 * Math.PI / 180);
-          ctx.transform(1, 0, -0.05, 1, 0, 0);
-          ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
-          ctx.shadowColor = style === "studio" ? "rgba(0,0,0,0.55)" : "rgba(22,32,64,0.33)";
-          ctx.shadowBlur = (style === "studio" ? 90 : 70) * S;
-          ctx.shadowOffsetY = (style === "studio" ? 40 : 30) * S;
-          ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
-          ctx.restore();
-        } else if (style === "dergi") {
-          ctx.save();
-          ctx.translate(px0 + phoneW / 2, py0 + phoneH / 2);
-          ctx.rotate(-3 * Math.PI / 180);
-          ctx.scale(0.95 * sceneScale, 0.95 * sceneScale);
-          ctx.shadowColor = "rgba(60,40,20,0.32)";
-          ctx.shadowBlur = 70 * S;
-          ctx.shadowOffsetY = 28 * S;
-          ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
-          ctx.restore();
-        } else {
-          var drawW = scene.width * sceneScale;
-          var drawH = scene.height * sceneScale;
-          var desiredTop = py0 + (phoneH - phoneH * scaleP) / 2;
-          var padOut = Math.max(2, Math.round(phoneW * scaleP * 0.03)) * sceneScale;
-          var ty = desiredTop - padOut;
-          ty = Math.max(10, Math.min(ty, H - drawH - 10));
-          var tx = px0 + (phoneW - drawW) / 2;
-          ctx.save();
-          if (style === "neon") {
-            ctx.shadowColor = "rgba(0,240,255,0.40)";
-            ctx.shadowBlur = 90 * S;
-          } else {
-            ctx.shadowColor = "rgba(22,32,64,0.30)";
-            ctx.shadowBlur = 70 * S;
-            ctx.shadowOffsetY = 30 * S;
-          }
-          ctx.drawImage(scene, tx, ty, drawW, drawH);
-          ctx.restore();
-        }
+        ctx.save();
+        ctx.translate(px0 + phoneW / 2, py0 + phoneH / 2);
+        ctx.rotate((style === "dergi2" ? 3 : -3) * Math.PI / 180);
+        ctx.scale(0.95 * sceneScale, 0.95 * sceneScale);
+        ctx.shadowColor = "rgba(60,40,20,0.32)";
+        ctx.shadowBlur = 70 * S;
+        ctx.shadowOffsetY = 28 * S;
+        ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
+        ctx.restore();
       }
 
       drawText(ctx, stage.querySelector(".kicker"), sRect, factor, S);
@@ -2537,6 +2795,7 @@
       });
       document.getElementById("deviceTag").textContent = MODELS[current].name;
       layoutScreenImage(activePhone().querySelector(".screen"));
+      document.querySelectorAll("#heroStage .phone").forEach(updatePhoneReflection);
       if (mirrorEnabled) refreshMirrors();
     });
 
@@ -2552,10 +2811,11 @@
           fitStage();
           relayoutScreens();
           layoutStageBg();
+          updatePhoneReflection(activePhone());
           if (mirrorEnabled) refreshMirrors();
         } else {
           relayoutScreens();
-          document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
+          document.querySelectorAll("#view-gallery .phone").forEach(updatePhoneReflection);
         }
       });
     });
@@ -2693,10 +2953,21 @@
       }
     });
 
+    function applyHeroSize() {
+      var stage = document.getElementById("heroStage");
+      var wide = heroHeight !== Math.round(heroSize * 1000 / 1600);
+      if (stage) stage.classList.toggle("hero-wide", wide);
+      fitStage();
+      updatePhoneReflection(activePhone());
+    }
+
     var heroSizeSel = document.querySelector("#view-hero .hero-size");
     if (heroSizeSel) {
       heroSizeSel.addEventListener("change", function () {
         heroSize = parseInt(this.value, 10) || 1600;
+        var opt = this.options[this.selectedIndex];
+        heroHeight = parseInt(opt && opt.getAttribute("data-h"), 10) || Math.round(heroSize * 1000 / 1600);
+        applyHeroSize();
       });
     }
     var heroStyleSel = document.querySelector("#view-hero .style-select");
@@ -2807,12 +3078,15 @@
       fitStage();
       relayoutScreens();
       layoutStageBg();
-      document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
+      document.querySelectorAll(".phone").forEach(updatePhoneReflection);
       if (mirrorEnabled) refreshMirrors();
     });
     fitStage();
 
     document.querySelectorAll(".screen").forEach(setupScreenInteractions);
+    document.querySelectorAll(".phone").forEach(initPhoneResize);
+    document.querySelectorAll(".phone").forEach(ensureReflectionLayer);
+    document.querySelectorAll(".phone").forEach(updatePhoneReflection);
     setupBgTools();
     document.querySelectorAll(".screen img").forEach(function (img) { img.src = PLACEHOLDER_SRC; });
   </script>
