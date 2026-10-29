@@ -1,0 +1,2318 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick Mockup</title>
+<style>
+  @font-face {
+    font-family: "Press Start 2P";
+    src: url("data:font/woff2;base64,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") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #1c2340;
+    background:
+      radial-gradient(900px 600px at 8% 0%, rgba(0, 191, 165, 0.10), transparent 60%),
+      radial-gradient(1000px 700px at 96% 100%, rgba(91, 91, 214, 0.12), transparent 62%),
+      linear-gradient(160deg, #f9fbfd 0%, #eef2f9 55%, #e6ebf4 100%);
+    padding: 32px 48px 56px;
+    overflow-x: hidden;
+  }
+  body.view-gallery #view-hero { display: none; }
+  body.view-hero #view-gallery { display: none; }
+
+  .topbar {
+    max-width: 1600px;
+    margin: 0 auto 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand-dot {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: linear-gradient(135deg, #00bfa5, #171c2b 70%);
+    box-shadow: 0 8px 18px rgba(0, 191, 165, 0.28);
+  }
+  h1 { font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; }
+  h1 span { color: #0aa38f; }
+  .top-actions { position: relative; display: flex; align-items: center; gap: 10px; }
+  .bg-btn {
+    border: 1px solid #dfe4ee;
+    background: rgba(255, 255, 255, 0.85);
+    color: #3b4358;
+    font: 600 13px/1 "Segoe UI", sans-serif;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 16px rgba(22, 32, 64, 0.06);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .bg-btn:hover { border-color: #b9c1d2; background: #fff; }
+  .bg-btn::before {
+    content: "";
+    width: 14px; height: 14px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #00bfa5, #5b5bd6);
+  }
+  .bg-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 396px;
+    background: #fff;
+    border: 1px solid #e2e7f0;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 24px 60px rgba(20, 30, 60, 0.18);
+    display: none;
+    z-index: 60;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+  .bg-panel.open { display: block; }
+  .bg-section { margin-bottom: 14px; }
+  .bg-section:last-child { margin-bottom: 0; }
+  .bg-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7a849a;
+    margin-bottom: 8px;
+  }
+  .bg-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .swatch {
+    width: 52px;
+    height: 34px;
+    border-radius: 9px;
+    border: 1px solid rgba(20, 30, 60, 0.10);
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.12s ease, outline-color 0.12s ease;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .swatch:hover { transform: translateY(-1px); }
+  .swatch.selected { outline-color: #5b5bd6; }
+  .bg-hint { font-size: 11.5px; color: #8a93a8; }
+  .color-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .color-row:last-child { margin-bottom: 0; }
+  .color-row span { width: 74px; font-size: 12.5px; color: #3b4358; }
+  .color-row input[type="color"] {
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .reset-btn {
+    border: 1px solid #dfe4ee;
+    background: #fff;
+    color: #5b647a;
+    font: 600 10.5px/1 "Segoe UI", sans-serif;
+    padding: 7px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .reset-btn:hover { background: #f6f8fc; border-color: #b9c1d2; }
+  .style-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .size-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    color: #5b647a;
+  }
+  .num-input {
+    width: 56px;
+    height: 30px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    font: 600 11.5px/1 Consolas, monospace;
+    color: #3b4358;
+    text-align: center;
+  }
+  .num-input:focus { outline: 2px solid rgba(91, 91, 214, 0.35); border-color: #5b5bd6; }
+  .style-row:last-child { margin-bottom: 0; }
+  .style-row span {
+    width: 74px;
+    font-size: 12.5px;
+    color: #3b4358;
+  }
+  .select-input {
+    height: 30px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    background: #fff;
+    color: #3b4358;
+    font: 600 11.5px/1 "Segoe UI", sans-serif;
+    padding: 0 6px;
+    cursor: pointer;
+    max-width: 118px;
+  }
+  .check-lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #5b647a;
+    cursor: pointer;
+  }
+  .hex-input {
+    width: 92px;
+    height: 30px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    padding: 0 8px;
+    font: 600 11.5px/1 Consolas, monospace;
+    color: #3b4358;
+    text-transform: lowercase;
+  }
+  .hex-input:focus { outline: 2px solid rgba(91, 91, 214, 0.35); border-color: #5b5bd6; }
+  .grad-builder {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #e4e9f2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .grad-stops { display: flex; flex-direction: column; gap: 8px; }
+  .stop-row { display: flex; align-items: center; gap: 8px; }
+  .angle-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #5b647a;
+  }
+  .angle-field input {
+    width: 64px;
+    height: 30px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    padding: 0 8px;
+    font: 600 11.5px/1 Consolas, monospace;
+    color: #3b4358;
+  }
+  .tabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid #dfe4ee;
+    box-shadow: 0 6px 16px rgba(22, 32, 64, 0.06);
+  }
+  .tab-btn {
+    border: 0;
+    background: transparent;
+    color: #5b647a;
+    font: 600 13px/1 "Segoe UI", sans-serif;
+    padding: 11px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .tab-btn:hover { color: #1c2340; }
+  .tab-btn.active {
+    background: #fff;
+    color: #1c2340;
+    box-shadow: 0 3px 10px rgba(20, 30, 60, 0.10);
+  }
+
+  .view-head {
+    max-width: 1600px;
+    margin: 0 auto 42px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .sub { font-size: 13.5px; color: #5b647a; max-width: 640px; line-height: 1.55; }
+  .upload-btn {
+    border: 0; cursor: pointer;
+    background: #5b5bd6; color: #fff;
+    font: 600 14px/1 "Segoe UI", sans-serif;
+    padding: 14px 22px; border-radius: 13px;
+    box-shadow: 0 12px 26px rgba(91, 91, 214, 0.30);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .upload-btn:hover { background: #4c4cc6; transform: translateY(-1px); }
+  .upload-btn:active { transform: translateY(0); }
+
+  .grid {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 64px 40px;
+    align-items: end;
+  }
+  .device { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .preview {
+    width: 100%;
+    padding: 26px 0 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(160deg, #f9fbfd 0%, #eef2f9 55%, #e6ebf4 100%);
+    box-shadow: inset 0 0 0 1px rgba(20, 30, 60, 0.05);
+  }
+  .device figcaption { font-size: 13.5px; font-weight: 600; color: #3b4358; letter-spacing: 0.01em; }
+  .device-actions { display: flex; gap: 8px; }
+  .mini-btn {
+    border: 1px solid #d7dce7;
+    background: #fff;
+    color: #3b4358;
+    font: 600 11.5px/1 "Segoe UI", sans-serif;
+    padding: 10px 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+  .mini-btn:hover { border-color: #b9c1d2; background: #f6f8fc; transform: translateY(-1px); }
+  .mini-btn.primary {
+    background: #5b5bd6; border-color: #5b5bd6; color: #fff;
+    box-shadow: 0 8px 18px rgba(91, 91, 214, 0.26);
+  }
+  .mini-btn.primary:hover { background: #4c4cc6; border-color: #4c4cc6; }
+
+  .phone { position: relative; cursor: pointer; transition: transform 0.25s ease; outline: none; }
+  .phone:hover { transform: translateY(-7px); }
+  .screen {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55);
+  }
+  .screen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .fit-tools {
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+    z-index: 26;
+    display: none;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background: rgba(15, 18, 26, 0.72);
+    backdrop-filter: blur(6px);
+  }
+  .screen.has-image .fit-tools { display: none; }
+  .screen.has-image:hover .fit-tools,
+  .screen.has-image:focus-within .fit-tools { display: flex; }
+  .tool-btn {
+    border: 0;
+    background: transparent;
+    color: #e8edf7;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  .tool-btn:hover { background: rgba(255, 255, 255, 0.16); }
+  .tool-btn svg { width: 14px; height: 14px; display: block; }
+  .screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(118deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.03) 15%, rgba(255, 255, 255, 0) 28%);
+    pointer-events: none;
+  }
+  .hole {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #000;
+  }
+  .btn {
+    position: absolute;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #3a3d47, #101216 55%, #2b2e36);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+  .change-chip {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%) translateY(6px);
+    z-index: 20;
+    background: rgba(15, 18, 26, 0.74);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 6px 11px;
+    border-radius: 999px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+  .phone:hover .change-chip, .phone.drag .change-chip { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .phone2 {
+    width: 280px;
+    padding: 8px;
+    border-radius: 32px;
+    background: linear-gradient(150deg, #303237 0%, #0b0c0e 48%, #1a1b1f 78%, #2c2e33 100%);
+    box-shadow:
+      0 34px 64px rgba(22, 32, 64, 0.32),
+      0 12px 24px rgba(22, 32, 64, 0.22),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.13),
+      inset 0 0 0 3px rgba(0, 0, 0, 0.64);
+  }
+  .phone2 .screen { border-radius: 25px; aspect-ratio: 1260 / 2800; }
+  .phone2 .hole { top: 18px; width: 8px; height: 8px; box-shadow: inset 0 0 0 1.5px #2b2f36; }
+  .phone2 .power { right: -2px; top: 170px; height: 54px; }
+  .phone2 .vol { right: -2px; top: 238px; height: 86px; }
+
+  .phone3 {
+    width: 280px;
+    padding: 11px;
+    border-radius: 44px;
+    background: linear-gradient(145deg, #34363b 0%, #0b0c0e 45%, #1b1d21 75%, #2f3136 100%);
+    box-shadow:
+      0 34px 64px rgba(22, 32, 64, 0.32),
+      0 12px 24px rgba(22, 32, 64, 0.22),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.12),
+      inset 0 0 0 3px rgba(0, 0, 0, 0.65);
+  }
+  .phone3 .screen { border-radius: 33px; aspect-ratio: 1280 / 2856; }
+  .phone3 .hole { top: 23px; width: 9px; height: 9px; box-shadow: inset 0 0 0 1.5px #31343a; }
+  .phone3 .power { right: -2px; top: 152px; height: 54px; }
+  .phone3 .vol { right: -2px; top: 218px; height: 94px; }
+
+  .phone1 {
+    width: 280px;
+    padding: 9px;
+    border-radius: 52px;
+    background: linear-gradient(150deg, #34353c 0%, #0a0a0c 45%, #1c1c22 75%, #303138 100%);
+    box-shadow:
+      0 34px 64px rgba(22, 32, 64, 0.32),
+      0 12px 24px rgba(22, 32, 64, 0.22),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.14),
+      inset 0 0 0 3px rgba(0, 0, 0, 0.70);
+  }
+  .phone1 .screen {
+    border: 6px solid #0a0a0c;
+    border-radius: 44px;
+    aspect-ratio: 1206 / 2622;
+  }
+  .island {
+    position: absolute;
+    z-index: 6;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 76px;
+    height: 22px;
+    border-radius: 999px;
+    background: #000;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  .phone1 .action { left: -2px; top: 150px; height: 42px; }
+  .phone1 .vol { left: -2px; top: 206px; height: 88px; }
+  .phone1 .power { right: -2px; top: 196px; height: 74px; }
+
+  .phone4 {
+    width: 280px;
+    padding: 10px;
+    border-radius: 36px;
+    background: linear-gradient(145deg, #3a3c42 0%, #0c0d10 45%, #222429 75%, #35373d 100%);
+    box-shadow:
+      0 34px 64px rgba(22, 32, 64, 0.32),
+      0 12px 24px rgba(22, 32, 64, 0.22),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.13),
+      inset 0 0 0 3px rgba(0, 0, 0, 0.62);
+  }
+  .phone4 .screen { border-radius: 27px; aspect-ratio: 1200 / 2670; }
+  .phone4 .hole { top: 21px; width: 8px; height: 8px; box-shadow: inset 0 0 0 1.5px #31343a; }
+  .phone4 .power { right: -2px; top: 166px; height: 52px; }
+  .phone4 .vol { right: -2px; top: 232px; height: 86px; }
+
+  .stage-wrap { width: fit-content; margin: 0 auto; position: relative; }
+  .hero-stage {
+    position: relative;
+    width: 1600px;
+    height: 1000px;
+    padding: 64px 96px;
+    display: flex;
+    align-items: center;
+    gap: 72px;
+    overflow: hidden;
+    background:
+      radial-gradient(760px 600px at 86% 16%, rgba(91, 91, 214, 0.10), transparent 60%),
+      radial-gradient(700px 520px at 6% 92%, rgba(0, 191, 165, 0.13), transparent 62%),
+      linear-gradient(150deg, #f7fafc 0%, #eef2f8 55%, #e7ebf3 100%);
+  }
+  .stage-bg-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    display: none;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .hero-phone-col {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-phone-col .phone {
+    display: none;
+    transform: scale(1.15);
+    transform-origin: center center;
+  }
+  .hero-phone-col .phone:hover { transform: scale(1.15); }
+  .hero-phone-col .phone.active { display: block; }
+  .mirror-layer {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 14px);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    display: none;
+  }
+  .phone.mirror .mirror-layer { display: block; top: calc(100% + 12px); }
+  .hero-copy { position: relative; }
+  .hero-copy.mirror .copy-mirror { display: block; }
+  .hero-copy { position: relative; z-index: 1; flex: 1; max-width: 780px; }
+  .kicker {
+    font-size: 26px;
+    font-weight: 700;
+    color: #6b7fa3;
+    letter-spacing: 0.01em;
+    margin-bottom: 0;
+  }
+  .headline {
+    font-size: 116px;
+    line-height: 0.97;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    color: #12203c;
+    margin-bottom: 18px;
+  }
+  .headline.pixel-font { line-height: 1.06; letter-spacing: 0; }
+  .kicker:focus, .headline:focus {
+    outline: 2px dashed rgba(91, 91, 214, 0.45);
+    outline-offset: 8px;
+    border-radius: 6px;
+    caret-color: #5b5bd6;
+  }
+  .bg-tools {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 40;
+    display: none;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background: rgba(15, 18, 26, 0.72);
+    backdrop-filter: blur(6px);
+  }
+  .stage-wrap.bg-editable .bg-tools { display: flex; }
+  .controls {
+    width: 1600px;
+    margin: 22px 0 0;
+    padding-left: 96px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .device-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #3b4358;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #dfe4ee;
+    padding: 9px 14px;
+    border-radius: 999px;
+  }
+  .device-tag::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #00bfa5;
+  }
+
+  @media (max-width: 1360px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; }
+  }
+  @media (max-width: 720px) {
+    body { padding: 24px 20px 48px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="view-gallery">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <h1>Quick Mockup</h1>
+    </div>
+    <div class="top-actions">
+      <button class="bg-btn" id="bgToggle" type="button">Arka Plan</button>
+      <div class="tabs">
+        <button class="tab-btn active" data-view="gallery">Mockup Galerisi</button>
+        <button class="tab-btn" data-view="hero">Hero Şablonu</button>
+      </div>
+      <div class="bg-panel" id="bgPanel">
+        <div class="bg-section">
+          <div class="bg-label">Gradyanlar</div>
+          <div class="bg-row" id="gradientRow"></div>
+          <div class="grad-builder">
+            <div class="grad-stops" id="gradStops"></div>
+            <div class="bg-row grad-controls">
+              <button class="mini-btn" id="gradAdd" type="button">+ Renk</button>
+              <label class="angle-field">Aci <input type="number" id="gradAngle" min="0" max="360" value="160"></label>
+              <button class="mini-btn primary" id="gradApply" type="button">Gradyan Uygula</button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Düz renkler</div>
+          <div class="bg-row" id="solidRow"></div>
+          <div class="bg-row" style="margin-top: 8px;">
+            <input type="color" id="bgColorPick" value="#5b5bd6">
+            <input type="text" class="hex-input" id="hexBg" maxlength="7" placeholder="#5b5bd6">
+          </div>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Kendi resmin</div>
+          <div class="bg-row">
+            <button class="swatch" id="bgCustomSwatch" type="button" hidden title="Arka plan resmi"></button>
+            <button class="mini-btn" id="bgImageBtn" type="button">Resim Yükle</button>
+            <span class="bg-hint" id="bgImageName">Resim seçilmedi</span>
+          </div>
+          <input type="file" id="bgImageInput" accept="image/*" hidden>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Yazi renkleri</div>
+          <div class="color-row">
+            <span>İçerik</span>
+            <input type="color" id="colorHeadline" value="#12203c">
+            <input type="text" class="hex-input" id="hexHeadline" maxlength="7" placeholder="#12203c">
+            <button class="reset-btn" type="button" data-reset="headline">Oto</button>
+          </div>
+          <div class="color-row">
+            <span>Başlık</span>
+            <input type="color" id="colorKicker" value="#6b7fa3">
+            <input type="text" class="hex-input" id="hexKicker" maxlength="7" placeholder="#6b7fa3">
+            <button class="reset-btn" type="button" data-reset="kicker">Oto</button>
+          </div>
+
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Yazi stili</div>
+          <div class="style-row">
+            <span>İçerik</span>
+            <select class="select-input" id="headlineFont">
+              <option value="segoe">Modern</option>
+              <option value="serif">Serif</option>
+              <option value="mono">Mono</option>
+              <option value="impact">Impact</option>
+              <option value="trebuchet">Trebuchet</option>
+              <option value="comic">Comic</option>
+              <option value="pixel">8-bit</option>
+            </select>
+            <select class="select-input" id="headlineEffect">
+              <option value="none">Efekt yok</option>
+              <option value="shadow">Golge</option>
+              <option value="hard">Sert golge</option>
+              <option value="3d">3D</option>
+              <option value="neon">Neon</option>
+              <option value="outline">Kontur</option>
+            </select>
+            <label class="size-field">Boyut
+              <input type="number" class="num-input" id="headlineSize" min="24" max="220" step="2" value="116">
+            </label>
+          </div>
+          <div class="style-row">
+            <span>Başlık</span>
+            <select class="select-input" id="kickerFont">
+              <option value="segoe">Modern</option>
+              <option value="serif">Serif</option>
+              <option value="mono">Mono</option>
+              <option value="impact">Impact</option>
+              <option value="trebuchet">Trebuchet</option>
+              <option value="comic">Comic</option>
+              <option value="pixel">8-bit</option>
+            </select>
+            <select class="select-input" id="kickerEffect">
+              <option value="none">Efekt yok</option>
+              <option value="shadow">Golge</option>
+              <option value="hard">Sert golge</option>
+              <option value="3d">3D</option>
+              <option value="neon">Neon</option>
+              <option value="outline">Kontur</option>
+            </select>
+            <label class="size-field">Boyut
+              <input type="number" class="num-input" id="kickerSize" min="10" max="80" step="1" value="26">
+            </label>
+          </div>
+        </div>
+        <div class="bg-section" hidden>
+          <div class="bg-label">Efektler</div>
+          <label class="check-lbl"><input type="checkbox" id="mirrorToggle"> Ayna efekti (telefon alti)</label>
+        </div>
+        <div class="bg-section">
+          <div class="bg-label">Telefon cercevesi</div>
+          <div class="bg-row" id="frameRow"></div>
+          <div class="bg-row" style="margin-top: 8px;">
+            <input type="color" id="frameColor" value="#0e1014">
+            <input type="text" class="hex-input" id="hexFrame" maxlength="7" placeholder="#0e1014">
+            <button class="reset-btn" type="button" id="frameReset">Varsayilan siyah</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="view" id="view-gallery">
+    <div class="view-head">
+      <p class="sub">Resmi değiştirmek için telefona tıkla ya da sürükle-bırak. Görselin üzerine gelince çıkan araçlarla döndür, aynala, yakınlaştır; sürükleyerek taşı. <b>Mockup İndir</b> 1080×1920 PNG verir.</p>
+      <div>
+        <input type="file" id="globalPicker" accept="image/*" hidden>
+        <button class="upload-btn" id="uploadAll">Tüm ekranlara resim yükle</button>
+      </div>
+    </div>
+
+    <main class="grid">
+      <figure class="device">
+        <div class="preview">
+        <div class="phone phone1" data-model="1">
+          <div class="screen"><img alt="Telefon 1 ekranı"></div>
+          <span class="island"></span>
+          <span class="btn action"></span>
+          <span class="btn vol"></span>
+          <span class="btn power"></span>
+          <span class="change-chip">Resmi değiştir</span>
+          <input type="file" class="picker" accept="image/*" hidden>
+        </div>
+        </div>
+        <figcaption>1</figcaption>
+        <div class="device-actions">
+          <button class="mini-btn" data-action="change">Resim Değiştir</button>
+          <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+        </div>
+      </figure>
+
+      <figure class="device">
+        <div class="preview">
+        <div class="phone phone2" data-model="2">
+          <div class="screen"><img alt="Telefon 2 ekranı"></div>
+          <span class="hole"></span>
+          <span class="btn power"></span>
+          <span class="btn vol"></span>
+          <span class="change-chip">Resmi değiştir</span>
+          <input type="file" class="picker" accept="image/*" hidden>
+        </div>
+        </div>
+        <figcaption>2</figcaption>
+        <div class="device-actions">
+          <button class="mini-btn" data-action="change">Resim Değiştir</button>
+          <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+        </div>
+      </figure>
+
+      <figure class="device">
+        <div class="preview">
+        <div class="phone phone3" data-model="3">
+          <div class="screen"><img alt="Telefon 3 ekranı"></div>
+          <span class="hole"></span>
+          <span class="btn power"></span>
+          <span class="btn vol"></span>
+          <span class="change-chip">Resmi değiştir</span>
+          <input type="file" class="picker" accept="image/*" hidden>
+        </div>
+        </div>
+        <figcaption>3</figcaption>
+        <div class="device-actions">
+          <button class="mini-btn" data-action="change">Resim Değiştir</button>
+          <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+        </div>
+      </figure>
+
+      <figure class="device">
+        <div class="preview">
+        <div class="phone phone4" data-model="4">
+          <div class="screen"><img alt="Telefon 4 ekranı"></div>
+          <span class="hole"></span>
+          <span class="btn power"></span>
+          <span class="btn vol"></span>
+          <span class="change-chip">Resmi değiştir</span>
+          <input type="file" class="picker" accept="image/*" hidden>
+        </div>
+        </div>
+        <figcaption>4</figcaption>
+        <div class="device-actions">
+          <button class="mini-btn" data-action="change">Resim Değiştir</button>
+          <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+        </div>
+      </figure>
+    </main>
+  </section>
+
+  <section class="view" id="view-hero">
+    <div class="view-head">
+      <p class="sub">Sağdaki yazıya tıklayıp düzenle. Telefon görselini sürükleyerek taşı; üzerindeki araçlarla döndür, aynala, yakınlaştır. Alttaki butonlarla resmi/telefonu değiştir, PNG indir.</p>
+    </div>
+
+    <div class="stage-wrap" id="stageWrap">
+      <div class="hero-stage" id="heroStage">
+        <div class="stage-bg-layer" id="stageBgLayer"></div>
+        <div class="hero-phone-col">
+          <div class="phone phone1 active">
+            <div class="screen"><img alt="Telefon 1 ekranı"></div>
+            <span class="island"></span>
+            <span class="btn action"></span>
+            <span class="btn vol"></span>
+            <span class="btn power"></span>
+            <div class="mirror-layer phone-mirror"></div>
+          </div>
+          <div class="phone phone2">
+            <div class="screen"><img alt="Telefon 2 ekranı"></div>
+            <span class="hole"></span>
+            <span class="btn power"></span>
+            <span class="btn vol"></span>
+            <div class="mirror-layer phone-mirror"></div>
+          </div>
+          <div class="phone phone3">
+            <div class="screen"><img alt="Telefon 3 ekranı"></div>
+            <span class="hole"></span>
+            <span class="btn power"></span>
+            <span class="btn vol"></span>
+            <div class="mirror-layer phone-mirror"></div>
+          </div>
+          <div class="phone phone4">
+            <div class="screen"><img alt="Telefon 4 ekranı"></div>
+            <span class="hole"></span>
+            <span class="btn power"></span>
+            <span class="btn vol"></span>
+            <div class="mirror-layer phone-mirror"></div>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <div class="headline" contenteditable="true" spellcheck="false">Content</div>
+          <div class="kicker" contenteditable="true" spellcheck="false">Title</div>
+          <div class="mirror-layer copy-mirror"></div>
+        </div>
+      </div>
+
+      <div class="bg-tools" id="bgTools"></div>
+
+      <div class="controls">
+        <span class="device-tag" id="deviceTag">1</span>
+        <input type="file" id="heroPicker" accept="image/*" hidden>
+        <button class="mini-btn" id="btnUpload">Resim Yükle</button>
+        <button class="mini-btn" id="btnPhone">Telefon Değiştir</button>
+        <button class="mini-btn primary" id="btnSave">PNG İndir</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function readAsDataURL(file) {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () { resolve(reader.result); };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function showFile(file, img) {
+      if (!file || !file.type.startsWith("image/")) return;
+      var screen = img.closest(".screen");
+      if (screen) screen.dataset.placeholder = "0";
+      img.src = await readAsDataURL(file);
+    }
+
+    function ensureLoaded(img) {
+      return new Promise(function (resolve) {
+        if (img.complete && img.naturalWidth) return resolve();
+        img.addEventListener("load", resolve, { once: true });
+        img.addEventListener("error", resolve, { once: true });
+      });
+    }
+
+    function downloadCanvas(canvas, filename) {
+      canvas.toBlob(function (blob) {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+      }, "image/png");
+    }
+
+    function px(v) {
+      var n = parseFloat(v);
+      return isNaN(n) ? 0 : n;
+    }
+
+    var TOOL_ICONS = {
+      rotL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v5h5"/><path d="M4.5 10a8 8 0 1 1 2.4 7.7"/></svg>',
+      rotR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5v5h-5"/><path d="M19.5 10a8 8 0 1 0-2.4 7.7"/></svg>',
+      flipH: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 8 4 12l4 4"/><path d="M16 8l4 4-4 4"/></svg>',
+      flipV: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M8 8l4-4 4 4"/><path d="M8 16l4 4 4-4"/></svg>',
+      zoomOut: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>',
+      zoomIn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+      reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v5h5"/><path d="M4.5 10A8 8 0 1 1 12 20"/></svg>'
+    };
+
+    var PLACEHOLDER_SRC = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="2400" viewBox="0 0 1080 2400">' +
+      '<rect width="1080" height="2400" fill="#f3f7fb"/>' +
+      '<g fill="none" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">' +
+      '<rect x="430" y="1040" width="220" height="160" rx="28"/>' +
+      '<circle cx="540" cy="1120" r="36"/>' +
+      '<path d="M460 1180 l64 -64 44 44 34 -34 62 62"/>' +
+      "</g>" +
+      '<text x="540" y="1290" text-anchor="middle" fill="#5b6b85" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="600">Resim eklemek için tıkla</text>' +
+      "</svg>"
+    );
+
+    function normalizeHex(value) {
+      var v = (value || "").trim();
+      if (!v) return null;
+      if (v.charAt(0) !== "#") v = "#" + v;
+      if (/^#[0-9a-fA-F]{3}$/.test(v)) {
+        v = "#" + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+      }
+      return /^#[0-9a-fA-F]{6}$/.test(v) ? v.toLowerCase() : null;
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.roundRect(x, y, w, h, Math.max(0, Math.min(r, Math.min(w, h) / 2)));
+    }
+
+    function splitTopLevel(str) {
+      var parts = [];
+      var depth = 0;
+      var current = "";
+      for (var i = 0; i < str.length; i++) {
+        var ch = str[i];
+        if (ch === "(") depth++;
+        if (ch === ")") depth--;
+        if (ch === "," && depth === 0) {
+          parts.push(current);
+          current = "";
+        } else {
+          current += ch;
+        }
+      }
+      if (current.trim()) parts.push(current);
+      return parts;
+    }
+
+    function gradientLine(ctx, angleDeg, x, y, w, h) {
+      var rad = angleDeg * Math.PI / 180;
+      var dx = Math.sin(rad);
+      var dy = -Math.cos(rad);
+      var len = Math.abs(w * dx) + Math.abs(h * dy);
+      var cx = x + w / 2;
+      var cy = y + h / 2;
+      return ctx.createLinearGradient(cx - dx * len / 2, cy - dy * len / 2, cx + dx * len / 2, cy + dy * len / 2);
+    }
+
+    function parseGradient(ctx, css, x, y, w, h) {
+      if (!css || css.indexOf("linear-gradient") === -1) return null;
+      var start = css.indexOf("linear-gradient(") + "linear-gradient(".length;
+      var end = css.lastIndexOf(")");
+      var parts = splitTopLevel(css.slice(start, end));
+      var angle = 180;
+      var first = parts[0].trim();
+      var am = first.match(/^(-?[\d.]+)deg$/);
+      if (am) {
+        angle = parseFloat(am[1]);
+        parts.shift();
+      } else if (first.indexOf("to ") === 0) {
+        var map = { "to top": 0, "to right": 90, "to bottom": 180, "to left": 270 };
+        if (map[first] !== undefined) angle = map[first];
+        parts.shift();
+      }
+      var stops = [];
+      parts.forEach(function (p) {
+        var m = p.trim().match(/^(rgba?\([^)]*\)|#[0-9a-fA-F]{3,8})\s*([\d.]+%)?\s*$/);
+        if (m) stops.push({ color: m[1], pos: m[2] ? parseFloat(m[2]) / 100 : null });
+      });
+      if (!stops.length) return null;
+      var last = 0;
+      for (var i = 0; i < stops.length; i++) {
+        if (stops[i].pos === null) stops[i].pos = stops.length === 1 ? 0 : i / (stops.length - 1);
+        stops[i].pos = Math.max(stops[i].pos, last);
+        last = stops[i].pos;
+      }
+      var g = gradientLine(ctx, angle, x, y, w, h);
+      stops.forEach(function (s) { g.addColorStop(Math.min(1, s.pos), s.color); });
+      return g;
+    }
+
+    function parseShadow(css, scale) {
+      if (!css || css === "none") return null;
+      var first = splitTopLevel(css)[0].trim();
+      var m = first.match(/^(rgba?\([^)]*\))\s+(-?[\d.]+)px\s+(-?[\d.]+)px\s+([\d.]+)px(?:\s+(-?[\d.]+)px)?/);
+      if (!m) return null;
+      return {
+        color: m[1],
+        x: parseFloat(m[2]) * scale,
+        y: parseFloat(m[3]) * scale,
+        blur: parseFloat(m[4]) * scale
+      };
+    }
+
+    function drawPhone(ctx, phone, offX, offY, destW, noShadow) {
+      var pRect = phone.getBoundingClientRect();
+      var scale = destW / pRect.width;
+      var F = destW / phone.offsetWidth;
+      var cs = getComputedStyle(phone);
+      var bodyW = pRect.width * scale;
+      var bodyH = pRect.height * scale;
+      var radius = px(cs.borderTopLeftRadius) * F;
+      var shadow = parseShadow(cs.boxShadow, F);
+
+      ctx.save();
+      if (shadow && !noShadow) {
+        ctx.shadowColor = shadow.color;
+        ctx.shadowBlur = shadow.blur;
+        ctx.shadowOffsetX = shadow.x;
+        ctx.shadowOffsetY = shadow.y;
+      }
+      var bg = parseGradient(ctx, cs.backgroundImage, offX, offY, bodyW, bodyH);
+      roundRect(ctx, offX, offY, bodyW, bodyH, radius);
+      ctx.fillStyle = bg || "#15171c";
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.lineWidth = Math.max(1, 1.5 * F);
+      ctx.strokeStyle = "rgba(255,255,255,0.14)";
+      roundRect(ctx, offX + 1.5 * F, offY + 1.5 * F, bodyW - 3 * F, bodyH - 3 * F, Math.max(radius - 1.5 * F, 2));
+      ctx.stroke();
+      ctx.restore();
+
+      var screen = phone.querySelector(".screen");
+      var sRect = screen.getBoundingClientRect();
+      var scs = getComputedStyle(screen);
+      var sx = offX + (sRect.left - pRect.left) * scale;
+      var sy = offY + (sRect.top - pRect.top) * scale;
+      var sw = sRect.width * scale;
+      var sh = sRect.height * scale;
+      var sRadius = px(scs.borderTopLeftRadius) * F;
+      var bw = px(scs.borderTopWidth) * F;
+      var borderColor = scs.borderTopColor;
+
+      if (bw > 0) {
+        roundRect(ctx, sx, sy, sw, sh, sRadius);
+        ctx.fillStyle = borderColor;
+        ctx.fill();
+      }
+
+      var ix = sx + bw;
+      var iy = sy + bw;
+      var iw = sw - bw * 2;
+      var ih = sh - bw * 2;
+      var iRadius = Math.max(sRadius - bw, 0);
+
+      ctx.save();
+      roundRect(ctx, ix, iy, iw, ih, iRadius);
+      ctx.clip();
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(ix, iy, iw, ih);
+      var img = screen.querySelector("img");
+      if (img && img.naturalWidth) {
+        var fitView = screen._fit || { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+        var rot = ((fitView.rotate || 0) % 360 + 360) % 360;
+        var swap = rot === 90 || rot === 270;
+        var natW = swap ? img.naturalHeight : img.naturalWidth;
+        var natH = swap ? img.naturalWidth : img.naturalHeight;
+        var baseSc = Math.max(iw / natW, ih / natH);
+        var dispW = img.naturalWidth * baseSc * fitView.zoom;
+        var dispH = img.naturalHeight * baseSc * fitView.zoom;
+        var cssToExport = iw / (screen.clientWidth || iw);
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(ix, iy, iw, ih);
+        ctx.clip();
+        ctx.translate(ix + iw / 2 + fitView.tx * cssToExport, iy + ih / 2 + fitView.ty * cssToExport);
+        ctx.rotate(rot * Math.PI / 180);
+        ctx.scale(fitView.flipX ? -1 : 1, fitView.flipY ? -1 : 1);
+        ctx.drawImage(img, -dispW / 2, -dispH / 2, dispW, dispH);
+        ctx.restore();
+      }
+      var glare = ctx.createLinearGradient(ix, iy, ix + iw, iy + ih * 0.5);
+      glare.addColorStop(0, "rgba(255,255,255,0.10)");
+      glare.addColorStop(0.32, "rgba(255,255,255,0)");
+      ctx.fillStyle = glare;
+      ctx.fillRect(ix, iy, iw, ih);
+      ctx.restore();
+
+      phone.querySelectorAll(".btn").forEach(function (btn) {
+        var r = btn.getBoundingClientRect();
+        var bx = offX + (r.left - pRect.left) * scale;
+        var by = offY + (r.top - pRect.top) * scale;
+        var bwi = r.width * scale;
+        var bhi = r.height * scale;
+        var bRad = px(getComputedStyle(btn).borderTopLeftRadius) * F;
+        roundRect(ctx, bx, by, bwi, bhi, bRad);
+        var btnBg = parseGradient(ctx, getComputedStyle(btn).backgroundImage, bx, by, bwi, bhi);
+        ctx.fillStyle = btnBg || "#101216";
+        ctx.fill();
+      });
+
+      var cam = phone.querySelector(".hole") || phone.querySelector(".island");
+      if (cam) {
+        var cr = cam.getBoundingClientRect();
+        var cx2 = offX + (cr.left - pRect.left) * scale;
+        var cy2 = offY + (cr.top - pRect.top) * scale;
+        var cw = cr.width * scale;
+        var ch2 = cr.height * scale;
+        var cRad = px(getComputedStyle(cam).borderTopLeftRadius) * F;
+        roundRect(ctx, cx2, cy2, cw, ch2, cRad || ch2 / 2);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.lineWidth = Math.max(1, F);
+        ctx.strokeStyle = "rgba(255,255,255,0.06)";
+        ctx.stroke();
+      }
+    }
+
+    var BG_PRESETS = [
+      { name: "Aurora", angle: 160, stops: [["#f9fbfd", 0], ["#eef2f9", 55], ["#e6ebf4", 100]] },
+      { name: "Nane", angle: 145, stops: [["#eafbf5", 0], ["#c9f0e5", 52], ["#a5e2d2", 100]] },
+      { name: "Lavanta", angle: 150, stops: [["#f4f0ff", 0], ["#ddd4f8", 55], ["#bfb0ee", 100]] },
+      { name: "Gun Batimi", angle: 140, stops: [["#fff4e9", 0], ["#ffd9c2", 48], ["#f5b3a4", 100]] },
+      { name: "Okyanus", angle: 160, stops: [["#ebf7ff", 0], ["#cae6f8", 52], ["#a8d2ef", 100]] },
+      { name: "Gece", angle: 155, stops: [["#242a3d", 0], ["#171a26", 55], ["#0e1017", 100]] },
+      { name: "Krem", angle: 150, stops: [["#fcf8f1", 0], ["#f3ead9", 55], ["#e7d9c3", 100]] },
+      { name: "Neon", angle: 135, stops: [["#0f2e2a", 0], ["#11475f", 52], ["#3a1a5e", 100]] }
+    ];
+    var SOLID_PRESETS = ["#f4f6fa", "#0f1117", "#00bfa5", "#5b5bd6", "#f6d365", "#f2b8c6"];
+    var currentBg = {
+      kind: "gradient",
+      angle: 160,
+      stops: [["#f9fbfd", 0], ["#eef2f9", 55], ["#e6ebf4", 100]],
+      selected: "Aurora"
+    };
+    var customImageBg = null;
+    var bgImageEl = null;
+    var bgFit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+
+    function bgCss(bg) {
+      if (bg.kind === "image") return 'url("' + bg.src + '") center / cover no-repeat';
+      if (bg.stops.length === 1) return bg.stops[0][0];
+      return "linear-gradient(" + bg.angle + "deg, " + bg.stops.map(function (s) { return s[0] + " " + s[1] + "%"; }).join(", ") + ")";
+    }
+
+    function colorLum(hex) {
+      var h = hex.replace("#", "");
+      if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+      var r = parseInt(h.slice(0, 2), 16) / 255;
+      var g = parseInt(h.slice(2, 4), 16) / 255;
+      var b = parseInt(h.slice(4, 6), 16) / 255;
+      return 0.299 * r + 0.587 * g + 0.114 * b;
+    }
+
+    function cssColorLum(css) {
+      if (!css) return 0.5;
+      var m = css.match(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/);
+      if (m) return (0.299 * m[1] + 0.587 * m[2] + 0.114 * m[3]) / 255;
+      if (css.charAt(0) === "#") {
+        try { return colorLum(css); } catch (e) { return 0.5; }
+      }
+      return 0.5;
+    }
+
+    var FONTS = {
+      segoe: { family: '"Segoe UI", system-ui, sans-serif' },
+      serif: { family: 'Georgia, "Times New Roman", serif' },
+      mono: { family: 'Consolas, "Courier New", monospace' },
+      impact: { family: 'Impact, "Arial Black", sans-serif' },
+      trebuchet: { family: '"Trebuchet MS", Verdana, sans-serif' },
+      comic: { family: '"Comic Sans MS", "Segoe Print", cursive' },
+      pixel: { family: '"Press Start 2P", monospace', pixel: true }
+    };
+    var heroType = {
+      headline: { font: "segoe", effect: "none", size: 116 },
+      kicker: { font: "segoe", effect: "none", size: 26 }
+    };
+
+    function styleText(el, cfg) {
+      if (!el) return;
+      var f = FONTS[cfg.font] || FONTS.segoe;
+      el.style.fontFamily = f.family;
+      el.classList.toggle("pixel-font", !!f.pixel);
+      if (cfg.size) el.style.fontSize = cfg.size + "px";
+      else el.style.fontSize = "";
+      if (f.pixel) {
+        el.style.fontWeight = "400";
+        el.style.letterSpacing = "0";
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load('400 16px "Press Start 2P"').catch(function () {});
+        }
+      } else {
+        el.style.fontWeight = "";
+        el.style.letterSpacing = "";
+      }
+      el.dataset.effect = cfg.effect || "none";
+      el.style.webkitTextStroke = "";
+      el.style.textShadow = "";
+      var fs = px(getComputedStyle(el).fontSize);
+      var s = Math.min(1, Math.max(0.2, fs / 116));
+      if (cfg.effect === "shadow") {
+        el.style.textShadow = "0 " + (12 * s).toFixed(1) + "px " + (30 * s).toFixed(1) + "px rgba(0,0,0,0.35)";
+      } else if (cfg.effect === "hard") {
+        el.style.textShadow = (6 * s).toFixed(1) + "px " + (6 * s).toFixed(1) + "px 0 rgba(0,0,0,0.30)";
+      } else if (cfg.effect === "3d") {
+        var parts = [];
+        for (var i = 1; i <= 8; i++) {
+          var a = Math.max(0.05, 0.32 - i * 0.03).toFixed(2);
+          parts.push((i * s).toFixed(1) + "px " + (i * s).toFixed(1) + "px 0 rgba(0,0,0," + a + ")");
+        }
+        el.style.textShadow = parts.join(", ");
+      } else if (cfg.effect === "neon") {
+        el.style.textShadow = "0 0 " + (8 * s).toFixed(1) + "px currentColor, 0 0 " + (24 * s).toFixed(1) + "px currentColor, 0 0 " + (48 * s).toFixed(1) + "px currentColor";
+      } else if (cfg.effect === "outline") {
+        var lum = cssColorLum(getComputedStyle(el).color);
+        var sw = el.classList.contains("headline") ? 2 : 1.2;
+        el.style.webkitTextStroke = sw + "px " + (lum > 0.55 ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.8)");
+      }
+    }
+
+    function applyHeroType() {
+      styleText(document.querySelector(".headline"), heroType.headline);
+      styleText(document.querySelector(".kicker"), heroType.kicker);
+    }
+
+    function bgIsDark(bg) {
+      if (bg.kind === "image" && bgImageEl && bgImageEl.naturalWidth) {
+        try {
+          var c = document.createElement("canvas");
+          c.width = 16;
+          c.height = 16;
+          var x = c.getContext("2d");
+          var sc = Math.max(16 / bgImageEl.naturalWidth, 16 / bgImageEl.naturalHeight);
+          var dw = bgImageEl.naturalWidth * sc;
+          var dh = bgImageEl.naturalHeight * sc;
+          x.drawImage(bgImageEl, (16 - dw) / 2, (16 - dh) / 2, dw, dh);
+          var d = x.getImageData(0, 0, 16, 16).data;
+          var sum = 0;
+          for (var i = 0; i < d.length; i += 4) {
+            sum += (0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2]) / 255;
+          }
+          return sum / (d.length / 4) < 0.5;
+        } catch (e) {
+          return false;
+        }
+      }
+      if (bg.stops) {
+        var total = 0;
+        bg.stops.forEach(function (s) { total += colorLum(s[0]); });
+        return total / bg.stops.length < 0.5;
+      }
+      return false;
+    }
+
+    var textColors = { headline: null, kicker: null };
+
+    function applyTextColors() {
+      var dark = bgIsDark(currentBg);
+      var autoHeadline = dark ? "#f4f7ff" : "#12203c";
+      var autoKicker = dark ? "#b7c2e2" : "#6b7fa3";
+      document.querySelector(".headline").style.color = textColors.headline || autoHeadline;
+      document.querySelector(".kicker").style.color = textColors.kicker || autoKicker;
+      document.getElementById("colorHeadline").value = textColors.headline || autoHeadline;
+      document.getElementById("colorKicker").value = textColors.kicker || autoKicker;
+      var hh = document.getElementById("hexHeadline");
+      var hk = document.getElementById("hexKicker");
+      if (document.activeElement !== hh) hh.value = textColors.headline || autoHeadline;
+      if (document.activeElement !== hk) hk.value = textColors.kicker || autoKicker;
+      if (mirrorEnabled) {
+        var cm = document.querySelector(".copy-mirror");
+        if (cm) cm.style.backgroundImage = 'url("' + copyMirrorURL() + '")';
+      }
+    }
+
+    function applyBackground() {
+      var css = bgCss(currentBg);
+      document.querySelectorAll(".preview").forEach(function (el) { el.style.background = css; });
+      var stage = document.getElementById("heroStage");
+      if (currentBg.kind === "image") {
+        stage.style.background = "#e9eef6";
+      } else {
+        stage.style.background = css;
+      }
+      var wrap = document.getElementById("stageWrap");
+      if (wrap) wrap.classList.toggle("bg-editable", currentBg.kind === "image");
+      layoutStageBg();
+      applyTextColors();
+    }
+
+    function layoutStageBg() {
+      var stage = document.getElementById("heroStage");
+      var layer = document.getElementById("stageBgLayer");
+      if (!stage || !layer) return;
+      if (currentBg.kind !== "image" || !bgImageEl || !bgImageEl.naturalWidth) {
+        layer.style.display = "none";
+        return;
+      }
+      var W = stage.clientWidth;
+      var H = stage.clientHeight;
+      if (!W || !H) return;
+      var rot = ((bgFit.rotate || 0) % 360 + 360) % 360;
+      var swap = rot === 90 || rot === 270;
+      var natW = swap ? bgImageEl.naturalHeight : bgImageEl.naturalWidth;
+      var natH = swap ? bgImageEl.naturalWidth : bgImageEl.naturalHeight;
+      var base = Math.max(W / natW, H / natH);
+      var dispW = bgImageEl.naturalWidth * base * bgFit.zoom;
+      var dispH = bgImageEl.naturalHeight * base * bgFit.zoom;
+      var visW = swap ? dispH : dispW;
+      var visH = swap ? dispW : dispH;
+      var mx = Math.max(0, (visW - W) / 2);
+      var my = Math.max(0, (visH - H) / 2);
+      bgFit.tx = Math.max(-mx, Math.min(mx, bgFit.tx));
+      bgFit.ty = Math.max(-my, Math.min(my, bgFit.ty));
+      layer.style.display = "block";
+      layer.style.backgroundImage = 'url("' + currentBg.src + '")';
+      layer.style.left = ((W - dispW) / 2 + bgFit.tx) + "px";
+      layer.style.top = ((H - dispH) / 2 + bgFit.ty) + "px";
+      layer.style.width = dispW + "px";
+      layer.style.height = dispH + "px";
+      layer.style.transformOrigin = "center center";
+      layer.style.transform = "rotate(" + rot + "deg) scaleX(" + (bgFit.flipX ? -1 : 1) + ") scaleY(" + (bgFit.flipY ? -1 : 1) + ")";
+    }
+
+    var FRAME_PRESETS = ["#0e1014", "#3b3f47", "#c7ccd6", "#c9a86a", "#1e2a4a", "#4a1f2b", "#e9edf3", "#1d3a2f"];
+    var DEFAULT_FRAME = "#0e1014";
+    var currentFrame = null;
+
+    function shade(hex, amt) {
+      var h = hex.replace("#", "");
+      var r = parseInt(h.slice(0, 2), 16);
+      var g = parseInt(h.slice(2, 4), 16);
+      var b = parseInt(h.slice(4, 6), 16);
+      function adj(v) {
+        if (amt >= 0) return Math.round(v + (255 - v) * amt);
+        return Math.round(v * (1 + amt));
+      }
+      return "#" + [adj(r), adj(g), adj(b)].map(function (v) {
+        return ("0" + Math.max(0, Math.min(255, v)).toString(16)).slice(-2);
+      }).join("");
+    }
+
+    function frameGradient(color) {
+      return "linear-gradient(145deg, " + shade(color, 0.22) + " 0%, " + shade(color, -0.58) + " 42%, " + shade(color, -0.38) + " 72%, " + shade(color, 0.10) + " 100%)";
+    }
+
+    function applyFrame(color) {
+      currentFrame = color || null;
+      var grad = color ? frameGradient(color) : "";
+      document.querySelectorAll(".phone").forEach(function (p) { p.style.background = grad; });
+      document.querySelectorAll(".phone .btn").forEach(function (b) { b.style.background = grad; });
+      document.querySelectorAll(".phone1 .screen").forEach(function (s) {
+        s.style.borderColor = color ? shade(color, -0.32) : "";
+      });
+      renderFrameSwatches();
+      document.getElementById("frameColor").value = color || DEFAULT_FRAME;
+      var hf = document.getElementById("hexFrame");
+      if (document.activeElement !== hf) hf.value = color || DEFAULT_FRAME;
+    }
+
+    function renderFrameSwatches() {
+      var row = document.getElementById("frameRow");
+      row.innerHTML = "";
+      FRAME_PRESETS.forEach(function (color) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "swatch" + (currentFrame && currentFrame.toLowerCase() === color.toLowerCase() ? " selected" : "");
+        b.title = color;
+        b.style.background = color;
+        b.addEventListener("click", function () {
+          applyFrame(color);
+          document.getElementById("frameColor").value = color;
+        });
+        row.appendChild(b);
+      });
+    }
+
+    function drawBg(ctx, W, H, useFit) {
+      if (currentBg.kind === "image" && bgImageEl && bgImageEl.naturalWidth) {
+        var fit = useFit ? bgFit : { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+        var rot = ((fit.rotate || 0) % 360 + 360) % 360;
+        var swap = rot === 90 || rot === 270;
+        var natW = swap ? bgImageEl.naturalHeight : bgImageEl.naturalWidth;
+        var natH = swap ? bgImageEl.naturalWidth : bgImageEl.naturalHeight;
+        var base = Math.max(W / natW, H / natH);
+        var dw = bgImageEl.naturalWidth * base * fit.zoom;
+        var dh = bgImageEl.naturalHeight * base * fit.zoom;
+        ctx.save();
+        ctx.translate(W / 2 + fit.tx, H / 2 + fit.ty);
+        ctx.rotate(rot * Math.PI / 180);
+        ctx.scale(fit.flipX ? -1 : 1, fit.flipY ? -1 : 1);
+        ctx.drawImage(bgImageEl, -dw / 2, -dh / 2, dw, dh);
+        ctx.restore();
+        return;
+      }
+      if (currentBg.stops.length === 1) {
+        ctx.fillStyle = currentBg.stops[0][0];
+        ctx.fillRect(0, 0, W, H);
+        return;
+      }
+      var g = gradientLine(ctx, currentBg.angle, 0, 0, W, H);
+      currentBg.stops.forEach(function (s) { g.addColorStop(s[1] / 100, s[0]); });
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    function applySolidBg(color) {
+      currentBg = { kind: "gradient", angle: 0, stops: [[color, 0]], selected: "solid:" + color };
+      applyBackground();
+      renderSwatches();
+      document.getElementById("bgColorPick").value = color;
+      var hb = document.getElementById("hexBg");
+      if (document.activeElement !== hb) hb.value = color;
+    }
+
+    var gradStops = ["#f9fbfd", "#bfb0ee"];
+
+    function currentCustomAngle() {
+      var v = parseInt(document.getElementById("gradAngle").value, 10);
+      if (isNaN(v)) v = 150;
+      return ((v % 360) + 360) % 360;
+    }
+
+    function currentCustomGradientCss() {
+      var n = gradStops.length;
+      return "linear-gradient(" + currentCustomAngle() + "deg, " + gradStops.map(function (c, i) {
+        return c + " " + Math.round((i / (n - 1)) * 100) + "%";
+      }).join(", ") + ")";
+    }
+
+    function renderGradStops() {
+      var box = document.getElementById("gradStops");
+      box.innerHTML = "";
+      gradStops.forEach(function (color, idx) {
+        var row = document.createElement("div");
+        row.className = "stop-row";
+
+        var pick = document.createElement("input");
+        pick.type = "color";
+        pick.value = color;
+        var hex = document.createElement("input");
+        hex.type = "text";
+        hex.className = "hex-input";
+        hex.maxLength = 7;
+        hex.value = color;
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "reset-btn";
+        rm.textContent = "Kaldir";
+        rm.disabled = gradStops.length <= 2;
+
+        pick.addEventListener("input", function () {
+          gradStops[idx] = this.value;
+          hex.value = this.value;
+          applyCustomGradient();
+        });
+        hex.addEventListener("input", function () {
+          var v = normalizeHex(this.value);
+          if (v) {
+            gradStops[idx] = v;
+            pick.value = v;
+            applyCustomGradient();
+          }
+        });
+        rm.addEventListener("click", function () {
+          if (gradStops.length <= 2) return;
+          gradStops.splice(idx, 1);
+          renderGradStops();
+          applyCustomGradient();
+        });
+
+        row.appendChild(pick);
+        row.appendChild(hex);
+        row.appendChild(rm);
+        box.appendChild(row);
+      });
+    }
+
+    function applyCustomGradient() {
+      var n = gradStops.length;
+      var stops = gradStops.map(function (c, i) { return [c, Math.round((i / (n - 1)) * 100)]; });
+      currentBg = { kind: "gradient", angle: currentCustomAngle(), stops: stops, selected: "custom-gradient" };
+      applyBackground();
+      renderSwatches();
+    }
+
+    function renderSwatches() {
+      var gradRow = document.getElementById("gradientRow");
+      var solidRow = document.getElementById("solidRow");
+      gradRow.innerHTML = "";
+      solidRow.innerHTML = "";
+
+      BG_PRESETS.forEach(function (p) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "swatch" + (currentBg.selected === p.name ? " selected" : "");
+        b.title = p.name;
+        b.style.background = "linear-gradient(" + currentCustomAngle() + "deg, " + p.stops.map(function (s) { return s[0] + " " + s[1] + "%"; }).join(", ") + ")";
+        b.addEventListener("click", function () {
+          currentBg = {
+            kind: "gradient",
+            angle: currentCustomAngle(),
+            stops: p.stops.map(function (s) { return [s[0], s[1]]; }),
+            selected: p.name
+          };
+          applyBackground();
+          renderSwatches();
+        });
+        gradRow.appendChild(b);
+      });
+
+      var customGrad = document.createElement("button");
+      customGrad.type = "button";
+      customGrad.className = "swatch" + (currentBg.selected === "custom-gradient" ? " selected" : "");
+      customGrad.title = "Ozel gradyan";
+      customGrad.style.background = currentCustomGradientCss();
+      customGrad.addEventListener("click", applyCustomGradient);
+      gradRow.appendChild(customGrad);
+
+      SOLID_PRESETS.forEach(function (color) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "swatch" + (currentBg.selected === "solid:" + color ? " selected" : "");
+        b.title = color;
+        b.style.background = color;
+        b.addEventListener("click", function () {
+          applySolidBg(color);
+        });
+        solidRow.appendChild(b);
+      });
+
+      document.getElementById("bgCustomSwatch").classList.toggle("selected", currentBg.selected === "custom");
+    }
+
+    function drawBox(ctx, el, sRect, factor) {
+      var r = el.getBoundingClientRect();
+      var cs = getComputedStyle(el);
+      var x = (r.left - sRect.left) * factor;
+      var y = (r.top - sRect.top) * factor;
+      var w = r.width * factor;
+      var h = r.height * factor;
+      roundRect(ctx, x, y, w, h, px(cs.borderTopLeftRadius));
+      ctx.fillStyle = cs.backgroundColor;
+      ctx.fill();
+    }
+
+    function drawText(ctx, el, sRect, factor) {
+      var r = el.getBoundingClientRect();
+      var cs = getComputedStyle(el);
+      var x = (r.left - sRect.left) * factor;
+      var y = (r.top - sRect.top) * factor;
+      var lh = px(cs.lineHeight);
+      if (!lh) lh = px(cs.fontSize) * 1.2;
+      ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+      ctx.fillStyle = cs.color;
+      ctx.textBaseline = "middle";
+      if (cs.letterSpacing && cs.letterSpacing !== "normal") ctx.letterSpacing = cs.letterSpacing;
+      var text = el.innerText.replace(/\s+$/, "");
+      if (!text) { ctx.letterSpacing = "0px"; return; }
+      var effect = el.dataset.effect || "none";
+      var fs = px(cs.fontSize);
+      var s = Math.min(1, Math.max(0.2, fs / 116));
+      var maxW = r.width * factor + 2;
+      var visualLines = [];
+      text.split("\n").forEach(function (line) {
+        var words = line.split(" ");
+        var cur = "";
+        words.forEach(function (word) {
+          var test = cur ? cur + " " + word : word;
+          if (!cur || ctx.measureText(test).width <= maxW) {
+            cur = test;
+          } else {
+            visualLines.push(cur);
+            cur = word;
+          }
+        });
+        visualLines.push(cur);
+      });
+      visualLines.forEach(function (line, i) {
+        var ly = y + lh * i + lh / 2;
+        if (effect === "hard") {
+          ctx.save();
+          ctx.fillStyle = "rgba(0,0,0,0.30)";
+          ctx.fillText(line, x + 6 * s, ly + 6 * s);
+          ctx.restore();
+        } else if (effect === "3d") {
+          for (var d = 8; d >= 1; d--) {
+            ctx.save();
+            ctx.fillStyle = "rgba(0,0,0," + Math.max(0.05, 0.32 - d * 0.03).toFixed(2) + ")";
+            ctx.fillText(line, x + d * s, ly + d * s);
+            ctx.restore();
+          }
+        } else if (effect === "outline") {
+          var lum = cssColorLum(cs.color);
+          ctx.save();
+          ctx.strokeStyle = lum > 0.55 ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.8)";
+          ctx.lineWidth = el.classList.contains("headline") ? 2 : 1.2;
+          ctx.lineJoin = "round";
+          ctx.strokeText(line, x, ly);
+          ctx.restore();
+        } else if (effect === "shadow") {
+          ctx.save();
+          ctx.shadowColor = "rgba(0,0,0,0.35)";
+          ctx.shadowBlur = 30 * s;
+          ctx.shadowOffsetY = 12 * s;
+          ctx.fillText(line, x, ly);
+          ctx.restore();
+          return;
+        } else if (effect === "neon") {
+          ctx.save();
+          ctx.shadowColor = cs.color;
+          ctx.shadowBlur = 48 * s;
+          ctx.fillText(line, x, ly);
+          ctx.fillText(line, x, ly);
+          ctx.restore();
+          return;
+        }
+        ctx.fillText(line, x, ly);
+      });
+      ctx.letterSpacing = "0px";
+    }
+
+    async function exportMockup(phone) {
+      var img = phone.querySelector(".screen img");
+      await ensureLoaded(img);
+
+      var canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1920;
+      var ctx = canvas.getContext("2d");
+      drawBg(ctx, 1080, 1920, false);
+
+      var pRect = phone.getBoundingClientRect();
+      var destW = 720;
+      var destH = pRect.height * (destW / pRect.width);
+      drawPhone(ctx, phone, (1080 - destW) / 2, (1920 - destH) / 2, destW);
+
+      downloadCanvas(canvas, phone.getAttribute("data-model") + ".png");
+    }
+
+    var MODELS = [
+      { key: "phone1", name: "1" },
+      { key: "phone2", name: "2" },
+      { key: "phone3", name: "3" },
+      { key: "phone4", name: "4" }
+    ];
+    var current = 0;
+
+    function activePhone() {
+      return document.querySelector("#heroStage .phone.active");
+    }
+
+    function setActiveImage(src) {
+      document.querySelectorAll("#heroStage .screen img").forEach(function (img) {
+        var screen = img.closest(".screen");
+        if (screen) screen.dataset.placeholder = "0";
+        img.src = src;
+      });
+    }
+
+    function fitStage() {
+      var scale = Math.min(1, (window.innerWidth - 96) / 1600, (window.innerHeight - 340) / 1080);
+      document.getElementById("stageWrap").style.zoom = scale;
+    }
+
+    function layoutScreenImage(screen) {
+      var img = screen.querySelector("img");
+      if (!img || !img.naturalWidth) return;
+      var sw = screen.clientWidth;
+      var sh = screen.clientHeight;
+      if (!sw || !sh) return;
+      var fit = screen._fit || (screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false });
+      var rot = ((fit.rotate || 0) % 360 + 360) % 360;
+      var swap = rot === 90 || rot === 270;
+      var natW = swap ? img.naturalHeight : img.naturalWidth;
+      var natH = swap ? img.naturalWidth : img.naturalHeight;
+      var base = Math.max(sw / natW, sh / natH);
+      var dispW = img.naturalWidth * base * fit.zoom;
+      var dispH = img.naturalHeight * base * fit.zoom;
+      var visW = swap ? dispH : dispW;
+      var visH = swap ? dispW : dispH;
+      var mx = Math.max(0, (visW - sw) / 2);
+      var my = Math.max(0, (visH - sh) / 2);
+      fit.tx = Math.max(-mx, Math.min(mx, fit.tx));
+      fit.ty = Math.max(-my, Math.min(my, fit.ty));
+      img.style.position = "absolute";
+      img.style.left = ((sw - dispW) / 2 + fit.tx) + "px";
+      img.style.top = ((sh - dispH) / 2 + fit.ty) + "px";
+      img.style.width = dispW + "px";
+      img.style.height = dispH + "px";
+      img.style.objectFit = "fill";
+      img.style.transformOrigin = "center center";
+      img.style.transform = "rotate(" + rot + "deg) scaleX(" + (fit.flipX ? -1 : 1) + ") scaleY(" + (fit.flipY ? -1 : 1) + ")";
+      screen.classList.toggle("has-image", screen.dataset.placeholder !== "1");
+    }
+
+    function relayoutScreens() {
+      document.querySelectorAll(".screen").forEach(function (screen) {
+        var img = screen.querySelector("img");
+        if (img && img.naturalWidth) layoutScreenImage(screen);
+      });
+    }
+
+    function setupScreenInteractions(screen) {
+      var img = screen.querySelector("img");
+      screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+      screen.dataset.placeholder = "1";
+
+      img.addEventListener("load", function () {
+        screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+        layoutScreenImage(screen);
+      });
+
+      var ICONS = TOOL_ICONS;
+
+      var tools = document.createElement("div");
+      tools.className = "fit-tools";
+      tools.addEventListener("mousedown", function (e) { e.stopPropagation(); });
+      tools.addEventListener("click", function (e) { e.stopPropagation(); });
+
+      function toolButton(title, icon, action) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tool-btn";
+        b.title = title;
+        b.innerHTML = icon;
+        b.addEventListener("click", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          action();
+          layoutScreenImage(screen);
+        });
+        return b;
+      }
+
+      tools.appendChild(toolButton("Sola döndür", ICONS.rotL, function () {
+        screen._fit.rotate = ((screen._fit.rotate || 0) + 270) % 360;
+      }));
+      tools.appendChild(toolButton("Sağa döndür", ICONS.rotR, function () {
+        screen._fit.rotate = ((screen._fit.rotate || 0) + 90) % 360;
+      }));
+      tools.appendChild(toolButton("Yatay aynala", ICONS.flipH, function () {
+        screen._fit.flipX = !screen._fit.flipX;
+      }));
+      tools.appendChild(toolButton("Dikey aynala", ICONS.flipV, function () {
+        screen._fit.flipY = !screen._fit.flipY;
+      }));
+      tools.appendChild(toolButton("Küçült", ICONS.zoomOut, function () {
+        screen._fit.zoom = Math.max(1, screen._fit.zoom / 1.15);
+      }));
+      tools.appendChild(toolButton("Büyüt", ICONS.zoomIn, function () {
+        screen._fit.zoom = Math.min(4, screen._fit.zoom * 1.15);
+      }));
+      tools.appendChild(toolButton("Sıfırla", ICONS.reset, function () {
+        screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+      }));
+      screen.appendChild(tools);
+
+      var drag = null;
+
+      screen.addEventListener("mousedown", function (e) {
+        if (screen.dataset.placeholder === "1" || e.button !== 0) return;
+        drag = {
+          startX: e.clientX,
+          startY: e.clientY,
+          tx: screen._fit.tx,
+          ty: screen._fit.ty,
+          moved: false
+        };
+        e.preventDefault();
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        if (!drag) return;
+        var dx = e.clientX - drag.startX;
+        var dy = e.clientY - drag.startY;
+        if (!drag.moved && Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
+        if (!drag.moved) return;
+        var rect = screen.getBoundingClientRect();
+        var visual = rect.width / (screen.offsetWidth || rect.width);
+        screen._fit.tx = drag.tx + dx / visual;
+        screen._fit.ty = drag.ty + dy / visual;
+        layoutScreenImage(screen);
+      });
+
+      window.addEventListener("mouseup", function () {
+        if (!drag) return;
+        var moved = drag.moved;
+        drag = null;
+        if (moved) {
+          screen._suppress = true;
+          setTimeout(function () { screen._suppress = false; }, 250);
+        }
+      });
+
+      screen.addEventListener("click", function (e) {
+        if (screen._suppress) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      }, true);
+
+      screen.addEventListener("wheel", function (e) {
+        if (screen.dataset.placeholder === "1") return;
+        e.preventDefault();
+        e.stopPropagation();
+        var fit = screen._fit;
+        fit.zoom = Math.max(1, Math.min(4, fit.zoom * (e.deltaY < 0 ? 1.1 : 0.9)));
+        layoutScreenImage(screen);
+      }, { passive: false });
+    }
+
+    function setupBgTools() {
+      var tools = document.getElementById("bgTools");
+      var stage = document.getElementById("heroStage");
+      if (!tools || !stage) return;
+
+      function btn(title, icon, action) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tool-btn";
+        b.title = title;
+        b.innerHTML = icon;
+        b.addEventListener("click", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          action();
+          layoutStageBg();
+        });
+        return b;
+      }
+
+      tools.appendChild(btn("Sola döndür", TOOL_ICONS.rotL, function () {
+        bgFit.rotate = ((bgFit.rotate || 0) + 270) % 360;
+      }));
+      tools.appendChild(btn("Sağa döndür", TOOL_ICONS.rotR, function () {
+        bgFit.rotate = ((bgFit.rotate || 0) + 90) % 360;
+      }));
+      tools.appendChild(btn("Yatay aynala", TOOL_ICONS.flipH, function () {
+        bgFit.flipX = !bgFit.flipX;
+      }));
+      tools.appendChild(btn("Dikey aynala", TOOL_ICONS.flipV, function () {
+        bgFit.flipY = !bgFit.flipY;
+      }));
+      tools.appendChild(btn("Küçült", TOOL_ICONS.zoomOut, function () {
+        bgFit.zoom = Math.max(1, bgFit.zoom / 1.15);
+      }));
+      tools.appendChild(btn("Büyüt", TOOL_ICONS.zoomIn, function () {
+        bgFit.zoom = Math.min(4, bgFit.zoom * 1.15);
+      }));
+      tools.appendChild(btn("Sıfırla", TOOL_ICONS.reset, function () {
+        bgFit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+      }));
+
+      var drag = null;
+
+      stage.addEventListener("mousedown", function (e) {
+        if (currentBg.kind !== "image" || e.button !== 0) return;
+        if (e.target.closest(".phone") || e.target.closest(".hero-copy") || e.target.closest(".bg-tools")) return;
+        drag = { x: e.clientX, y: e.clientY, tx: bgFit.tx, ty: bgFit.ty, moved: false };
+        e.preventDefault();
+      });
+
+      window.addEventListener("mousemove", function (e) {
+        if (!drag) return;
+        var dx = e.clientX - drag.x;
+        var dy = e.clientY - drag.y;
+        if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
+        if (!drag.moved) return;
+        var wrap = document.getElementById("stageWrap");
+        var scale = wrap.getBoundingClientRect().width / 1600 || 1;
+        bgFit.tx = drag.tx + dx / scale;
+        bgFit.ty = drag.ty + dy / scale;
+        layoutStageBg();
+      });
+
+      window.addEventListener("mouseup", function () { drag = null; });
+
+      stage.addEventListener("wheel", function (e) {
+        if (currentBg.kind !== "image") return;
+        if (e.target.closest(".phone") || e.target.closest(".hero-copy") || e.target.closest(".bg-tools")) return;
+        e.preventDefault();
+        bgFit.zoom = Math.max(1, Math.min(4, bgFit.zoom * (e.deltaY < 0 ? 1.1 : 0.9)));
+        layoutStageBg();
+      }, { passive: false });
+    }
+
+    function mirroredFadeCanvas(src) {
+      var W = src.width;
+      var H = src.height;
+      var rc = document.createElement("canvas");
+      rc.width = W;
+      rc.height = H;
+      var x = rc.getContext("2d");
+      x.translate(0, H);
+      x.scale(1, -1);
+      x.drawImage(src, 0, 0);
+      x.setTransform(1, 0, 0, 1, 0, 0);
+      x.globalCompositeOperation = "destination-in";
+      var g = x.createLinearGradient(0, 0, 0, H);
+      g.addColorStop(0, "rgba(0,0,0,0.50)");
+      g.addColorStop(0.45, "rgba(0,0,0,0.14)");
+      g.addColorStop(0.70, "rgba(0,0,0,0)");
+      x.fillStyle = g;
+      x.fillRect(0, 0, W, H);
+      return rc;
+    }
+
+    function phoneMirrorURL(phone) {
+      var pRect = phone.getBoundingClientRect();
+      var W = 560;
+      var H = Math.max(1, Math.round(W * pRect.height / pRect.width));
+      var oc = document.createElement("canvas");
+      oc.width = W;
+      oc.height = H;
+      drawPhone(oc.getContext("2d"), phone, 0, 0, W, true);
+      return mirroredFadeCanvas(oc).toDataURL("image/png");
+    }
+
+    function copyMirrorURL() {
+      var copy = document.querySelector(".hero-copy");
+      var r = copy.getBoundingClientRect();
+      var W = Math.max(1, Math.round(r.width));
+      var H = Math.max(1, Math.round(r.height));
+      var oc = document.createElement("canvas");
+      oc.width = W;
+      oc.height = H;
+      var ctx = oc.getContext("2d");
+      drawText(ctx, copy.querySelector(".kicker"), r, 1);
+      drawText(ctx, copy.querySelector(".headline"), r, 1);
+      return mirroredFadeCanvas(oc).toDataURL("image/png");
+    }
+
+    function alignCopy() {
+      var copy = document.querySelector(".hero-copy");
+      copy.style.transform = "";
+      if (!mirrorEnabled) return;
+      var stage = document.getElementById("heroStage");
+      var phone = activePhone();
+      var s = stage.getBoundingClientRect();
+      if (!s.width) return;
+      var p = phone.getBoundingClientRect();
+      var c = copy.getBoundingClientRect();
+      var zoom = s.width / 1600;
+      var delta = (p.bottom - c.bottom) / zoom;
+      copy.style.transform = "translateY(" + delta + "px)";
+    }
+
+    function refreshMirrors() {
+      if (!mirrorEnabled) return;
+      var stage = document.getElementById("heroStage");
+      if (stage.getBoundingClientRect().width < 10) return;
+      var phone = activePhone();
+      var layer = phone.querySelector(".phone-mirror");
+      if (layer) layer.style.backgroundImage = 'url("' + phoneMirrorURL(phone) + '")';
+      var copy = document.querySelector(".hero-copy");
+      var cl = copy.querySelector(".copy-mirror");
+      if (cl) cl.style.backgroundImage = 'url("' + copyMirrorURL() + '")';
+      alignCopy();
+    }
+
+    function drawPhoneMirrored(ctx, phone, offX, offY, destW) {
+      drawPhone(ctx, phone, offX, offY, destW);
+
+      var pRect = phone.getBoundingClientRect();
+      var h = pRect.height * (destW / pRect.width);
+      var oc = document.createElement("canvas");
+      oc.width = Math.max(1, Math.round(destW));
+      oc.height = Math.max(1, Math.round(h));
+      drawPhone(oc.getContext("2d"), phone, 0, 0, destW, true);
+      var rc = mirroredFadeCanvas(oc);
+      ctx.drawImage(rc, offX, offY + h + 14);
+    }
+
+    var mirrorEnabled = false;
+
+    async function exportHero() {
+      var stage = document.getElementById("heroStage");
+      var phone = activePhone();
+      await ensureLoaded(phone.querySelector(".screen img"));
+      if (document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch (e) {}
+      }
+
+      var canvas = document.createElement("canvas");
+      canvas.width = 1600;
+      canvas.height = 1000;
+      var ctx = canvas.getContext("2d");
+      drawBg(ctx, 1600, 1000, true);
+
+      var sRect = stage.getBoundingClientRect();
+      var factor = 1600 / sRect.width;
+
+      var pRect = phone.getBoundingClientRect();
+      var px0 = (pRect.left - sRect.left) * factor;
+      var py0 = (pRect.top - sRect.top) * factor;
+      if (mirrorEnabled) {
+        drawPhoneMirrored(ctx, phone, px0, py0, pRect.width * factor);
+      } else {
+        drawPhone(ctx, phone, px0, py0, pRect.width * factor);
+      }
+
+      drawText(ctx, stage.querySelector(".kicker"), sRect, factor);
+      drawText(ctx, stage.querySelector(".headline"), sRect, factor);
+
+      if (mirrorEnabled) {
+        var copyEl = stage.querySelector(".hero-copy");
+        var cRect = copyEl.getBoundingClientRect();
+        var cx0 = (cRect.left - sRect.left) * factor;
+        var cy0 = (cRect.top - sRect.top) * factor;
+        var cw0 = Math.max(1, Math.round(cRect.width * factor));
+        var ch0 = Math.max(1, Math.round(cRect.height * factor));
+        var cm = document.createElement("canvas");
+        cm.width = cw0;
+        cm.height = ch0;
+        var cmx = cm.getContext("2d");
+        drawText(cmx, stage.querySelector(".kicker"), cRect, factor);
+        drawText(cmx, stage.querySelector(".headline"), cRect, factor);
+        ctx.drawImage(mirroredFadeCanvas(cm), cx0, cy0 + ch0 + 14);
+      }
+
+      downloadCanvas(canvas, "hero-" + MODELS[current].name + ".png");
+    }
+
+    document.querySelectorAll("#view-gallery .phone").forEach(function (phone) {
+      var img = phone.querySelector(".screen img");
+      var picker = phone.querySelector(".picker");
+      var figure = phone.closest(".device");
+
+      phone.addEventListener("click", function () { picker.click(); });
+      picker.addEventListener("change", function () { showFile(picker.files[0], img); });
+      phone.addEventListener("dragover", function (e) { e.preventDefault(); phone.classList.add("drag"); });
+      phone.addEventListener("dragleave", function () { phone.classList.remove("drag"); });
+      phone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        phone.classList.remove("drag");
+        showFile(e.dataTransfer.files[0], img);
+      });
+
+      figure.querySelector('[data-action="change"]').addEventListener("click", function () { picker.click(); });
+      figure.querySelector('[data-action="save"]').addEventListener("click", function () { exportMockup(phone); });
+    });
+
+    var globalPicker = document.getElementById("globalPicker");
+    document.getElementById("uploadAll").addEventListener("click", function () { globalPicker.click(); });
+    globalPicker.addEventListener("change", function () {
+      var file = globalPicker.files[0];
+      document.querySelectorAll(".screen img").forEach(function (img) { showFile(file, img); });
+      if (mirrorEnabled) setTimeout(refreshMirrors, 400);
+    });
+
+    var heroPicker = document.getElementById("heroPicker");
+
+    document.querySelectorAll("#heroStage .phone").forEach(function (phone) {
+      phone.addEventListener("click", function () { heroPicker.click(); });
+      phone.addEventListener("dragover", function (e) { e.preventDefault(); });
+      phone.addEventListener("drop", async function (e) {
+        e.preventDefault();
+        var file = e.dataTransfer.files[0];
+        if (!file || !file.type.startsWith("image/")) return;
+        setActiveImage(await readAsDataURL(file));
+        if (mirrorEnabled) {
+          await ensureLoaded(activePhone().querySelector(".screen img"));
+          refreshMirrors();
+        }
+      });
+    });
+
+    heroPicker.addEventListener("change", async function () {
+      var file = heroPicker.files[0];
+      if (!file || !file.type.startsWith("image/")) return;
+      setActiveImage(await readAsDataURL(file));
+      if (mirrorEnabled) {
+        await ensureLoaded(activePhone().querySelector(".screen img"));
+        refreshMirrors();
+      }
+    });
+
+    document.getElementById("btnUpload").addEventListener("click", function () { heroPicker.click(); });
+
+    document.getElementById("btnPhone").addEventListener("click", function () {
+      current = (current + 1) % MODELS.length;
+      document.querySelectorAll("#heroStage .phone").forEach(function (phone) {
+        phone.classList.toggle("active", phone.classList.contains(MODELS[current].key));
+      });
+      document.getElementById("deviceTag").textContent = MODELS[current].name;
+      layoutScreenImage(activePhone().querySelector(".screen"));
+      if (mirrorEnabled) refreshMirrors();
+    });
+
+    document.getElementById("btnSave").addEventListener("click", function () { exportHero(); });
+
+    document.querySelectorAll(".tab-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var view = btn.getAttribute("data-view");
+        document.body.classList.toggle("view-gallery", view === "gallery");
+        document.body.classList.toggle("view-hero", view === "hero");
+        document.querySelectorAll(".tab-btn").forEach(function (b) { b.classList.toggle("active", b === btn); });
+        if (view === "hero") {
+          fitStage();
+          relayoutScreens();
+          layoutStageBg();
+          if (mirrorEnabled) refreshMirrors();
+        } else {
+          relayoutScreens();
+        }
+      });
+    });
+
+    var bgToggle = document.getElementById("bgToggle");
+    var bgPanel = document.getElementById("bgPanel");
+    bgToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      bgPanel.classList.toggle("open");
+    });
+    document.addEventListener("click", function (e) {
+      if (!e.target.isConnected) return;
+      if (bgPanel.classList.contains("open") && !bgPanel.contains(e.target) && e.target !== bgToggle) {
+        bgPanel.classList.remove("open");
+      }
+    });
+
+    document.getElementById("bgImageBtn").addEventListener("click", function () {
+      document.getElementById("bgImageInput").click();
+    });
+    document.getElementById("bgImageInput").addEventListener("change", async function () {
+      var file = this.files[0];
+      if (!file || !file.type.startsWith("image/")) return;
+      var src = await readAsDataURL(file);
+      var im = new Image();
+      im.onload = function () {
+        bgImageEl = im;
+        bgFit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+        customImageBg = { kind: "image", src: src, selected: "custom" };
+        currentBg = customImageBg;
+        var sw = document.getElementById("bgCustomSwatch");
+        sw.hidden = false;
+        sw.style.background = 'url("' + src + '") center / cover no-repeat';
+        document.getElementById("bgImageName").textContent = file.name;
+        applyBackground();
+        renderSwatches();
+      };
+      im.src = src;
+    });
+    document.getElementById("bgCustomSwatch").addEventListener("click", function () {
+      if (!customImageBg) return;
+      currentBg = customImageBg;
+      applyBackground();
+      renderSwatches();
+    });
+
+    document.getElementById("colorHeadline").addEventListener("input", function () { textColors.headline = this.value; applyTextColors(); });
+    document.getElementById("colorKicker").addEventListener("input", function () { textColors.kicker = this.value; applyTextColors(); });
+    document.getElementById("hexHeadline").addEventListener("input", function () {
+      var v = normalizeHex(this.value);
+      if (v) { textColors.headline = v; applyTextColors(); }
+    });
+    document.getElementById("hexKicker").addEventListener("input", function () {
+      var v = normalizeHex(this.value);
+      if (v) { textColors.kicker = v; applyTextColors(); }
+    });
+    document.getElementById("bgColorPick").addEventListener("input", function () { applySolidBg(this.value); });
+    document.getElementById("hexBg").addEventListener("input", function () {
+      var v = normalizeHex(this.value);
+      if (v) applySolidBg(v);
+    });
+    document.getElementById("gradAdd").addEventListener("click", function () {
+      if (gradStops.length >= 5) return;
+      gradStops.push("#ffffff");
+      renderGradStops();
+      applyCustomGradient();
+    });
+    document.getElementById("gradApply").addEventListener("click", applyCustomGradient);
+    document.getElementById("gradAngle").addEventListener("input", function () {
+      var angle = currentCustomAngle();
+      if (currentBg.selected === "custom-gradient") {
+        applyCustomGradient();
+        return;
+      }
+      if (currentBg.kind === "gradient" && currentBg.stops && currentBg.stops.length > 1) {
+        currentBg.angle = angle;
+        applyBackground();
+      }
+      renderSwatches();
+    });
+
+    document.getElementById("headlineFont").addEventListener("change", function () {
+      heroType.headline.font = this.value;
+      if (this.value === "pixel") {
+        heroType.headline.size = 84;
+        document.getElementById("headlineSize").value = 84;
+      }
+      applyHeroType();
+    });
+    document.getElementById("headlineEffect").addEventListener("change", function () {
+      heroType.headline.effect = this.value;
+      applyHeroType();
+    });
+    document.getElementById("kickerFont").addEventListener("change", function () {
+      heroType.kicker.font = this.value;
+      if (this.value === "pixel") {
+        heroType.kicker.size = 18;
+        document.getElementById("kickerSize").value = 18;
+      }
+      applyHeroType();
+    });
+    document.getElementById("kickerEffect").addEventListener("change", function () {
+      heroType.kicker.effect = this.value;
+      applyHeroType();
+    });
+
+    document.getElementById("headlineSize").addEventListener("input", function () {
+      var v = parseInt(this.value, 10);
+      if (isNaN(v)) return;
+      heroType.headline.size = Math.max(24, Math.min(220, v));
+      applyHeroType();
+    });
+    document.getElementById("headlineSize").addEventListener("blur", function () {
+      this.value = heroType.headline.size;
+    });
+    document.getElementById("kickerSize").addEventListener("input", function () {
+      var v = parseInt(this.value, 10);
+      if (isNaN(v)) return;
+      heroType.kicker.size = Math.max(10, Math.min(80, v));
+      applyHeroType();
+    });
+    document.getElementById("kickerSize").addEventListener("blur", function () {
+      this.value = heroType.kicker.size;
+    });
+    document.querySelectorAll("[data-reset]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        textColors[btn.getAttribute("data-reset")] = null;
+        applyTextColors();
+      });
+    });
+
+    document.getElementById("mirrorToggle").addEventListener("change", function () {
+      mirrorEnabled = this.checked;
+      document.querySelectorAll("#heroStage .phone").forEach(function (p) {
+        p.classList.toggle("mirror", mirrorEnabled);
+      });
+      var copy = document.querySelector(".hero-copy");
+      copy.classList.toggle("mirror", mirrorEnabled);
+      if (mirrorEnabled) refreshMirrors();
+      else copy.style.transform = "";
+    });
+
+    document.querySelectorAll("#heroStage .kicker, #heroStage .headline").forEach(function (el) {
+      el.addEventListener("input", function () {
+        if (!mirrorEnabled) return;
+        var cl = document.querySelector(".hero-copy .copy-mirror");
+        if (cl) cl.style.backgroundImage = 'url("' + copyMirrorURL() + '")';
+      });
+    });
+
+    document.querySelectorAll(".hex-input").forEach(function (el) {
+      el.addEventListener("blur", function () {
+        var v = normalizeHex(this.value);
+        if (v) {
+          this.value = v;
+          return;
+        }
+        var pick = this.previousElementSibling;
+        if (pick && pick.type === "color") this.value = pick.value;
+      });
+    });
+
+    document.getElementById("frameColor").addEventListener("input", function () { applyFrame(this.value); });
+    document.getElementById("hexFrame").addEventListener("input", function () {
+      var v = normalizeHex(this.value);
+      if (v) applyFrame(v);
+    });
+    document.getElementById("frameReset").addEventListener("click", function () {
+      applyFrame(null);
+      document.getElementById("frameColor").value = DEFAULT_FRAME;
+    });
+
+    renderGradStops();
+    renderSwatches();
+    renderFrameSwatches();
+    applyBackground();
+    applyHeroType();
+    document.getElementById("frameColor").value = DEFAULT_FRAME;
+    document.getElementById("hexFrame").value = DEFAULT_FRAME;
+
+    window.addEventListener("resize", function () {
+      fitStage();
+      relayoutScreens();
+      layoutStageBg();
+      if (mirrorEnabled) refreshMirrors();
+    });
+    fitStage();
+
+    document.querySelectorAll(".screen").forEach(setupScreenInteractions);
+    setupBgTools();
+    document.querySelectorAll(".screen img").forEach(function (img) { img.src = PLACEHOLDER_SRC; });
+  </script>
+</body>
+</html>
