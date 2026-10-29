@@ -7,6 +7,7 @@ Tarayıcıda çalışan, kurulum gerektirmeyen mockup stüdyosu. Ekran görünt�
 ## Özellikler
 
 - 4 numaralı telefon çerçevesi (galeri) + hero şablonu
+- Sağdaki sabit ayar paneli ekrana göre değişir: galeride arka plan + çerçeve, hero'da ek olarak yazı renkleri ve yazı stili
 - Resim yükleme: telefona tıkla, sürükle-bırak veya "Tüm ekranlara resim yükle"
 - Görsel düzenleme: döndür, yatay/dikey aynala, yakınlaştır/uzaklaştır, sürükleyerek taşı, sıfırla
 - Arka plan: hazır gradyanlar (açı tümüne uygulanır), düz renkler, kendi çok renkli gradyanın (2–5 renk, açı), hex kodu, kendi arka plan resmin
