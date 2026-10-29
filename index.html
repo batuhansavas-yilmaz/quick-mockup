@@ -279,19 +279,17 @@
     box-shadow: inset 0 0 0 1px rgba(20, 30, 60, 0.05);
     overflow: hidden;
   }
-  .preview.style-reflect, .preview.style-studio { padding-bottom: 220px; }
-  .preview .phone { transform: scale(0.86); }
-  .preview .phone:hover { transform: scale(0.86) translateY(-4px); }
+  .preview.style-reflect, .preview.style-studio { padding-bottom: 120px; }
   .preview.style-tilt .phone,
-  .preview.style-tilt .phone:hover { transform: scale(0.86) rotate(-5deg) skewX(-3deg) scale(0.94); }
+  .preview.style-tilt .phone:hover { transform: rotate(-5deg) skewX(-3deg) scale(0.94); }
   .preview.style-studio .phone,
-  .preview.style-studio .phone:hover { transform: scale(0.86) rotate(-5deg) skewX(-3deg) scale(0.94); }
+  .preview.style-studio .phone:hover { transform: rotate(-5deg) skewX(-3deg) scale(0.94); }
   .gallery-reflection {
     position: absolute;
     left: 0;
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     width: 100%;
-    height: 140px;
+    height: 92px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     pointer-events: none;
@@ -303,7 +301,7 @@
     filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 42px rgba(255, 0, 200, 0.30));
   }
   .preview.style-dergi .phone,
-  .preview.style-dergi .phone:hover { transform: scale(0.86) rotate(-3deg) scale(0.94); }
+  .preview.style-dergi .phone:hover { transform: rotate(-3deg) scale(0.94); }
   #heroStage.style-neon .hero-phone-col .phone.active {
     filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 60px rgba(255, 0, 200, 0.30));
   }
