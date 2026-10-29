@@ -74,6 +74,7 @@
   .bg-panel > * { flex: 0 0 auto; }
   .bg-panel .hero-only { order: 2; margin-top: 3px; }
   body.view-gallery .bg-panel .hero-only { display: none; }
+  body.view-hero .bg-panel .gallery-only { display: none; }
   .view { margin-right: 440px; }
   .bg-section { margin-bottom: 14px; }
   .bg-section:last-child { margin-bottom: 0; }
@@ -276,9 +277,72 @@
     justify-content: center;
     background: linear-gradient(160deg, #f9fbfd 0%, #eef2f9 55%, #e6ebf4 100%);
     box-shadow: inset 0 0 0 1px rgba(20, 30, 60, 0.05);
+    overflow: hidden;
   }
+  .preview.style-reflect, .preview.style-studio { padding-bottom: 220px; }
+  .preview .phone { transform: scale(0.86); }
+  .preview .phone:hover { transform: scale(0.86) translateY(-4px); }
+  .preview.style-tilt .phone,
+  .preview.style-tilt .phone:hover { transform: scale(0.86) rotate(-5deg) skewX(-3deg) scale(0.94); }
+  .preview.style-studio .phone,
+  .preview.style-studio .phone:hover { transform: scale(0.86) rotate(-5deg) skewX(-3deg) scale(0.94); }
+  .gallery-reflection {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    width: 100%;
+    height: 140px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    display: none;
+    opacity: 0.9;
+  }
+  .preview.style-neon .phone,
+  .preview.style-neon .phone:hover {
+    filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 42px rgba(255, 0, 200, 0.30));
+  }
+  .preview.style-dergi .phone,
+  .preview.style-dergi .phone:hover { transform: scale(0.86) rotate(-3deg) scale(0.94); }
+  #heroStage.style-neon .hero-phone-col .phone.active {
+    filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.35)) drop-shadow(0 0 60px rgba(255, 0, 200, 0.30));
+  }
+  #heroStage.style-neon .hero-phone-col .phone.active,
+  #heroStage.style-neon .hero-phone-col .phone.active:hover {
+    -webkit-box-reflect: below 12px linear-gradient(transparent 80%, rgba(255, 255, 255, 0.30));
+  }
+  #heroStage.style-dergi .hero-phone-col .phone.active,
+  #heroStage.style-dergi .hero-phone-col .phone.active:hover {
+    transform: scale(1.12) rotate(-3deg);
+  }
+  #heroStage.style-tilt .hero-phone-col .phone.active,
+  #heroStage.style-tilt .hero-phone-col .phone.active:hover,
+  #heroStage.style-studio .hero-phone-col .phone.active,
+  #heroStage.style-studio .hero-phone-col .phone.active:hover {
+    transform: scale(1.08) rotate(-4deg) skewX(-3deg);
+  }
+  #heroStage.style-reflect .hero-phone-col .phone.active,
+  #heroStage.style-reflect .hero-phone-col .phone.active:hover,
+  #heroStage.style-studio .hero-phone-col .phone.active,
+  #heroStage.style-studio .hero-phone-col .phone.active:hover {
+    -webkit-box-reflect: below 12px linear-gradient(transparent 55%, rgba(255, 255, 255, 0.38));
+  }
+
   .device figcaption { font-size: 13.5px; font-weight: 600; color: #3b4358; letter-spacing: 0.01em; }
-  .device-actions { display: flex; gap: 8px; }
+  .device-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .mini-select {
+    height: 32px;
+    border: 1px solid #d7dce7;
+    border-radius: 10px;
+    background: #fff;
+    color: #3b4358;
+    font: 600 11.5px/1 "Segoe UI", sans-serif;
+    padding: 0 8px;
+    cursor: pointer;
+  }
+  .gallery-size { min-width: 108px; }
+  .hero-size { min-width: 108px; }
+  .style-select { min-width: 96px; }
   .mini-btn {
     border: 1px solid #d7dce7;
     background: #fff;
@@ -664,6 +728,18 @@
         <div class="device-actions">
           <button class="mini-btn" data-action="change">Resim Değiştir</button>
           <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+          <select class="mini-select size-select gallery-size" title="İndirme boyutu">
+            <option value="720">720 × 1280</option>
+            <option value="1080" selected>1080 × 1920</option>
+            <option value="1440">1440 × 2560</option>
+            <option value="2160">2160 × 3840</option>
+          </select>
+          <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
+            <option value="studio">Stüdyo 3D</option>
+            <option value="tilt">Eğim</option>
+            <option value="reflect">Yansıma</option>
+            <option value="neon">Neon</option>
+            <option value="dergi">Dergi</option></select>
         </div>
       </figure>
 
@@ -682,6 +758,18 @@
         <div class="device-actions">
           <button class="mini-btn" data-action="change">Resim Değiştir</button>
           <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+          <select class="mini-select size-select gallery-size" title="İndirme boyutu">
+            <option value="720">720 × 1280</option>
+            <option value="1080" selected>1080 × 1920</option>
+            <option value="1440">1440 × 2560</option>
+            <option value="2160">2160 × 3840</option>
+          </select>
+          <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
+            <option value="studio">Stüdyo 3D</option>
+            <option value="tilt">Eğim</option>
+            <option value="reflect">Yansıma</option>
+            <option value="neon">Neon</option>
+            <option value="dergi">Dergi</option></select>
         </div>
       </figure>
 
@@ -700,6 +788,18 @@
         <div class="device-actions">
           <button class="mini-btn" data-action="change">Resim Değiştir</button>
           <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+          <select class="mini-select size-select gallery-size" title="İndirme boyutu">
+            <option value="720">720 × 1280</option>
+            <option value="1080" selected>1080 × 1920</option>
+            <option value="1440">1440 × 2560</option>
+            <option value="2160">2160 × 3840</option>
+          </select>
+          <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
+            <option value="studio">Stüdyo 3D</option>
+            <option value="tilt">Eğim</option>
+            <option value="reflect">Yansıma</option>
+            <option value="neon">Neon</option>
+            <option value="dergi">Dergi</option></select>
         </div>
       </figure>
 
@@ -718,6 +818,18 @@
         <div class="device-actions">
           <button class="mini-btn" data-action="change">Resim Değiştir</button>
           <button class="mini-btn primary" data-action="save">Mockup İndir</button>
+          <select class="mini-select size-select gallery-size" title="İndirme boyutu">
+            <option value="720">720 × 1280</option>
+            <option value="1080" selected>1080 × 1920</option>
+            <option value="1440">1440 × 2560</option>
+            <option value="2160">2160 × 3840</option>
+          </select>
+          <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
+            <option value="studio">Stüdyo 3D</option>
+            <option value="tilt">Eğim</option>
+            <option value="reflect">Yansıma</option>
+            <option value="neon">Neon</option>
+            <option value="dergi">Dergi</option></select>
         </div>
       </figure>
     </main>
@@ -779,6 +891,18 @@
       <button class="mini-btn" id="btnUpload">Resim Yükle</button>
       <button class="mini-btn" id="btnPhone">Telefon Değiştir</button>
       <button class="mini-btn primary" id="btnSave">PNG İndir</button>
+      <select class="mini-select size-select hero-size" title="İndirme boyutu">
+        <option value="1280">1280 × 800</option>
+        <option value="1600" selected>1600 × 1000</option>
+        <option value="2560">2560 × 1600</option>
+        <option value="3840">3840 × 2400</option>
+      </select>
+      <select class="mini-select style-select" title="İndirme stili">            <option value="flat">Düz</option>
+            <option value="studio">Stüdyo 3D</option>
+            <option value="tilt">Eğim</option>
+            <option value="reflect">Yansıma</option>
+            <option value="neon">Neon</option>
+            <option value="dergi">Dergi</option></select>
     </div>
   </section>
 
@@ -875,6 +999,11 @@
             <label class="size-field">Boyut
               <input type="number" class="num-input" id="kickerSize" min="10" max="80" step="1" value="26">
             </label>
+          </div>
+          <div class="style-row">
+            <input type="file" id="fontPicker" accept=".ttf,.otf,.woff,.woff2" hidden>
+            <button class="mini-btn" id="fontUploadBtn" type="button">Font Yükle</button>
+            <span class="bg-hint" id="fontHint">TTF, OTF, WOFF</span>
           </div>
         </div>
         <div class="bg-section" hidden>
@@ -1182,6 +1311,8 @@
     var customImageBg = null;
     var bgImageEl = null;
     var bgFit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+    var heroSize = 1600;
+    var heroStyle = "flat";
 
     function bgCss(bg) {
       if (bg.kind === "image") return 'url("' + bg.src + '") center / cover no-repeat';
@@ -1301,7 +1432,9 @@
     var textColors = { headline: null, kicker: null };
 
     function applyTextColors() {
-      var dark = bgIsDark(currentBg);
+      var dark;
+      if (heroStyle === "neon") dark = true;
+      else dark = bgIsDark(currentBg);
       var autoHeadline = dark ? "#f4f7ff" : "#12203c";
       var autoKicker = dark ? "#b7c2e2" : "#6b7fa3";
       document.querySelector(".headline").style.color = textColors.headline || autoHeadline;
@@ -1318,14 +1451,37 @@
       }
     }
 
+    var NEON_BG = "radial-gradient(420px 320px at 50% 18%, rgba(0,240,255,0.22), transparent 70%), radial-gradient(460px 340px at 72% 88%, rgba(255,0,200,0.18), transparent 70%), linear-gradient(160deg, #05070c 0%, #0a1418 55%, #080a10 100%)";
+
+    function styleBgCss(style) {
+      if (style === "neon") return NEON_BG;
+      return bgCss(currentBg);
+    }
+
+    function fixedBgStyle(style) {
+      return style === "neon";
+    }
+
+    function applyGalleryDeviceStyle(device) {
+      var preview = device.querySelector(".preview");
+      if (!preview) return;
+      var style = device.dataset.style || "flat";
+      ["style-flat", "style-studio", "style-tilt", "style-reflect", "style-neon", "style-dergi"].forEach(function (c) {
+        preview.classList.remove(c);
+      });
+      preview.classList.add("style-" + style);
+      preview.style.background = styleBgCss(style);
+      updateGalleryReflection(device.querySelector(".phone"));
+    }
+
     function applyBackground() {
+      document.querySelectorAll("#view-gallery .device").forEach(applyGalleryDeviceStyle);
       var css = bgCss(currentBg);
-      document.querySelectorAll(".preview").forEach(function (el) { el.style.background = css; });
       var stage = document.getElementById("heroStage");
-      if (currentBg.kind === "image") {
+      if (currentBg.kind === "image" && !fixedBgStyle(heroStyle)) {
         stage.style.background = "#e9eef6";
       } else {
-        stage.style.background = css;
+        stage.style.background = styleBgCss(heroStyle);
       }
       var wrap = document.getElementById("stageWrap");
       if (wrap) wrap.classList.toggle("bg-editable", currentBg.kind === "image");
@@ -1333,11 +1489,19 @@
       applyTextColors();
     }
 
+    function applyHeroPreviewStyle() {
+      var list = ["style-flat", "style-studio", "style-tilt", "style-reflect", "style-neon", "style-dergi"];
+      var stage = document.getElementById("heroStage");
+      list.forEach(function (c) { stage.classList.remove(c); });
+      stage.classList.add("style-" + heroStyle);
+      applyBackground();
+    }
+
     function layoutStageBg() {
       var stage = document.getElementById("heroStage");
       var layer = document.getElementById("stageBgLayer");
       if (!stage || !layer) return;
-      if (currentBg.kind !== "image" || !bgImageEl || !bgImageEl.naturalWidth) {
+      if (fixedBgStyle(heroStyle) || currentBg.kind !== "image" || !bgImageEl || !bgImageEl.naturalWidth) {
         layer.style.display = "none";
         return;
       }
@@ -1401,6 +1565,7 @@
       document.getElementById("frameColor").value = color || DEFAULT_FRAME;
       var hf = document.getElementById("hexFrame");
       if (document.activeElement !== hf) hf.value = color || DEFAULT_FRAME;
+      document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
     }
 
     function renderFrameSwatches() {
@@ -1423,6 +1588,7 @@
     function drawBg(ctx, W, H, useFit) {
       if (currentBg.kind === "image" && bgImageEl && bgImageEl.naturalWidth) {
         var fit = useFit ? bgFit : { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
+        var posScale = useFit ? W / 1600 : 1;
         var rot = ((fit.rotate || 0) % 360 + 360) % 360;
         var swap = rot === 90 || rot === 270;
         var natW = swap ? bgImageEl.naturalHeight : bgImageEl.naturalWidth;
@@ -1431,7 +1597,7 @@
         var dw = bgImageEl.naturalWidth * base * fit.zoom;
         var dh = bgImageEl.naturalHeight * base * fit.zoom;
         ctx.save();
-        ctx.translate(W / 2 + fit.tx, H / 2 + fit.ty);
+        ctx.translate(W / 2 + fit.tx * posScale, H / 2 + fit.ty * posScale);
         ctx.rotate(rot * Math.PI / 180);
         ctx.scale(fit.flipX ? -1 : 1, fit.flipY ? -1 : 1);
         ctx.drawImage(bgImageEl, -dw / 2, -dh / 2, dw, dh);
@@ -1589,22 +1755,24 @@
       ctx.fill();
     }
 
-    function drawText(ctx, el, sRect, factor) {
+    function drawText(ctx, el, sRect, factor, outScale) {
+      var scale = outScale || 1;
       var r = el.getBoundingClientRect();
       var cs = getComputedStyle(el);
       var x = (r.left - sRect.left) * factor;
       var y = (r.top - sRect.top) * factor;
       var lh = px(cs.lineHeight);
       if (!lh) lh = px(cs.fontSize) * 1.2;
-      ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+      lh *= scale;
+      var fontSize = px(cs.fontSize) * scale;
+      ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + fontSize + "px " + cs.fontFamily;
       ctx.fillStyle = cs.color;
       ctx.textBaseline = "middle";
-      if (cs.letterSpacing && cs.letterSpacing !== "normal") ctx.letterSpacing = cs.letterSpacing;
+      if (cs.letterSpacing && cs.letterSpacing !== "normal") ctx.letterSpacing = (px(cs.letterSpacing) * scale) + "px";
       var text = el.innerText.replace(/\s+$/, "");
       if (!text) { ctx.letterSpacing = "0px"; return; }
       var effect = el.dataset.effect || "none";
-      var fs = px(cs.fontSize);
-      var s = Math.min(1, Math.max(0.2, fs / 116));
+      var s = Math.max(0.2, fontSize / 116);
       var maxW = r.width * factor + 2;
       var visualLines = [];
       text.split("\n").forEach(function (line) {
@@ -1639,7 +1807,7 @@
           var lum = cssColorLum(cs.color);
           ctx.save();
           ctx.strokeStyle = lum > 0.55 ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.8)";
-          ctx.lineWidth = el.classList.contains("headline") ? 2 : 1.2;
+          ctx.lineWidth = (el.classList.contains("headline") ? 2 : 1.2) * scale;
           ctx.lineJoin = "round";
           ctx.strokeText(line, x, ly);
           ctx.restore();
@@ -1665,20 +1833,159 @@
       ctx.letterSpacing = "0px";
     }
 
+    function galleryReflectionURL(phone) {
+      var pRect = phone.getBoundingClientRect();
+      if (!pRect.width || !pRect.height) return null;
+      var W = 420;
+      var H = Math.max(1, Math.round(W * pRect.height / pRect.width));
+      var pc = document.createElement("canvas");
+      pc.width = W;
+      pc.height = H;
+      drawPhone(pc.getContext("2d"), phone, 0, 0, W, true);
+      var rc = mirroredFadeCanvas(pc);
+      var out = document.createElement("canvas");
+      out.width = W;
+      out.height = 140;
+      var x = out.getContext("2d");
+      var srcH = Math.round(H * 0.42);
+      x.drawImage(rc, 0, 0, W, srcH, 0, 0, W, 140);
+      x.globalCompositeOperation = "destination-in";
+      var g = x.createLinearGradient(0, 0, 0, 140);
+      g.addColorStop(0, "rgba(0,0,0,0.55)");
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      x.fillStyle = g;
+      x.fillRect(0, 0, W, 140);
+      return out.toDataURL("image/png");
+    }
+
+    function updateGalleryReflection(phone) {
+      if (!phone || !phone._reflectionLayer) return;
+      var device = phone.closest(".device");
+      var style = device ? device.dataset.style : "flat";
+      if (style !== "reflect" && style !== "studio" && style !== "neon") {
+        phone._reflectionLayer.style.display = "none";
+        return;
+      }
+      if (phone.getBoundingClientRect().width < 1) return;
+      var url = galleryReflectionURL(phone);
+      if (!url) return;
+      phone._reflectionLayer.style.backgroundImage = 'url("' + url + '")';
+      phone._reflectionLayer.style.display = "block";
+    }
+
+    function refreshGalleryReflection(phone) {
+      if (!phone) return;
+      clearTimeout(phone._reflTimer);
+      phone._reflTimer = setTimeout(function () { updateGalleryReflection(phone); }, 120);
+    }
+
+    function buildPhoneScene(phone, phoneW, withReflection) {
+      var pRect = phone.getBoundingClientRect();
+      var phoneH = phoneW * pRect.height / pRect.width;
+      var pad = Math.max(2, Math.round(phoneW * 0.03));
+      var pc = document.createElement("canvas");
+      pc.width = Math.max(1, Math.round(phoneW)) + pad * 2;
+      pc.height = Math.max(1, Math.round(phoneH)) + pad * 2;
+      drawPhone(pc.getContext("2d"), phone, pad, pad, phoneW, true);
+
+      var gap = Math.round(phoneW * 0.02);
+      var scene = document.createElement("canvas");
+      scene.width = pc.width;
+      var rh = withReflection ? Math.max(1, Math.round(pc.height * 0.45)) : 0;
+      scene.height = pc.height + (withReflection ? gap + rh : 0);
+      var ctx = scene.getContext("2d");
+      ctx.drawImage(pc, 0, 0);
+      if (withReflection) {
+        var rcan = document.createElement("canvas");
+        rcan.width = pc.width;
+        rcan.height = rh;
+        var rctx = rcan.getContext("2d");
+        rctx.drawImage(mirroredFadeCanvas(pc), 0, 0, pc.width, rh, 0, 0, pc.width, rh);
+        rctx.globalCompositeOperation = "destination-in";
+        var rg = rctx.createLinearGradient(0, 0, 0, rh);
+        rg.addColorStop(0, "rgba(0,0,0,0.55)");
+        rg.addColorStop(1, "rgba(0,0,0,0)");
+        rctx.fillStyle = rg;
+        rctx.fillRect(0, 0, rcan.width, rh);
+        ctx.drawImage(rcan, 0, pc.height + gap);
+      }
+      return scene;
+    }
+
+    function drawNeonBackground(ctx, W, H) {
+      var g = gradientLine(ctx, 160, 0, 0, W, H);
+      g.addColorStop(0, "#05070c");
+      g.addColorStop(0.55, "#0a1418");
+      g.addColorStop(1, "#080a10");
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+      var c = ctx.createRadialGradient(W * 0.5, H * 0.18, 0, W * 0.5, H * 0.18, W * 0.55);
+      c.addColorStop(0, "rgba(0,240,255,0.22)");
+      c.addColorStop(1, "rgba(0,240,255,0)");
+      ctx.fillStyle = c;
+      ctx.fillRect(0, 0, W, H);
+      var m = ctx.createRadialGradient(W * 0.72, H * 0.88, 0, W * 0.72, H * 0.88, W * 0.5);
+      m.addColorStop(0, "rgba(255,0,200,0.18)");
+      m.addColorStop(1, "rgba(255,0,200,0)");
+      ctx.fillStyle = m;
+      ctx.fillRect(0, 0, W, H);
+    }
+
     async function exportMockup(phone) {
       var img = phone.querySelector(".screen img");
       await ensureLoaded(img);
 
+      var device = phone.closest(".device");
+      var size = parseInt(device ? device.dataset.size : "1080", 10) || 1080;
+      var style = (device && device.dataset.style) || "flat";
+      var S = size / 1080;
+      var W = Math.round(1080 * S);
+      var H = Math.round(1920 * S);
       var canvas = document.createElement("canvas");
-      canvas.width = 1080;
-      canvas.height = 1920;
+      canvas.width = W;
+      canvas.height = H;
       var ctx = canvas.getContext("2d");
-      drawBg(ctx, 1080, 1920, false);
 
-      var pRect = phone.getBoundingClientRect();
-      var destW = 720;
-      var destH = pRect.height * (destW / pRect.width);
-      drawPhone(ctx, phone, (1080 - destW) / 2, (1920 - destH) / 2, destW);
+      if (style === "neon") drawNeonBackground(ctx, W, H);
+      else drawBg(ctx, W, H, false);
+
+      var withReflection = style === "studio" || style === "reflect" || style === "neon";
+      var phoneW = 720 * S * (style === "studio" ? 0.95 : 1);
+      var scene = buildPhoneScene(phone, phoneW, withReflection);
+      var sceneScale = Math.min(1, (H * 0.92) / scene.height, (W * 0.92) / scene.width);
+
+      ctx.save();
+      if (style === "tilt" || style === "studio") {
+        ctx.translate(W / 2, H / 2);
+        ctx.rotate(-5 * Math.PI / 180);
+        ctx.transform(1, 0, -0.05, 1, 0, 0);
+        ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
+        ctx.shadowColor = style === "studio" ? "rgba(0,0,0,0.55)" : "rgba(22,32,64,0.33)";
+        ctx.shadowBlur = (style === "studio" ? 90 : 70) * S;
+        ctx.shadowOffsetY = (style === "studio" ? 40 : 30) * S;
+        ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
+      } else if (style === "dergi") {
+        ctx.translate(W / 2, H / 2);
+        ctx.rotate(-3 * Math.PI / 180);
+        ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
+        ctx.shadowColor = "rgba(60,40,20,0.32)";
+        ctx.shadowBlur = 70 * S;
+        ctx.shadowOffsetY = 28 * S;
+        ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
+      } else {
+        if (style === "neon") {
+          ctx.shadowColor = "rgba(0,240,255,0.40)";
+          ctx.shadowBlur = 90 * S;
+        } else {
+          ctx.shadowColor = "rgba(22,32,64,0.30)";
+          ctx.shadowBlur = 70 * S;
+          ctx.shadowOffsetY = 30 * S;
+        }
+        var dw = scene.width * sceneScale;
+        var dh = scene.height * sceneScale;
+        ctx.drawImage(scene, (W - dw) / 2, (H - dh) / 2, dw, dh);
+      }
+      ctx.restore();
 
       downloadCanvas(canvas, phone.getAttribute("data-model") + ".png");
     }
@@ -1753,9 +2060,15 @@
       screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
       screen.dataset.placeholder = "1";
 
+      function bumpReflection() {
+        var p = screen.closest(".phone");
+        if (p && p.closest("#view-gallery")) refreshGalleryReflection(p);
+      }
+
       img.addEventListener("load", function () {
         screen._fit = { zoom: 1, tx: 0, ty: 0, rotate: 0, flipX: false, flipY: false };
         layoutScreenImage(screen);
+        bumpReflection();
       });
 
       var ICONS = TOOL_ICONS;
@@ -1776,6 +2089,7 @@
           e.preventDefault();
           action();
           layoutScreenImage(screen);
+          bumpReflection();
         });
         return b;
       }
@@ -1837,6 +2151,7 @@
         if (moved) {
           screen._suppress = true;
           setTimeout(function () { screen._suppress = false; }, 250);
+          bumpReflection();
         }
       });
 
@@ -1864,6 +2179,7 @@
         if (touch && touch.moved) {
           screen._suppress = true;
           setTimeout(function () { screen._suppress = false; }, 600);
+          bumpReflection();
         }
         touch = null;
       });
@@ -1882,6 +2198,7 @@
         var fit = screen._fit;
         fit.zoom = Math.max(1, Math.min(4, fit.zoom * (e.deltaY < 0 ? 1.1 : 0.9)));
         layoutScreenImage(screen);
+        bumpReflection();
       }, { passive: false });
     }
 
@@ -2057,7 +2374,7 @@
       alignCopy();
     }
 
-    function drawPhoneMirrored(ctx, phone, offX, offY, destW) {
+    function drawPhoneMirrored(ctx, phone, offX, offY, destW, outScale) {
       drawPhone(ctx, phone, offX, offY, destW);
 
       var pRect = phone.getBoundingClientRect();
@@ -2067,7 +2384,7 @@
       oc.height = Math.max(1, Math.round(h));
       drawPhone(oc.getContext("2d"), phone, 0, 0, destW, true);
       var rc = mirroredFadeCanvas(oc);
-      ctx.drawImage(rc, offX, offY + h + 14);
+      ctx.drawImage(rc, offX, offY + h + 14 * (outScale || 1));
     }
 
     var mirrorEnabled = false;
@@ -2080,42 +2397,78 @@
         try { await document.fonts.ready; } catch (e) {}
       }
 
+      var S = heroSize / 1600;
+      var W = Math.round(1600 * S);
+      var H = Math.round(1000 * S);
       var canvas = document.createElement("canvas");
-      canvas.width = 1600;
-      canvas.height = 1000;
+      canvas.width = W;
+      canvas.height = H;
       var ctx = canvas.getContext("2d");
-      drawBg(ctx, 1600, 1000, true);
+
+      var style = heroStyle;
+      if (style === "neon") drawNeonBackground(ctx, W, H);
+      else drawBg(ctx, W, H, true);
 
       var sRect = stage.getBoundingClientRect();
-      var factor = 1600 / sRect.width;
-
+      var factor = W / sRect.width;
       var pRect = phone.getBoundingClientRect();
       var px0 = (pRect.left - sRect.left) * factor;
       var py0 = (pRect.top - sRect.top) * factor;
-      if (mirrorEnabled) {
-        drawPhoneMirrored(ctx, phone, px0, py0, pRect.width * factor);
+      var phoneW = pRect.width * factor;
+      var phoneH = pRect.height * factor;
+
+      if (style === "flat") {
+        drawPhone(ctx, phone, px0, py0, phoneW);
       } else {
-        drawPhone(ctx, phone, px0, py0, pRect.width * factor);
+        var withRef = style === "studio" || style === "reflect" || style === "neon";
+        var scaleP = (style === "tilt" || style === "studio") ? 0.84 : (style === "dergi" ? 0.9 : 0.8);
+        var scene = buildPhoneScene(phone, phoneW * scaleP, withRef);
+        var sceneScale = Math.min(1, (H * 0.9) / scene.height, (W * 0.9) / scene.width);
+        if (style === "tilt" || style === "studio") {
+          ctx.save();
+          ctx.translate(px0 + phoneW / 2, py0 + phoneH / 2);
+          ctx.rotate(-5 * Math.PI / 180);
+          ctx.transform(1, 0, -0.05, 1, 0, 0);
+          ctx.scale(0.94 * sceneScale, 0.94 * sceneScale);
+          ctx.shadowColor = style === "studio" ? "rgba(0,0,0,0.55)" : "rgba(22,32,64,0.33)";
+          ctx.shadowBlur = (style === "studio" ? 90 : 70) * S;
+          ctx.shadowOffsetY = (style === "studio" ? 40 : 30) * S;
+          ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
+          ctx.restore();
+        } else if (style === "dergi") {
+          ctx.save();
+          ctx.translate(px0 + phoneW / 2, py0 + phoneH / 2);
+          ctx.rotate(-3 * Math.PI / 180);
+          ctx.scale(0.95 * sceneScale, 0.95 * sceneScale);
+          ctx.shadowColor = "rgba(60,40,20,0.32)";
+          ctx.shadowBlur = 70 * S;
+          ctx.shadowOffsetY = 28 * S;
+          ctx.drawImage(scene, -scene.width / 2, -scene.height / 2);
+          ctx.restore();
+        } else {
+          var drawW = scene.width * sceneScale;
+          var drawH = scene.height * sceneScale;
+          var desiredTop = py0 + (phoneH - phoneH * scaleP) / 2;
+          var padOut = Math.max(2, Math.round(phoneW * scaleP * 0.03)) * sceneScale;
+          var ty = desiredTop - padOut;
+          ty = Math.max(10, Math.min(ty, H - drawH - 10));
+          var tx = px0 + (phoneW - drawW) / 2;
+          ctx.save();
+          if (style === "neon") {
+            ctx.shadowColor = "rgba(0,240,255,0.40)";
+            ctx.shadowBlur = 90 * S;
+          } else {
+            ctx.shadowColor = "rgba(22,32,64,0.30)";
+            ctx.shadowBlur = 70 * S;
+            ctx.shadowOffsetY = 30 * S;
+          }
+          ctx.drawImage(scene, tx, ty, drawW, drawH);
+          ctx.restore();
+        }
       }
 
-      drawText(ctx, stage.querySelector(".kicker"), sRect, factor);
-      drawText(ctx, stage.querySelector(".headline"), sRect, factor);
-
-      if (mirrorEnabled) {
-        var copyEl = stage.querySelector(".hero-copy");
-        var cRect = copyEl.getBoundingClientRect();
-        var cx0 = (cRect.left - sRect.left) * factor;
-        var cy0 = (cRect.top - sRect.top) * factor;
-        var cw0 = Math.max(1, Math.round(cRect.width * factor));
-        var ch0 = Math.max(1, Math.round(cRect.height * factor));
-        var cm = document.createElement("canvas");
-        cm.width = cw0;
-        cm.height = ch0;
-        var cmx = cm.getContext("2d");
-        drawText(cmx, stage.querySelector(".kicker"), cRect, factor);
-        drawText(cmx, stage.querySelector(".headline"), cRect, factor);
-        ctx.drawImage(mirroredFadeCanvas(cm), cx0, cy0 + ch0 + 14);
-      }
+      drawText(ctx, stage.querySelector(".kicker"), sRect, factor, S);
+      drawText(ctx, stage.querySelector(".headline"), sRect, factor, S);
 
       downloadCanvas(canvas, "hero-" + MODELS[current].name + ".png");
     }
@@ -2201,6 +2554,7 @@
           if (mirrorEnabled) refreshMirrors();
         } else {
           relayoutScreens();
+          document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
         }
       });
     });
@@ -2312,6 +2666,85 @@
     document.getElementById("kickerSize").addEventListener("blur", function () {
       this.value = heroType.kicker.size;
     });
+
+    document.querySelectorAll("#view-gallery .device").forEach(function (device) {
+      device.dataset.size = "1080";
+      device.dataset.style = "flat";
+      var gPhone = device.querySelector(".phone");
+      if (gPhone) {
+        var reflLayer = document.createElement("div");
+        reflLayer.className = "gallery-reflection";
+        gPhone.appendChild(reflLayer);
+        gPhone._reflectionLayer = reflLayer;
+      }
+      var sizeSel = device.querySelector(".gallery-size");
+      var styleSel = device.querySelector(".style-select");
+      if (sizeSel) {
+        sizeSel.addEventListener("change", function () {
+          device.dataset.size = this.value;
+        });
+      }
+      if (styleSel) {
+        styleSel.addEventListener("change", function () {
+          device.dataset.style = this.value;
+          applyGalleryDeviceStyle(device);
+        });
+      }
+    });
+
+    var heroSizeSel = document.querySelector("#view-hero .hero-size");
+    if (heroSizeSel) {
+      heroSizeSel.addEventListener("change", function () {
+        heroSize = parseInt(this.value, 10) || 1600;
+      });
+    }
+    var heroStyleSel = document.querySelector("#view-hero .style-select");
+    if (heroStyleSel) {
+      heroStyleSel.addEventListener("change", function () {
+        heroStyle = this.value || "flat";
+        applyHeroPreviewStyle();
+      });
+    }
+
+    var uploadedFontCount = 0;
+    document.getElementById("fontUploadBtn").addEventListener("click", function () {
+      document.getElementById("fontPicker").click();
+    });
+    document.getElementById("fontPicker").addEventListener("change", async function () {
+      var file = this.files[0];
+      if (!file) return;
+      var ext = file.name.split(".").pop().toLowerCase();
+      if (["ttf", "otf", "woff", "woff2"].indexOf(ext) === -1) {
+        document.getElementById("fontHint").textContent = "Desteklenmeyen dosya";
+        return;
+      }
+      var hint = document.getElementById("fontHint");
+      hint.textContent = "Yükleniyor...";
+      var dataUrl = await readAsDataURL(file);
+      var family = "UploadedFont" + (++uploadedFontCount);
+      var face = new FontFace(family, "url(" + dataUrl + ")");
+      try {
+        await face.load();
+        document.fonts.add(face);
+      } catch (e) {
+        hint.textContent = "Font yüklenemedi";
+        return;
+      }
+      var key = "upload-" + uploadedFontCount;
+      var label = file.name.replace(/\.[^.]+$/, "").slice(0, 24);
+      FONTS[key] = { family: '"' + family + '"' };
+      ["headlineFont", "kickerFont"].forEach(function (id) {
+        var sel = document.getElementById(id);
+        var opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
+      heroType.headline.font = key;
+      document.getElementById("headlineFont").value = key;
+      hint.textContent = label + " yüklendi";
+      applyHeroType();
+    });
     document.querySelectorAll("[data-reset]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         textColors[btn.getAttribute("data-reset")] = null;
@@ -2365,6 +2798,7 @@
     renderFrameSwatches();
     applyBackground();
     applyHeroType();
+    applyHeroPreviewStyle();
     document.getElementById("frameColor").value = DEFAULT_FRAME;
     document.getElementById("hexFrame").value = DEFAULT_FRAME;
 
@@ -2372,6 +2806,7 @@
       fitStage();
       relayoutScreens();
       layoutStageBg();
+      document.querySelectorAll("#view-gallery .phone").forEach(updateGalleryReflection);
       if (mirrorEnabled) refreshMirrors();
     });
     fitStage();

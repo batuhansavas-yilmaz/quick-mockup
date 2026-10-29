@@ -12,9 +12,11 @@ Tarayıcıda çalışan, kurulum gerektirmeyen mockup stüdyosu. Ekran görünt�
 - Görsel düzenleme: döndür, yatay/dikey aynala, yakınlaştır/uzaklaştır, sürükleyerek taşı, sıfırla
 - Arka plan: hazır gradyanlar (açı tümüne uygulanır), düz renkler, kendi çok renkli gradyanın (2–5 renk, açı), hex kodu, kendi arka plan resmin
 - Hero arka plan resmi: taşıma, döndürme, aynalama, yakınlaştırma
-- Yazı: 7 font (8-bit dahil), 6 efekt (gölge, sert gölge, 3D, neon, kontur), boyut ve renk ayarı; metinler tıkla-düzenle
+- Yazı: 7 hazır font + kendi fontunu yükle (TTF/OTF/WOFF/WOFF2), 6 efekt (gölge, sert gölge, 3D, neon, kontur), boyut ve renk ayarı; metinler tıkla-düzenle
 - Telefon çerçevesi rengi (hazır renkler + hex); iç çerçeve otomatik uyum sağlar
-- PNG indirme: galeri 1080×1920, hero 1600×1000
+- İndirme boyutu: 720p–4K arası (galeri 9:16, hero 16:10)
+- İndirme stili: Düz, Stüdyo 3D, Eğim, Yansıma, Neon, Dergi; stil canlı önizlenir; her telefon için boyut/stil bağımsız
+- PNG indirme: galeri 720×1280–2160×3840, hero 1280×800–3840×2400
 - Mobil uyumlu: tek sütun düzen, panel içerik altında, dokunmatik taşıma ve büyük butonlar
 
 ## Font lisansı
