@@ -46,10 +46,11 @@
     flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: 13px; }
-  .brand-dot {
-    width: 32px; height: 32px; border-radius: 10px;
-    background: linear-gradient(135deg, #00bfa5, #171c2b 70%);
-    box-shadow: 0 8px 18px rgba(0, 191, 165, 0.28);
+  .brand-logo {
+    width: 34px;
+    height: 34px;
+    display: block;
+    filter: drop-shadow(0 6px 10px rgba(0, 191, 165, 0.28));
   }
   h1 { font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; }
   h1 span { color: #0aa38f; }
@@ -625,7 +626,7 @@
 <body class="view-gallery">
   <header class="topbar">
     <div class="brand">
-      <div class="brand-dot"></div>
+      <img class="brand-logo" src="favicon.svg" alt="" width="34" height="34">
       <h1>Quick Mockup</h1>
     </div>
     <div class="top-actions">
