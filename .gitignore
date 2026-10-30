@@ -1,4 +1,9 @@
 # Local scratch / older outputs
+.superpowers/
+assets/
+node_modules/
+test-results/
+playwright-report/
 android-mockups.html
 hero-template.html
 mockup.html
