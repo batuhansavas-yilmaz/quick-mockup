@@ -28,8 +28,10 @@ Tarayıcıda çalışan, kurulum gerektirmeyen mockup stüdyosu. Ekran görünt�
 - Galeride cihaz başına bağımsız indirme boyutu ve stil
 - Telefon çıktıları: 720×1280–2160×3840 (normal 9:16, 3D kare)
 - Tablet çıktıları: 1024×768, 1536×1152, 2048×1536 (normal 4:3, 3D kare)
-- Masaüstü çıktıları: 1920×1080, 3840×2160, 5760×3240 (normal 16:9, 3D kare)
+- Masaüstü çıktıları: 1920×1080, 2560×1440, 3840×2160, 5760×3240 (normal 16:9, 3D kare)
 - Hero çıktıları: 1280×800, 1600×1000, 1024×500, 2560×1600, 3840×2400
+- Hero çıktısı, editördeki yerleşimi birebir korur
+
 - İndirme stili: Düz, Neon, Dergi, Dergi 2 (sağa yatık), 3D; Neon seçili arka plan renklerinden üretilir; stil canlı önizlenir
 - Mobil uyumlu: tek sütun düzen, panel içerik altında, dokunmatik taşıma ve büyük butonlar
 
