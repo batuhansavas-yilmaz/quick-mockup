@@ -2865,6 +2865,43 @@
       ctx.fill();
     }
 
+    function browserTextLines(el) {
+      if (!el || !document.createRange || !window.NodeFilter) return null;
+      var raw = el.innerText.replace(/\s+$/, "");
+      if (!raw || raw.indexOf("\n") !== -1 || raw.length > 2000) return null;
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      var lines = [];
+      var node;
+      while ((node = walker.nextNode())) {
+        var value = node.nodeValue || "";
+        for (var i = 0; i < value.length; i++) {
+          var ch = value.charAt(i);
+          if (ch === "\r" || ch === "\n") return null;
+          var range = document.createRange();
+          range.setStart(node, i);
+          range.setEnd(node, i + 1);
+          var rects = range.getClientRects();
+          var rect = rects && rects.length ? rects[0] : null;
+          if (!rect || (!rect.width && !rect.height)) {
+            if (/\s/.test(ch) && lines.length) lines[lines.length - 1].text += ch;
+            continue;
+          }
+          var last = lines[lines.length - 1];
+          if (!last || Math.abs(last.top - rect.top) > 0.75) {
+            lines.push({ top: rect.top, text: ch });
+          } else {
+            last.text += ch;
+          }
+        }
+      }
+      var visual = [];
+      lines.forEach(function (line) {
+        var value = line.text.replace(/\s+$/, "");
+        if (value) visual.push(value);
+      });
+      return visual.length ? visual : null;
+    }
+
     function drawText(ctx, el, sRect, factor, outScale) {
       var scale = outScale || 1;
       var r = el.getBoundingClientRect();
@@ -2884,21 +2921,24 @@
       var effect = el.dataset.effect || "none";
       var s = Math.max(0.2, fontSize / 116);
       var maxW = r.width * factor + 2;
-      var visualLines = [];
-      text.split("\n").forEach(function (line) {
-        var words = line.split(" ");
-        var cur = "";
-        words.forEach(function (word) {
-          var test = cur ? cur + " " + word : word;
-          if (!cur || ctx.measureText(test).width <= maxW) {
-            cur = test;
-          } else {
-            visualLines.push(cur);
-            cur = word;
-          }
+      var visualLines = browserTextLines(el);
+      if (!visualLines) {
+        visualLines = [];
+        text.split("\n").forEach(function (line) {
+          var words = line.split(" ");
+          var cur = "";
+          words.forEach(function (word) {
+            var test = cur ? cur + " " + word : word;
+            if (!cur || ctx.measureText(test).width <= maxW) {
+              cur = test;
+            } else {
+              visualLines.push(cur);
+              cur = word;
+            }
+          });
+          visualLines.push(cur);
         });
-        visualLines.push(cur);
-      });
+      }
       visualLines.forEach(function (line, i) {
         var ly = y + lh * i + lh / 2;
         if (effect === "hard") {
@@ -7374,7 +7414,8 @@
         if (el.classList.contains("headline") || el.classList.contains("kicker")) {
           return {
             kind: "text", which: el.classList.contains("headline") ? "headline" : "kicker",
-            text: el.textContent, data: { heroX: el.dataset.heroX, heroY: el.dataset.heroY }
+            text: el.textContent, data: { heroX: el.dataset.heroX, heroY: el.dataset.heroY },
+            w: el.style.width || "", h: el.style.height || ""
           };
         }
         var scr = el.querySelector(".screen");
@@ -7549,6 +7590,8 @@
         el.dataset.heroY = it.data.heroY;
         el.style.setProperty("--hero-x", it.data.heroX + "px");
         el.style.setProperty("--hero-y", it.data.heroY + "%");
+        el.style.width = it.w || "";
+        el.style.height = it.h || "";
       });
       setSelectValue("heroModelSelect", "phone1", "phone1");
       var heroSizeEl = document.querySelector("#view-hero .hero-size");
