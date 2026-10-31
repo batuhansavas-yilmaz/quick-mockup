@@ -75,6 +75,120 @@
   .bg-panel .hero-only { order: 2; margin-top: 3px; }
   body.view-gallery .bg-panel .hero-only { display: none; }
   body.view-hero .bg-panel .gallery-only { display: none; }
+  body.view-hero .bg-panel .hero-text-settings { display: none; }
+  .hero-text-toolbar {
+    position: fixed;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 7px 8px;
+    background: #fff;
+    border: 1px solid #d7dce7;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(20, 30, 60, 0.20);
+    max-width: calc(100vw - 16px);
+  }
+  .hero-text-toolbar[hidden] { display: none; }
+  .htt-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px 6px;
+    padding: 5px 6px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+  }
+  .htt-row { display: none; }
+  .htt-row.is-active {
+    display: flex;
+    background: #f4f6fd;
+    border-color: #dfe4f4;
+  }
+  .htt-break { flex-basis: 100%; height: 0; }
+  .htt-title {
+    min-width: 44px;
+    color: #5b6580;
+    font: 700 10px/1 "Segoe UI", sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .htt-color {
+    width: 29px;
+    height: 29px;
+    padding: 2px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .htt-hex {
+    width: 72px;
+    height: 29px;
+    padding: 0 7px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    color: #3b4358;
+    font: 600 10.5px/1 Consolas, monospace;
+  }
+  .htt-auto {
+    height: 29px;
+    padding: 0 8px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    background: #fff;
+    color: #4c4cc6;
+    font: 700 10px/1 "Segoe UI", sans-serif;
+    cursor: pointer;
+  }
+  .htt-select {
+    height: 29px;
+    max-width: 106px;
+    padding: 0 5px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    background: #fff;
+    color: #3b4358;
+    font: 600 10px/1 "Segoe UI", sans-serif;
+    cursor: pointer;
+  }
+  .htt-size {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #7b8498;
+    font: 700 9.5px/1 "Segoe UI", sans-serif;
+  }
+  .htt-size input {
+    width: 45px;
+    height: 29px;
+    border: 1px solid #d7dce7;
+    border-radius: 8px;
+    color: #3b4358;
+    text-align: center;
+    font: 600 10.5px/1 "Segoe UI", sans-serif;
+  }
+  .htt-align-group {
+    display: flex;
+    gap: 2px;
+    padding: 2px;
+    border-radius: 9px;
+    background: #eef1f8;
+  }
+  .htt-align {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    color: #5b6580;
+    cursor: pointer;
+  }
+  .htt-align svg { display: block; width: 14px; height: 14px; pointer-events: none; }
+  .htt-align.is-active { background: #5b5bd6; color: #fff; }
   .view { margin-right: 440px; }
   .bg-section { margin-bottom: 14px; }
   .bg-section:last-child { margin-bottom: 0; }
@@ -1105,6 +1219,7 @@
   .hero-phone-col .phone:hover { transform: translate(-50%, -50%) scale(calc(1.15 * var(--phone-scale-x, 1)), calc(1.15 * var(--phone-scale-y, 1))); }
   .hero-phone-col .phone.hero-dragging { cursor: grabbing; }
   .hero-phone-col .phone.hero-selected { outline: 2px dashed rgba(91, 91, 214, 0.70); outline-offset: 9px; border-radius: 42px; }
+  #heroStage .hero-phone-col .phone.hero-selected { outline: none; }
   .hero-snap-guide-x,
   .hero-snap-guide-y {
     position: absolute;
@@ -1637,7 +1752,7 @@
           </div>
           <input type="file" id="bgImageInput" accept="image/*" hidden>
         </div>
-        <div class="bg-section hero-only">
+        <div class="bg-section hero-only hero-text-settings">
           <div class="bg-label">Yazı renkleri</div>
           <div class="color-row">
             <span>İçerik</span>
@@ -1653,7 +1768,7 @@
           </div>
 
         </div>
-        <div class="bg-section hero-only">
+        <div class="bg-section hero-only hero-text-settings">
           <div class="bg-label">Yazı stili</div>
           <div class="style-row">
             <span>İçerik</span>
@@ -1701,6 +1816,9 @@
               <input type="number" class="num-input" id="kickerSize" min="10" max="80" step="1" value="26">
             </label>
           </div>
+        </div>
+        <div class="bg-section hero-only">
+          <div class="bg-label">Özel font</div>
           <div class="style-row">
             <input type="file" id="fontPicker" accept=".ttf,.otf,.woff,.woff2" hidden>
             <button class="mini-btn" id="fontUploadBtn" type="button">Font Yükle</button>
@@ -1717,6 +1835,69 @@
           </div>
         </div>
       </div>
+
+  <div class="hero-text-toolbar" id="heroTextToolbar" hidden>
+    <div class="htt-row" data-which="headline">
+      <span class="htt-title">İçerik</span>
+      <input type="color" class="htt-color" data-role="color" value="#12203c" aria-label="İçerik rengi">
+      <input type="text" class="htt-hex" data-role="hex" maxlength="7" aria-label="İçerik renk kodu">
+      <button class="htt-auto" data-role="auto" type="button">Oto</button>
+      <span class="htt-break"></span>
+      <select class="htt-select" data-role="font" aria-label="İçerik fontu">
+        <option value="segoe">Modern</option>
+        <option value="serif">Serif</option>
+        <option value="mono">Mono</option>
+        <option value="impact">Impact</option>
+        <option value="trebuchet">Trebuchet</option>
+        <option value="comic">Comic</option>
+        <option value="pixel">8-bit</option>
+      </select>
+      <select class="htt-select" data-role="effect" aria-label="İçerik efekti">
+        <option value="none">Efekt yok</option>
+        <option value="shadow">Gölge</option>
+        <option value="hard">Sert gölge</option>
+        <option value="3d">3D</option>
+        <option value="neon">Neon</option>
+        <option value="outline">Kontur</option>
+      </select>
+      <label class="htt-size">Boyut<input type="number" data-role="size" min="24" max="220" step="2" value="116" aria-label="İçerik boyutu"></label>
+      <span class="htt-align-group" role="group" aria-label="İçerik hizalaması">
+        <button class="htt-align" data-align="left" type="button" aria-label="Sola daya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M5 10h9M5 14h14M5 18h7"/></svg></button>
+        <button class="htt-align" data-align="center" type="button" aria-label="Ortala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M8 10h8M5 14h14M9 18h6"/></svg></button>
+        <button class="htt-align" data-align="right" type="button" aria-label="Sağa daya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M10 10h9M5 14h14M12 18h7"/></svg></button>
+      </span>
+    </div>
+    <div class="htt-row" data-which="kicker">
+      <span class="htt-title">Başlık</span>
+      <input type="color" class="htt-color" data-role="color" value="#6b7fa3" aria-label="Başlık rengi">
+      <input type="text" class="htt-hex" data-role="hex" maxlength="7" aria-label="Başlık renk kodu">
+      <button class="htt-auto" data-role="auto" type="button">Oto</button>
+      <span class="htt-break"></span>
+      <select class="htt-select" data-role="font" aria-label="Başlık fontu">
+        <option value="segoe">Modern</option>
+        <option value="serif">Serif</option>
+        <option value="mono">Mono</option>
+        <option value="impact">Impact</option>
+        <option value="trebuchet">Trebuchet</option>
+        <option value="comic">Comic</option>
+        <option value="pixel">8-bit</option>
+      </select>
+      <select class="htt-select" data-role="effect" aria-label="Başlık efekti">
+        <option value="none">Efekt yok</option>
+        <option value="shadow">Gölge</option>
+        <option value="hard">Sert gölge</option>
+        <option value="3d">3D</option>
+        <option value="neon">Neon</option>
+        <option value="outline">Kontur</option>
+      </select>
+      <label class="htt-size">Boyut<input type="number" data-role="size" min="10" max="80" step="1" value="26" aria-label="Başlık boyutu"></label>
+      <span class="htt-align-group" role="group" aria-label="Başlık hizalaması">
+        <button class="htt-align" data-align="left" type="button" aria-label="Sola daya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M5 10h9M5 14h14M5 18h7"/></svg></button>
+        <button class="htt-align" data-align="center" type="button" aria-label="Ortala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M8 10h8M5 14h14M9 18h6"/></svg></button>
+        <button class="htt-align" data-align="right" type="button" aria-label="Sağa daya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 6h14M10 10h9M5 14h14M12 18h7"/></svg></button>
+      </span>
+    </div>
+  </div>
 
   <script src="vendor/three.min.js"></script>
   <script>
@@ -2220,10 +2401,16 @@
     function styleText(el, cfg) {
       if (!el) return;
       var f = FONTS[cfg.font] || FONTS.segoe;
+      el.dataset.heroFont = cfg.font || "segoe";
       el.style.fontFamily = f.family;
       el.classList.toggle("pixel-font", !!f.pixel);
-      if (cfg.size) el.style.fontSize = cfg.size + "px";
-      else el.style.fontSize = "";
+      if (cfg.size) {
+        el.style.fontSize = cfg.size + "px";
+        el.dataset.heroSize = String(cfg.size);
+      } else {
+        el.style.fontSize = "";
+        delete el.dataset.heroSize;
+      }
       if (f.pixel) {
         el.style.fontWeight = "400";
         el.style.letterSpacing = "0";
@@ -2262,6 +2449,7 @@
     function applyHeroType() {
       styleText(document.querySelector(".headline"), heroType.headline);
       styleText(document.querySelector(".kicker"), heroType.kicker);
+      if (typeof refreshHeroTextToolbar === "function") refreshHeroTextToolbar();
     }
 
     function bgIsDark(bg) {
@@ -2921,6 +3109,17 @@
       var effect = el.dataset.effect || "none";
       var s = Math.max(0.2, fontSize / 116);
       var maxW = r.width * factor + 2;
+      var align = cs.textAlign || "left";
+      var tx = x;
+      if (align === "center") {
+        ctx.textAlign = "center";
+        tx = x + (r.width * factor) / 2;
+      } else if (align === "right" || align === "end") {
+        ctx.textAlign = "right";
+        tx = x + r.width * factor;
+      } else {
+        ctx.textAlign = "left";
+      }
       var visualLines = browserTextLines(el);
       if (!visualLines) {
         visualLines = [];
@@ -2944,13 +3143,13 @@
         if (effect === "hard") {
           ctx.save();
           ctx.fillStyle = "rgba(0,0,0,0.30)";
-          ctx.fillText(line, x + 6 * s, ly + 6 * s);
+          ctx.fillText(line, tx + 6 * s, ly + 6 * s);
           ctx.restore();
         } else if (effect === "3d") {
           for (var d = 8; d >= 1; d--) {
             ctx.save();
             ctx.fillStyle = "rgba(0,0,0," + Math.max(0.05, 0.32 - d * 0.03).toFixed(2) + ")";
-            ctx.fillText(line, x + d * s, ly + d * s);
+            ctx.fillText(line, tx + d * s, ly + d * s);
             ctx.restore();
           }
         } else if (effect === "outline") {
@@ -2959,26 +3158,26 @@
           ctx.strokeStyle = lum > 0.55 ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.8)";
           ctx.lineWidth = (el.classList.contains("headline") ? 2 : 1.2) * scale;
           ctx.lineJoin = "round";
-          ctx.strokeText(line, x, ly);
+          ctx.strokeText(line, tx, ly);
           ctx.restore();
         } else if (effect === "shadow") {
           ctx.save();
           ctx.shadowColor = "rgba(0,0,0,0.35)";
           ctx.shadowBlur = 30 * s;
           ctx.shadowOffsetY = 12 * s;
-          ctx.fillText(line, x, ly);
+          ctx.fillText(line, tx, ly);
           ctx.restore();
           return;
         } else if (effect === "neon") {
           ctx.save();
           ctx.shadowColor = cs.color;
           ctx.shadowBlur = 48 * s;
-          ctx.fillText(line, x, ly);
-          ctx.fillText(line, x, ly);
+          ctx.fillText(line, tx, ly);
+          ctx.fillText(line, tx, ly);
           ctx.restore();
           return;
         }
-        ctx.fillText(line, x, ly);
+        ctx.fillText(line, tx, ly);
       });
       ctx.letterSpacing = "0px";
     }
@@ -5370,14 +5569,265 @@
         phone.classList.toggle("active", phone === firstPhone);
       });
       refreshHeroControls();
+      syncHeroTextToolbar();
     }
 
     function selectHeroItem(item) {
       selectHeroItems(item ? [item] : []);
     }
 
+    var heroTextToolbar = document.getElementById("heroTextToolbar");
+    var heroTextToolbarTarget = null;
+    var heroTextToolbarFrame = 0;
+
+    function heroTextColorToHex(value) {
+      var match = String(value || "").match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)/i);
+      if (!match) return normalizeHex(value) || "#12203c";
+      return "#" + [1, 2, 3].map(function (index) {
+        var part = parseInt(match[index], 10).toString(16);
+        return part.length < 2 ? "0" + part : part;
+      }).join("");
+    }
+
+    function heroTextAutoColor(which) {
+      var dark = heroStyle === "neon" ? true : bgIsDark(currentBg);
+      if (which === "headline") return dark ? "#f4f7ff" : "#12203c";
+      return dark ? "#b7c2e2" : "#6b7fa3";
+    }
+
+    function heroTextStyleState(el, which) {
+      var computed = getComputedStyle(el);
+      return {
+        font: el.dataset.heroFont || heroType[which].font,
+        effect: el.dataset.effect || "none",
+        size: parseFloat(el.dataset.heroSize) || parseFloat(computed.fontSize) || heroType[which].size
+      };
+    }
+
+    function refreshHeroTextToolbar() {
+      if (!heroTextToolbar || heroTextToolbar.hidden || !heroTextToolbarTarget) return;
+      var target = heroTextToolbarTarget;
+      var activeWhich = target.classList.contains("headline") ? "headline" : "kicker";
+      var computed = getComputedStyle(target);
+      var color = heroTextColorToHex(computed.color);
+      var state = heroTextStyleState(target, activeWhich);
+      var align = target.style.textAlign || computed.textAlign || "left";
+      if (align === "start") align = "left";
+      if (align === "end") align = "right";
+      heroTextToolbar.querySelectorAll(".htt-row").forEach(function (row) {
+        var which = row.getAttribute("data-which");
+        var active = which === activeWhich;
+        row.classList.toggle("is-active", active);
+        if (!active) return;
+        var colorPick = row.querySelector('[data-role="color"]');
+        if (colorPick) colorPick.value = color;
+        var hex = row.querySelector('[data-role="hex"]');
+        if (hex && document.activeElement !== hex) hex.value = color;
+        var font = row.querySelector('[data-role="font"]');
+        if (font) {
+          if (!Array.prototype.some.call(font.options, function (option) { return option.value === state.font; })) {
+            var option = document.createElement("option");
+            option.value = state.font;
+            option.textContent = FONTS[state.font] && FONTS[state.font].family ? FONTS[state.font].family.replace(/["']/g, "") : state.font;
+            font.appendChild(option);
+          }
+          font.value = state.font;
+        }
+        var effect = row.querySelector('[data-role="effect"]');
+        if (effect) effect.value = state.effect;
+        var size = row.querySelector('[data-role="size"]');
+        if (size && document.activeElement !== size) size.value = Math.round(state.size);
+        row.querySelectorAll(".htt-align").forEach(function (button) {
+          button.classList.toggle("is-active", button.getAttribute("data-align") === align);
+        });
+      });
+    }
+
+    function positionHeroTextToolbar() {
+      if (!heroTextToolbar || heroTextToolbar.hidden || !heroTextToolbarTarget) return;
+      var rect = heroTextToolbarTarget.getBoundingClientRect();
+      if (!rect.width || !rect.height || !heroTextToolbarTarget.isConnected) {
+        hideHeroTextToolbar();
+        return;
+      }
+      var tw = heroTextToolbar.offsetWidth;
+      var th = heroTextToolbar.offsetHeight;
+      var left = rect.left + rect.width / 2 - tw / 2;
+      left = Math.max(8, Math.min(window.innerWidth - tw - 8, left));
+      var top = rect.top - th - 10;
+      if (top < 8) top = rect.bottom + 10;
+      top = Math.max(8, Math.min(window.innerHeight - th - 8, top));
+      heroTextToolbar.style.left = left + "px";
+      heroTextToolbar.style.top = top + "px";
+    }
+
+    function trackHeroTextToolbar() {
+      if (!heroTextToolbar || heroTextToolbar.hidden) {
+        heroTextToolbarFrame = 0;
+        return;
+      }
+      positionHeroTextToolbar();
+      heroTextToolbarFrame = requestAnimationFrame(trackHeroTextToolbar);
+    }
+
+    function showHeroTextToolbar(el) {
+      if (!heroTextToolbar || !el) return;
+      heroTextToolbarTarget = el;
+      heroTextToolbar.hidden = false;
+      refreshHeroTextToolbar();
+      positionHeroTextToolbar();
+      if (!heroTextToolbarFrame) heroTextToolbarFrame = requestAnimationFrame(trackHeroTextToolbar);
+    }
+
+    function hideHeroTextToolbar() {
+      if (!heroTextToolbar) return;
+      heroTextToolbar.hidden = true;
+      heroTextToolbarTarget = null;
+      if (heroTextToolbarFrame) {
+        cancelAnimationFrame(heroTextToolbarFrame);
+        heroTextToolbarFrame = 0;
+      }
+    }
+
+    function syncHeroTextToolbar() {
+      var selected = selectedHeroItems();
+      var target = selected.length === 1 && selected[0].matches(".headline, .kicker") ? selected[0] : null;
+      if (target) showHeroTextToolbar(target);
+      else hideHeroTextToolbar();
+    }
+
+    if (heroTextToolbar) {
+      heroTextToolbar.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
+      heroTextToolbar.querySelectorAll(".htt-row").forEach(function (row) {
+        var rowWhich = row.getAttribute("data-which");
+        var colorPick = row.querySelector('[data-role="color"]');
+        var hex = row.querySelector('[data-role="hex"]');
+        var auto = row.querySelector('[data-role="auto"]');
+        var font = row.querySelector('[data-role="font"]');
+        var effect = row.querySelector('[data-role="effect"]');
+        var size = row.querySelector('[data-role="size"]');
+        function targetText() {
+          var target = heroTextToolbarTarget;
+          if (!target || !target.isConnected) return null;
+          var which = target.classList.contains("headline") ? "headline" : "kicker";
+          return which === rowWhich ? { el: target, which: which, clone: target.dataset.heroTextClone === "1" } : null;
+        }
+        colorPick.addEventListener("input", function () {
+          var target = targetText();
+          if (!target) return;
+          target.el.style.color = this.value;
+          if (!target.clone) {
+            textColors[target.which] = this.value;
+            applyTextColors();
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        hex.addEventListener("input", function () {
+          var value = normalizeHex(this.value);
+          if (!value) return;
+          var target = targetText();
+          if (!target) return;
+          target.el.style.color = value;
+          if (!target.clone) {
+            textColors[target.which] = value;
+            applyTextColors();
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        hex.addEventListener("blur", function () {
+          var target = targetText();
+          this.value = target ? heroTextColorToHex(getComputedStyle(target.el).color) : "";
+        });
+        auto.addEventListener("click", function () {
+          var target = targetText();
+          if (!target) return;
+          target.el.style.color = heroTextAutoColor(target.which);
+          if (!target.clone) {
+            textColors[target.which] = null;
+            applyTextColors();
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        font.addEventListener("change", function () {
+          var target = targetText();
+          if (!target) return;
+          var state = heroTextStyleState(target.el, target.which);
+          state.font = this.value;
+          if (state.font === "pixel") state.size = target.which === "headline" ? 84 : 18;
+          if (target.clone) {
+            styleText(target.el, state);
+          } else {
+            heroType[target.which].font = state.font;
+            if (state.font === "pixel") heroType[target.which].size = state.size;
+            styleText(target.el, heroType[target.which]);
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        effect.addEventListener("change", function () {
+          var target = targetText();
+          if (!target) return;
+          var state = heroTextStyleState(target.el, target.which);
+          state.effect = this.value;
+          if (target.clone) {
+            styleText(target.el, state);
+          } else {
+            heroType[target.which].effect = state.effect;
+            styleText(target.el, heroType[target.which]);
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        size.addEventListener("input", function () {
+          var value = parseInt(this.value, 10);
+          if (isNaN(value)) return;
+          var target = targetText();
+          if (!target) return;
+          var min = target.which === "headline" ? 24 : 10;
+          var max = target.which === "headline" ? 220 : 80;
+          value = Math.max(min, Math.min(max, value));
+          var state = heroTextStyleState(target.el, target.which);
+          state.size = value;
+          if (target.clone) {
+            styleText(target.el, state);
+          } else {
+            heroType[target.which].size = value;
+            styleText(target.el, heroType[target.which]);
+          }
+          refreshHeroTextToolbar();
+          scheduleHistory();
+        });
+        size.addEventListener("blur", function () {
+          var target = targetText();
+          this.value = target ? heroTextStyleState(target.el, target.which).size : "";
+        });
+        row.querySelectorAll(".htt-align").forEach(function (button) {
+          button.addEventListener("click", function () {
+            var target = targetText();
+            if (!target) return;
+            target.el.style.textAlign = button.getAttribute("data-align");
+            row.querySelectorAll(".htt-align").forEach(function (other) {
+              other.classList.toggle("is-active", other === button);
+            });
+            scheduleHistory();
+          });
+        });
+      });
+    }
+
+    document.addEventListener("pointerdown", function (e) {
+      if (!heroTextToolbar || heroTextToolbar.hidden) return;
+      if (e.target.closest("#heroTextToolbar")) return;
+      if (heroTextToolbarTarget && e.target.closest(".headline, .kicker") === heroTextToolbarTarget) return;
+      hideHeroTextToolbar();
+    });
+
     function beginHeroTextEdit(el) {
       if (!el || el.dataset.heroEditing === "1") return;
+      showHeroTextToolbar(el);
       el.dataset.heroEditing = "1";
       el.setAttribute("contenteditable", "true");
       el.focus();
@@ -5609,6 +6059,7 @@
         } else {
           clone.setAttribute("contenteditable", "false");
           delete clone.dataset.heroEditing;
+          if (clone.matches(".headline, .kicker")) clone.dataset.heroTextClone = "1";
           if (source.parentElement) source.parentElement.appendChild(clone);
         }
         initHeroItemInteractions(clone);
@@ -5629,9 +6080,13 @@
       item.addEventListener("pointerdown", function (e) {
         if (e.button != null && e.button !== 0) return;
         if (e.target.closest(".phone-rotate-handle, .phone-move-handle, .fit-tools, .hero-resize-handle")) return;
-        var editing = item.matches(".headline, .kicker") && item.getAttribute("contenteditable") === "true";
-        if (editing) return;
         var ctrl = e.ctrlKey || e.metaKey;
+        var editing = item.matches(".headline, .kicker") && item.getAttribute("contenteditable") === "true";
+        if (editing) {
+          if (item.matches(".headline, .kicker")) showHeroTextToolbar(item);
+          return;
+        }
+        if (!ctrl && item.matches(".headline, .kicker")) showHeroTextToolbar(item);
         var start = { x: e.clientX, y: e.clientY };
         var stage = document.getElementById("heroStage");
         var guides = ensureHeroSnapGuides(stage);
@@ -6829,8 +7284,12 @@
 
       });
 
-      drawText(ctx, stage.querySelector(".kicker"), sRect, factor, S);
-      drawText(ctx, stage.querySelector(".headline"), sRect, factor, S);
+      stage.querySelectorAll(".kicker").forEach(function (el) {
+        drawText(ctx, el, sRect, factor, S);
+      });
+      stage.querySelectorAll(".headline").forEach(function (el) {
+        drawText(ctx, el, sRect, factor, S);
+      });
 
       ctx.restore();
       var active = activePhone();
@@ -7017,8 +7476,9 @@
           layoutStageBg();
           heroPhones().forEach(updatePhoneReflection);
           refreshHeroControls();
-          
+          syncHeroTextToolbar();
         } else {
+          hideHeroTextToolbar();
           relayoutScreens();
           document.querySelectorAll("#view-gallery .device").forEach(layoutGalleryPhone);
           document.querySelectorAll("#view-gallery .phone").forEach(updatePhoneReflection);
@@ -7252,6 +7712,12 @@
         opt.textContent = label;
         sel.appendChild(opt);
       });
+      document.querySelectorAll('#heroTextToolbar .htt-select[data-role="font"]').forEach(function (sel) {
+        var opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
       heroType.headline.font = key;
       document.getElementById("headlineFont").value = key;
       hint.textContent = label + " yüklendi";
@@ -7415,7 +7881,9 @@
           return {
             kind: "text", which: el.classList.contains("headline") ? "headline" : "kicker",
             text: el.textContent, data: { heroX: el.dataset.heroX, heroY: el.dataset.heroY },
-            w: el.style.width || "", h: el.style.height || ""
+            w: el.style.width || "", h: el.style.height || "", align: el.style.textAlign || "",
+            clone: el.dataset.heroTextClone === "1", style: el.getAttribute("style") || "",
+            font: el.dataset.heroFont || "", effect: el.dataset.effect || "none", size: el.dataset.heroSize || ""
           };
         }
         var scr = el.querySelector(".screen");
@@ -7582,16 +8050,45 @@
           initHeroItemInteractions(photo);
         }
       });
+      var textCopy = stage.querySelector(".hero-copy");
+      if (textCopy) {
+        var baseHeadline = textCopy.querySelector(".headline");
+        var baseKicker = textCopy.querySelector(".kicker");
+        textCopy.querySelectorAll(".headline, .kicker").forEach(function (el) {
+          if (el !== baseHeadline && el !== baseKicker) el.remove();
+        });
+      }
       st.hero.items.forEach(function (it) {
         if (it.kind !== "text") return;
-        var el = stage.querySelector("." + it.which);
+        var el;
+        if (it.clone) {
+          var base = stage.querySelector("." + it.which);
+          if (!base) return;
+          el = base.cloneNode(true);
+          el.classList.remove("hero-selected", "hero-dragging", "active");
+          el.querySelectorAll(".hero-resize-handle").forEach(function (handle) { handle.remove(); });
+          el.setAttribute("contenteditable", "false");
+          delete el.dataset.heroEditing;
+          delete el.dataset.heroBound;
+          el.dataset.heroTextClone = "1";
+          base.parentElement.appendChild(el);
+          initHeroItemInteractions(el);
+        } else {
+          el = stage.querySelector("." + it.which);
+        }
+        if (!el) return;
         el.textContent = it.text;
         el.dataset.heroX = it.data.heroX;
         el.dataset.heroY = it.data.heroY;
+        if (it.style != null) el.setAttribute("style", it.style);
         el.style.setProperty("--hero-x", it.data.heroX + "px");
         el.style.setProperty("--hero-y", it.data.heroY + "%");
         el.style.width = it.w || "";
         el.style.height = it.h || "";
+        el.style.textAlign = it.align || "";
+        if (it.font) el.dataset.heroFont = it.font;
+        if (it.effect) el.dataset.effect = it.effect;
+        if (it.size) el.dataset.heroSize = String(it.size);
       });
       setSelectValue("heroModelSelect", "phone1", "phone1");
       var heroSizeEl = document.querySelector("#view-hero .hero-size");
